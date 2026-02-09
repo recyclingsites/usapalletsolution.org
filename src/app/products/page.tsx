@@ -57,7 +57,7 @@ export default function ProductsPage() {
             <p className="text-xl text-gray-600 max-w-3xl">
               Comprehensive range of high-quality pallets and accessories designed to meet every industry need.
               From standard wooden pallets to specialized custom solutions, we provide the products that keep
-              America's supply chains moving efficiently.
+              American supply chains moving efficiently.
             </p>
           </motion.div>
         </div>
@@ -78,25 +78,25 @@ export default function ProductsPage() {
                 <p>
                   Pallets are the unsung heroes of global commerce, quietly supporting trillions of dollars worth of goods
                   as they move through supply chains every day. At USA Pallet Solution, we understand that choosing the right
-                  pallet isn't just about finding a platform to stack boxes on – it's about optimizing your entire operation
+                  pallet is not just about finding a platform to stack boxes on – it is about optimizing your entire operation
                   for efficiency, safety, and cost-effectiveness.
                 </p>
                 <p>
                   Our comprehensive product line has been carefully developed over 15+ years of serving diverse industries
-                  across all 50 states. We've learned that every business has unique requirements based on their products,
-                  handling methods, storage systems, and distribution networks. That's why we offer an extensive selection
+                  across all 50 states. We have learned that every business has unique requirements based on their products,
+                  handling methods, storage systems, and distribution networks. That is why we offer an extensive selection
                   of pallet types, materials, sizes, and configurations to ensure you get exactly what you need.
                 </p>
                 <p>
-                  Whether you're shipping delicate electronics that require cushioning and moisture protection, heavy automotive
+                  Whether you are shipping delicate electronics that require cushioning and moisture protection, heavy automotive
                   parts that demand maximum load capacity, or food products that need FDA-compliant materials, we have the perfect
                   pallet solution. Our products are sourced from top manufacturers and undergo rigorous quality inspections to
                   ensure they meet or exceed industry standards.
                 </p>
                 <p>
-                  Beyond just selling pallets, we're committed to helping you make informed decisions. Our experienced team can
+                  Beyond just selling pallets, we are committed to helping you make informed decisions. Our experienced team can
                   assess your operations, analyze your product specifications, evaluate your handling equipment, and recommend
-                  the optimal pallet solution that balances performance and cost. We've helped thousands of businesses reduce
+                  the optimal pallet solution that balances performance and cost. We have helped thousands of businesses reduce
                   damage rates, improve warehouse efficiency, lower transportation costs, and enhance worker safety through
                   better pallet selection.
                 </p>
@@ -637,7 +637,7 @@ export default function ProductsPage() {
                   step: 6,
                   title: 'Calculate Total Cost of Ownership',
                   questions: ['What is your expected pallet lifespan?', 'How many trips will each pallet make?', 'What are repair and replacement costs?', 'Are pallets returnable or one-way?'],
-                  considerations: 'The cheapest pallet isn't always the most economical. Factor in durability, repair costs, and operational efficiency.'
+                  considerations: 'The cheapest pallet is not always the most economical. Factor in durability, repair costs, and operational efficiency.'
                 }
               ].map((guide, index) => (
                 <motion.div
@@ -678,7 +678,7 @@ export default function ProductsPage() {
               <h3 className="text-2xl font-bold mb-4">Need Expert Guidance?</h3>
               <p className="text-lg mb-6">
                 Our pallet specialists have decades of combined experience and can help you navigate these decisions.
-                We'll analyze your requirements and recommend the optimal solution – no obligation, no pressure.
+                We will analyze your requirements and recommend the optimal solution – no obligation, no pressure.
               </p>
               <Link href="/contact" className="inline-block px-8 py-4 bg-white text-primary-600 font-bold rounded-xl hover:bg-gray-100 transition-colors">
                 Consult with an Expert
@@ -701,7 +701,7 @@ export default function ProductsPage() {
               Ready to Find Your Perfect Pallet Solution?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              With over 100,000 pallets in stock and same-day delivery available, we're ready to serve your needs immediately.
+              With over 100,000 pallets in stock and same-day delivery available, we are ready to serve your needs immediately.
               Get a free quote today and experience the USA Pallet Solution difference.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
