@@ -63,6 +63,19 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Contact Form Section */}
+      <section className="py-12 bg-gradient-to-br from-warm-50 to-light-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Get a Custom Quote</h2>
+            <p className="text-center text-gray-600 mb-8">
+              Tell us about your requirements and receive a personalized quote within 2 hours
+            </p>
+            <ContactForm productType="Products Page Inquiry" />
+          </div>
+        </div>
+      </section>
+
       {/* Introduction Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -102,19 +115,6 @@ export default function ProductsPage() {
                 </p>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-12 bg-gradient-to-br from-warm-50 to-light-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Get a Custom Quote</h2>
-            <p className="text-center text-gray-600 mb-8">
-              Tell us about your requirements and receive a personalized quote within 2 hours
-            </p>
-            <ContactForm productType="Products Page Inquiry" />
           </div>
         </div>
       </section>

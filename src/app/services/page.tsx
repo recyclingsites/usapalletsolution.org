@@ -62,6 +62,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="py-12 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold text-center mb-8 text-primary-600"
+            >
+              Get Started Today
+            </motion.h2>
+            <ContactForm productType="Services Inquiry" />
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
@@ -86,22 +102,6 @@ export default function ServicesPage() {
               </p>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-center mb-8 text-primary-600"
-            >
-              Get Started Today
-            </motion.h2>
-            <ContactForm productType="Services Inquiry" />
-          </div>
         </div>
       </section>
 
