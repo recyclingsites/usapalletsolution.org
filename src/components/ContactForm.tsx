@@ -6,13 +6,14 @@ import { motion } from 'framer-motion'
 interface ContactFormProps {
   productType?: string
   className?: string
+  compact?: boolean // For modal view - more compact layout
 }
 
 interface ValidationErrors {
   [key: string]: string
 }
 
-export function ContactForm({ productType = '', className = '' }: ContactFormProps) {
+export function ContactForm({ productType = '', className = '', compact = false }: ContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -311,12 +312,12 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`bg-white rounded-2xl p-8 border border-primary-200 soft-shadow ${className}`} noValidate>
+    <form onSubmit={handleSubmit} className={`bg-white rounded-2xl ${compact ? 'p-0' : 'p-8'} ${compact ? 'border-0' : 'border border-primary-200 soft-shadow'} ${className}`} noValidate>
       {error && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-red-50 border border-red-300 text-red-700 p-4 rounded-lg mb-6 text-sm"
+          className={`bg-red-50 border border-red-300 text-red-700 p-3 rounded-lg ${compact ? 'mb-3 text-xs' : 'mb-6 text-sm'}`}
         >
           <div className="flex items-start gap-2">
             <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -338,10 +339,10 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
         autoComplete="off"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className={`grid grid-cols-1 ${compact ? 'md:grid-cols-3 gap-3' : 'md:grid-cols-2 gap-6'}`}>
         {/* First Name - Required */}
         <div>
-          <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="firstName" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             First Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -351,7 +352,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.firstName}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.firstName && validationErrors.firstName
                 ? 'border-red-500 focus:border-red-600'
                 : touched.firstName && !validationErrors.firstName
@@ -367,7 +368,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* Last Name */}
         <div>
-          <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="lastName" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Last Name
           </label>
           <input
@@ -377,14 +378,14 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.lastName}
             onChange={handleChange}
             onBlur={handleBlur}
-            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
+            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
             placeholder="Smith"
           />
         </div>
 
         {/* Email - Required */}
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="email" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -394,7 +395,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.email && validationErrors.email
                 ? 'border-red-500 focus:border-red-600'
                 : touched.email && !validationErrors.email
@@ -406,14 +407,14 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
           {touched.email && validationErrors.email && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
           )}
-          {!validationErrors.email && (
+          {!compact && !validationErrors.email && (
             <p className="mt-1 text-xs text-gray-500">Enter a valid business email address</p>
           )}
         </div>
 
         {/* Phone - Required */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="phone" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Phone <span className="text-red-500">*</span>
           </label>
           <input
@@ -423,7 +424,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.phone}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.phone && validationErrors.phone
                 ? 'border-red-500 focus:border-red-600'
                 : touched.phone && !validationErrors.phone
@@ -436,14 +437,14 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
           {touched.phone && validationErrors.phone && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
           )}
-          {!validationErrors.phone && (
+          {!compact && !validationErrors.phone && (
             <p className="mt-1 text-xs text-gray-500">US/Canada format: (555) 123-4567</p>
           )}
         </div>
 
         {/* City */}
         <div>
-          <label htmlFor="city" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="city" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             City
           </label>
           <input
@@ -453,7 +454,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.city}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.city && validationErrors.city
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
@@ -467,7 +468,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* State/Province */}
         <div>
-          <label htmlFor="stateProvince" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="stateProvince" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             State/Province
           </label>
           <input
@@ -477,7 +478,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.stateProvince}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.stateProvince && validationErrors.stateProvince
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
@@ -491,7 +492,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* Postal Code - Required */}
         <div>
-          <label htmlFor="postalCode" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="postalCode" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             ZIP/Postal Code <span className="text-red-500">*</span>
           </label>
           <input
@@ -501,7 +502,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.postalCode}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.postalCode && validationErrors.postalCode
                 ? 'border-red-500 focus:border-red-600'
                 : touched.postalCode && !validationErrors.postalCode
@@ -514,14 +515,14 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
           {touched.postalCode && validationErrors.postalCode && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.postalCode}</p>
           )}
-          {!validationErrors.postalCode && (
+          {!compact && !validationErrors.postalCode && (
             <p className="mt-1 text-xs text-gray-500">US: 12345 or 12345-6789 | Canada: A1A 1A1</p>
           )}
         </div>
 
         {/* Company */}
         <div>
-          <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="company" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Company
           </label>
           <input
@@ -531,7 +532,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.company}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.company && validationErrors.company
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
@@ -545,7 +546,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* Quantity - Required */}
         <div>
-          <label htmlFor="quantity" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="quantity" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Quantity Needed <span className="text-red-500">*</span>
           </label>
           <input
@@ -557,7 +558,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.quantity}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.quantity && validationErrors.quantity
                 ? 'border-red-500 focus:border-red-600'
                 : touched.quantity && !validationErrors.quantity
@@ -569,14 +570,14 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
           {touched.quantity && validationErrors.quantity && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.quantity}</p>
           )}
-          {!validationErrors.quantity && (
+          {!compact && !validationErrors.quantity && (
             <p className="mt-1 text-xs text-gray-500">Enter number of pallets needed</p>
           )}
         </div>
 
         {/* Product Type - Required */}
         <div>
-          <label htmlFor="productType" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="productType" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Product Type <span className="text-red-500">*</span>
           </label>
           <select
@@ -585,7 +586,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             value={formData.productType}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
               touched.productType && validationErrors.productType
                 ? 'border-red-500 focus:border-red-600'
                 : touched.productType && !validationErrors.productType
@@ -608,7 +609,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* Select Service */}
         <div>
-          <label htmlFor="selectService" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="selectService" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Service Needed
           </label>
           <select
@@ -616,7 +617,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             name="selectService"
             value={formData.selectService}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
+            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
           >
             <option value="">Select Service (Optional)</option>
             <option value="Buying">Buying Pallets</option>
@@ -630,7 +631,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
 
         {/* Grade */}
         <div>
-          <label htmlFor="grade" className="block text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="grade" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Pallet Grade
           </label>
           <select
@@ -638,7 +639,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
             name="grade"
             value={formData.grade}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
+            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
           >
             <option value="">Select Grade (Optional)</option>
             <option value="Premium A">Premium A - Like New</option>
@@ -649,8 +650,8 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
         </div>
 
         {/* Message */}
-        <div className="md:col-span-2">
-          <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+        <div className={compact ? 'md:col-span-3' : 'md:col-span-2'}>
+          <label htmlFor="message" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Additional Details
           </label>
           <textarea
@@ -681,7 +682,7 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
       <button
         type="submit"
         disabled={loading || Object.keys(validationErrors).length > 0}
-        className={`mt-8 w-full py-4 rounded-lg font-bold text-lg text-white transition-all transform soft-shadow ${
+        className={`${compact ? 'mt-4' : 'mt-8'} w-full ${compact ? 'py-3 h-[50px]' : 'py-4'} rounded-lg font-bold ${compact ? 'text-base' : 'text-lg'} text-white transition-all transform soft-shadow ${
           loading || Object.keys(validationErrors).length > 0
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 hover:scale-105'
@@ -700,9 +701,11 @@ export function ContactForm({ productType = '', className = '' }: ContactFormPro
         )}
       </button>
 
-      <p className="mt-4 text-center text-xs text-gray-500">
-        Fields marked with <span className="text-red-500">*</span> are required. We respect your privacy and will never share your information.
-      </p>
+      {!compact && (
+        <p className="mt-4 text-center text-xs text-gray-500">
+          Fields marked with <span className="text-red-500">*</span> are required. We respect your privacy and will never share your information.
+        </p>
+      )}
     </form>
   )
 }

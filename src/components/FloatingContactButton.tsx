@@ -82,27 +82,27 @@ export function FloatingContactButton() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-primary-200">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-primary-600 to-secondary-600 p-6 flex items-center justify-between">
+              <div className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-primary-200 flex flex-col">
+                {/* Header - Compact */}
+                <div className="bg-gradient-to-r from-primary-600 to-secondary-600 p-4 flex items-center justify-between flex-shrink-0">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold">Get In Touch</h2>
-                    <p className="text-sm opacity-90 mt-1">Fill out the form and we'll contact you soon</p>
+                    <h2 className="text-xl md:text-2xl font-bold">Get In Touch</h2>
+                    <p className="text-xs opacity-90 mt-0.5">We will contact you within 2 hours</p>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex-shrink-0"
                     aria-label="Close modal"
                   >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
 
-                {/* Content - Scrollable */}
-                <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
-                  <ContactForm productType="Quick Inquiry" />
+                {/* Content - No scroll, compact */}
+                <div className="p-4 flex-1 overflow-hidden">
+                  <ContactForm productType="Quick Inquiry" compact={true} />
                 </div>
               </div>
             </motion.div>
