@@ -317,7 +317,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`bg-red-50 border border-red-300 text-red-700 p-3 rounded-lg ${compact ? 'mb-3 text-xs' : 'mb-6 text-sm'}`}
+          className={`bg-red-50 border border-red-300 text-red-700 ${compact ? 'p-2 mb-2 text-xs' : 'p-3 mb-6 text-sm'} rounded-lg`}
         >
           <div className="flex items-start gap-2">
             <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -339,7 +339,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
         autoComplete="off"
       />
 
-      <div className={`grid grid-cols-1 ${compact ? 'md:grid-cols-3 gap-3' : 'md:grid-cols-2 gap-6'}`}>
+      <div className={`grid grid-cols-1 ${compact ? 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2' : 'md:grid-cols-2 gap-6'}`}>
         {/* First Name - Required */}
         <div>
           <label htmlFor="firstName" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
@@ -650,7 +650,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
         </div>
 
         {/* Message */}
-        <div className={compact ? 'md:col-span-3' : 'md:col-span-2'}>
+        <div className={compact ? 'sm:col-span-2 md:col-span-3 lg:col-span-4' : 'md:col-span-2'}>
           <label htmlFor="message" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
             Additional Details
           </label>
@@ -682,7 +682,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
       <button
         type="submit"
         disabled={loading}
-        className={`${compact ? 'mt-4' : 'mt-8'} w-full ${compact ? 'py-3 h-[50px]' : 'py-4'} rounded-lg font-bold ${compact ? 'text-base' : 'text-lg'} text-white transition-all transform soft-shadow ${
+        className={`${compact ? 'mt-2' : 'mt-8'} w-full ${compact ? 'py-3 h-[50px]' : 'py-4'} rounded-lg font-bold ${compact ? 'text-base' : 'text-lg'} text-white transition-all transform soft-shadow ${
           loading
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 hover:scale-105'

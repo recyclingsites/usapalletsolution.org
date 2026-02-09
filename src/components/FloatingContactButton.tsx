@@ -82,26 +82,23 @@ export function FloatingContactButton() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4"
             >
-              <div className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden border border-primary-200 flex flex-col">
-                {/* Header - Compact */}
-                <div className="bg-gradient-to-r from-primary-600 to-secondary-600 p-4 flex items-center justify-between flex-shrink-0">
-                  <div>
-                    <h2 className="text-xl md:text-2xl font-bold">Get In Touch</h2>
-                    <p className="text-xs opacity-90 mt-0.5">We will contact you within 2 hours</p>
-                  </div>
+              <div className="bg-white rounded-2xl shadow-2xl max-w-[95vw] w-full max-h-[92vh] overflow-hidden border border-primary-200 flex flex-col">
+                {/* Header - Very Compact */}
+                <div className="bg-gradient-to-r from-primary-600 to-secondary-600 px-4 py-2 flex items-center justify-between flex-shrink-0">
+                  <h2 className="text-lg md:text-xl font-bold">Get Quote - 2 Hour Response</h2>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex-shrink-0"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex-shrink-0"
                     aria-label="Close modal"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
 
-                {/* Content - No scroll, compact */}
-                <div className="p-4 flex-1 overflow-hidden">
+                {/* Content - Scrollable if needed */}
+                <div className="px-4 py-3 flex-1 overflow-y-auto">
                   <ContactForm productType="Quick Inquiry" compact={true} />
                 </div>
               </div>
