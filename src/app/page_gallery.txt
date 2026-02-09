@@ -1,0 +1,99 @@
+      {/* Photo Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-16 text-center"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                See Our Operations in Action
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Take a look at our state-of-the-art facilities, extensive inventory, and professional operations.
+                From warehouse to delivery, we maintain the highest standards at every step.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  image: '/images/1.jpg',
+                  title: 'Extensive Warehouse Inventory',
+                  description: 'Our warehouses stock over 100,000 pallets in various sizes and materials, ensuring immediate availability for your needs.',
+                  badge: 'Facilities'
+                },
+                {
+                  image: '/images/2.jpg',
+                  title: 'Quality Inspection Process',
+                  description: 'Every pallet undergoes rigorous multi-point inspection to ensure it meets our strict quality standards and your specifications.',
+                  badge: 'Quality Control'
+                },
+                {
+                  image: '/images/3.jpg',
+                  title: 'Custom Manufacturing',
+                  description: 'State-of-the-art manufacturing equipment allows us to produce custom pallets to your exact specifications with precision.',
+                  badge: 'Manufacturing'
+                },
+                {
+                  image: '/images/4.jpg',
+                  title: 'Professional Team',
+                  description: 'Our experienced team of over 150 professionals brings decades of combined expertise to serve you better.',
+                  badge: 'Our Team'
+                },
+                {
+                  image: '/images/5.jpg',
+                  title: 'Recycling Operations',
+                  description: 'Advanced recycling facility where we process and refurbish thousands of pallets, keeping them out of landfills.',
+                  badge: 'Sustainability'
+                },
+                {
+                  image: '/images/6.jpg',
+                  title: 'Nationwide Delivery Fleet',
+                  description: 'Modern fleet and logistics network ensure fast, reliable delivery to any location across all 50 states.',
+                  badge: 'Transportation'
+                },
+                {
+                  image: '/images/7.jpg',
+                  title: 'Ready for Shipment',
+                  description: 'Pallets organized and ready for immediate dispatch. We pride ourselves on fast turnaround times and on-time delivery.',
+                  badge: 'Distribution'
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl soft-shadow hover:soft-shadow-hover transition-all"
+                >
+                  <div className="relative h-80 overflow-hidden bg-gray-200">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg text-sm font-semibold text-primary-600 soft-shadow">
+                        {item.badge}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-200 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
