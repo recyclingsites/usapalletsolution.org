@@ -529,7 +529,7 @@ export default function ProductsPage() {
             {[
               {
                 title: 'Rigorous Quality Control',
-                description: 'Every pallet undergoes multi-point inspection including visual assessment, dimension verification, load testing, and quality grading. We reject any product that doesn't meet our strict standards.',
+                description: 'Every pallet undergoes multi-point inspection including visual assessment, dimension verification, load testing, and quality grading. We reject any product that does not meet our strict standards.',
                 icon: '✓',
                 stats: '99.8% pass rate'
               },
@@ -559,7 +559,7 @@ export default function ProductsPage() {
               },
               {
                 title: 'Warranty Protection',
-                description: 'We stand behind our products with comprehensive warranty coverage. If a pallet fails due to manufacturing defects or doesn't meet specifications, we'll replace it at no charge.',
+                description: 'We stand behind our products with comprehensive warranty coverage. If a pallet fails due to manufacturing defects or does not meet specifications, we will replace it at no charge.',
                 icon: '🛡️',
                 stats: '1-year warranty'
               },

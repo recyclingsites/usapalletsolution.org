@@ -1,15 +1,19 @@
-'use client'
-
 import { ContactForm } from '@/components/ContactForm'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { getStateBySlug } from '@/data/locations'
-import { useParams } from 'next/navigation'
+import { getStateBySlug, statesData } from '@/data/locations'
 
-export default function StatePage() {
-  const params = useParams()
-  const stateSlug = params.state as string
-  const state = getStateBySlug(stateSlug)
+export async function generateStaticParams() {
+  return statesData.map((state) => ({
+    state: state.slug,
+  }))
+}
+
+interface Props {
+  params: { state: string }
+}
+
+export default function StatePage({ params }: Props) {
+  const state = getStateBySlug(params.state)
 
   if (!state) {
     return (
@@ -28,11 +32,7 @@ export default function StatePage() {
     <div className="pt-20">
       <section className="relative py-20 overflow-hidden bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <nav className="mb-6 text-sm">
               <Link href="/locations" className="text-primary-600 hover:text-primary-700">
                 Locations
@@ -46,7 +46,7 @@ export default function StatePage() {
             <p className="text-xl text-gray-600 max-w-3xl">
               {state.description}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -68,57 +68,31 @@ export default function StatePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl soft-shadow text-center"
-              >
+              <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
                 <div className="text-5xl mb-4">👥</div>
                 <h3 className="text-3xl font-bold text-primary-600 mb-2">{state.population}</h3>
                 <p className="text-gray-600">Population</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-white p-8 rounded-2xl soft-shadow text-center"
-              >
+              </div>
+              <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
                 <div className="text-5xl mb-4">🏭</div>
                 <h3 className="text-3xl font-bold text-secondary-600 mb-2">{state.warehouseLocations}</h3>
                 <p className="text-gray-600">Distribution Centers</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white p-8 rounded-2xl soft-shadow text-center"
-              >
+              </div>
+              <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
                 <div className="text-5xl mb-4">📍</div>
                 <h3 className="text-3xl font-bold text-primary-600 mb-2">{state.cities.length}</h3>
                 <p className="text-gray-600">Cities Served</p>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
+            <div className="mb-16">
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
                 Industries We Serve in {state.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {state.keyIndustries.map((industry, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
                     className="bg-white p-6 rounded-xl soft-shadow"
                   >
                     <div className="flex items-center gap-3">
@@ -129,17 +103,12 @@ export default function StatePage() {
                       </div>
                       <span className="text-gray-800 font-semibold">{industry}</span>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
+            <div className="mb-16">
               <h2 className="text-4xl font-bold mb-6 text-gray-800">
                 Why Choose Us in {state.name}
               </h2>
@@ -147,12 +116,12 @@ export default function StatePage() {
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <p>
                     Our presence in {state.name} ensures that you receive personalized service backed by local
-                    expertise and national resources. We understand the unique requirements of {state.name}'s
-                    industries and have established relationships with regional carriers to ensure fast,
+                    expertise and national resources. We understand the unique requirements of {state.name} industries
+                    and have established relationships with regional carriers to ensure fast,
                     reliable delivery throughout the state.
                   </p>
                   <p>
-                    Whether you're in a major metropolitan area or a more remote location, our distribution
+                    Whether you are in a major metropolitan area or a more remote location, our distribution
                     network is designed to serve you efficiently. We maintain substantial inventory levels
                     to meet demand spikes and offer flexible delivery schedules to accommodate your operational
                     needs.
@@ -181,13 +150,9 @@ export default function StatePage() {
                   </ul>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div>
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
                 Cities We Serve in {state.name}
               </h2>
@@ -196,14 +161,8 @@ export default function StatePage() {
                 and specific solutions available in that market.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {state.cities.map((city, index) => (
-                  <motion.div
-                    key={city.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                  >
+                {state.cities.map((city) => (
+                  <div key={city.slug}>
                     <Link
                       href={`/locations/${state.slug}/${city.slug}`}
                       className="block bg-white p-6 rounded-xl soft-shadow hover:soft-shadow-hover transition-all group hover:scale-105"
@@ -240,10 +199,10 @@ export default function StatePage() {
                         </div>
                       </div>
                     </Link>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -251,11 +210,7 @@ export default function StatePage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div>
               <h2 className="text-4xl font-bold mb-6 text-gray-800">
                 Ready to Get Started in {state.name}?
               </h2>
@@ -277,7 +232,7 @@ export default function StatePage() {
                   View Products
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
