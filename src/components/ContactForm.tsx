@@ -681,9 +681,9 @@ export function ContactForm({ productType = '', className = '', compact = false 
 
       <button
         type="submit"
-        disabled={loading || Object.keys(validationErrors).length > 0}
+        disabled={loading}
         className={`${compact ? 'mt-4' : 'mt-8'} w-full ${compact ? 'py-3 h-[50px]' : 'py-4'} rounded-lg font-bold ${compact ? 'text-base' : 'text-lg'} text-white transition-all transform soft-shadow ${
-          loading || Object.keys(validationErrors).length > 0
+          loading
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 hover:scale-105'
         }`}
