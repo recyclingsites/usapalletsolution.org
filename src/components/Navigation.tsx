@@ -6,21 +6,22 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const menuItems = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  { href: '/about/', label: 'About Us' },
   {
     label: 'Products',
-    href: '/products',
+    href: '/products/',
     submenu: [
       { href: '/products/wooden-pallets', label: 'Wooden Pallets' },
       { href: '/products/plastic-pallets', label: 'Plastic Pallets' },
       { href: '/products/metal-pallets', label: 'Metal Pallets' },
       { href: '/products/custom-pallets', label: 'Custom Pallets' },
+      { href: '/products/export-pallets', label: 'Export Pallets' },
       { href: '/products/accessories', label: 'Accessories' },
     ],
   },
   {
     label: 'Services',
-    href: '/services',
+    href: '/services/',
     submenu: [
       { href: '/services/buying', label: 'Pallet Buying' },
       { href: '/services/selling', label: 'Pallet Selling' },
@@ -30,10 +31,10 @@ const menuItems = [
       { href: '/services/disposal', label: 'Disposal Services' },
     ],
   },
-  { href: '/locations', label: 'Locations' },
-  { href: '/sizes', label: 'Size Guide' },
-  { href: '/resources', label: 'Resources & Articles' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: '/locations/', label: 'Locations' },
+  { href: '/sizes/', label: 'Size Guide' },
+  { href: '/resources/', label: 'Resources & Articles' },
+  { href: '/contact/', label: 'Contact Us' },
 ]
 
 export function Navigation() {

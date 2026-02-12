@@ -5,6 +5,41 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function BuyingPage() {
+  const faqItems = [
+    {
+      question: 'What pallet conditions do you purchase?',
+      answer: 'We buy Grade A and B pallets, broken pallets for parts, and mixed lots. Send photos for the fastest pricing.',
+    },
+    {
+      question: 'How is pricing determined?',
+      answer: 'Rates depend on pallet size, grade, quantity, and location. We use current market data to provide transparent offers.',
+    },
+    {
+      question: 'Do you pick up pallets on-site?',
+      answer: 'Yes. We schedule pickups nationwide, supply trailers when needed, and provide paperwork for your records.',
+    },
+    {
+      question: 'How soon do we get paid?',
+      answer: 'Payment is issued upon pickup or receipt, with options for ACH, check, or wire. Net terms are available for partners.',
+    },
+    {
+      question: 'Can you handle recurring sell-back programs?',
+      answer: 'Absolutely. We set recurring schedules, track volumes, and adjust pricing based on ongoing supply.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
   return (
     <div className="pt-20">
       <section className="relative py-20 overflow-hidden bg-white">
@@ -358,6 +393,35 @@ export default function BuyingPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-12 text-primary-600"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+
+          <div className="space-y-6">
+            {faqItems.map((item, index) => (
+              <motion.div
+                key={item.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="bg-gradient-to-br from-primary-50 to-secondary-50 p-6 rounded-xl border border-primary-100 soft-shadow"
+              >
+                <h3 className="text-lg font-semibold text-primary-700 mb-2">{item.question}</h3>
+                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-primary-600 to-secondary-500">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <motion.div
@@ -390,6 +454,11 @@ export default function BuyingPage() {
           </motion.div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   )
 }

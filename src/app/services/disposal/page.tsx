@@ -5,6 +5,41 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function DisposalPage() {
+  const faqItems = [
+    {
+      question: 'What pallet disposal methods do you use?',
+      answer: 'We prioritize reuse and recycling. Usable pallets are repaired or resold; the rest are ground for mulch, biomass, or fuel.',
+    },
+    {
+      question: 'Can you provide documentation for disposed pallets?',
+      answer: 'Yes. We issue destruction or recycling certificates and diversion reports for your compliance records.',
+    },
+    {
+      question: 'Do you handle contaminated or unsafe pallets?',
+      answer: 'We evaluate condition and contamination level. Safe-to-handle pallets are processed; hazardous materials follow specialized protocols.',
+    },
+    {
+      question: 'Is on-site pallet removal available?',
+      answer: 'We schedule on-site pickups, drop trailers for loading, and clear dock space quickly to keep your operation moving.',
+    },
+    {
+      question: 'What are the benefits of responsible pallet disposal?',
+      answer: 'Proper disposal frees space, reduces fire risk, supports sustainability goals, and often recovers value through recycling.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
   return (
     <div className="pt-20">
       <section className="relative py-20 overflow-hidden bg-white">
@@ -521,6 +556,35 @@ export default function DisposalPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-12 text-primary-600"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+
+          <div className="space-y-6">
+            {faqItems.map((item, index) => (
+              <motion.div
+                key={item.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="bg-gradient-to-br from-primary-50 to-secondary-50 p-6 rounded-xl border border-primary-100 soft-shadow"
+              >
+                <h3 className="text-lg font-semibold text-primary-700 mb-2">{item.question}</h3>
+                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-primary-600 to-secondary-500">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <motion.div
@@ -553,6 +617,11 @@ export default function DisposalPage() {
           </motion.div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   )
 }

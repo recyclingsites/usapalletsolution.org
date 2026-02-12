@@ -44,6 +44,41 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const faqItems = [
+    {
+      question: 'What types of pallets do you work with?',
+      answer: 'We handle wooden, plastic, metal, block, and custom pallets in all grades, including heat-treated options for export.',
+    },
+    {
+      question: 'What is your service area?',
+      answer: 'We provide pallet supply, recycling, repair, and transport across all 50 states with strategically located yards.',
+    },
+    {
+      question: 'How quickly can you respond to service requests?',
+      answer: 'During business hours we respond within two hours and can schedule same-day or next-day service when capacity allows.',
+    },
+    {
+      question: 'Do you offer volume discounts?',
+      answer: 'Yes, pricing scales with volume. We provide contract pricing and dedicated capacity for recurring, high-volume partners.',
+    },
+    {
+      question: 'Are your services environmentally friendly?',
+      answer: 'We prioritize reuse and recycling to divert pallets from landfills, offering repair-first programs and residual grinding.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
   return (
     <div className="pt-20">
       <section className="relative py-20 overflow-hidden bg-white">
@@ -331,34 +366,9 @@ export default function ServicesPage() {
           </motion.h2>
 
           <div className="space-y-6">
-            {[
-              {
-                question: 'What types of pallets do you work with?',
-                answer: 'We handle all types of pallets including wooden pallets (GMA, EUR, custom sizes), plastic pallets, metal pallets, and specialty pallets. Whether new, used, or damaged, we have services tailored to every pallet type and condition.'
-              },
-              {
-                question: 'What is your service area?',
-                answer: 'We provide comprehensive pallet services across all 50 United States. Our network of facilities and partner locations ensures prompt service delivery regardless of your location. We handle both local and nationwide shipments with the same level of professional service.'
-              },
-              {
-                question: 'How quickly can you respond to service requests?',
-                answer: 'We pride ourselves on rapid response times. Quote requests are typically answered within 2 hours during business hours. For urgent needs, we offer same-day and next-day service options in most locations. Emergency services are available 24/7 for critical situations.'
-              },
-              {
-                question: 'Do you offer volume discounts?',
-                answer: 'Yes, we offer competitive volume pricing for larger orders and ongoing service agreements. The more pallets you need or the longer the contract, the better the rates we can offer. Contact us for a custom quote based on your specific volume requirements.'
-              },
-              {
-                question: 'Are your services environmentally friendly?',
-                answer: 'Absolutely. Environmental responsibility is a core value. We divert over 95% of pallets from landfills through our recycling and refurbishment programs. Our sustainable practices include pallet repair to extend lifecycle, responsible disposal methods, and maximizing material recovery and reuse.'
-              },
-              {
-                question: 'What payment options do you accept?',
-                answer: 'We offer flexible payment options including credit cards, ACH transfers, checks, and net payment terms for qualified businesses. For regular clients, we provide various payment plans and billing options to match your procurement cycles and budget requirements.'
-              },
-            ].map((faq, index) => (
+            {faqItems.map((faq, index) => (
               <motion.div
-                key={index}
+                key={faq.question}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -402,6 +412,11 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   )
 }

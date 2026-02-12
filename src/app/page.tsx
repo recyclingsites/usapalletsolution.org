@@ -5,6 +5,41 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function Home() {
+  const faqItems = [
+    {
+      question: 'Do you deliver pallets nationwide?',
+      answer: 'Yes, we serve all 50 states with regional yards and carrier partners to provide fast pallet delivery or pickup wherever you operate.',
+    },
+    {
+      question: 'Can you supply heat-treated pallets for export?',
+      answer: 'We provide ISPM 15 heat-treated pallets, proper stamping, and documentation so your international shipments clear customs smoothly.',
+    },
+    {
+      question: 'Do you buy back used or surplus pallets?',
+      answer: 'Absolutely. We pay competitive rates for surplus pallets, schedule pickups, and recycle or repair them to extend their life cycle.',
+    },
+    {
+      question: 'What pallet sizes are available?',
+      answer: 'Standard 48x40 GMA, Euro sizes, 1200x1000, half pallets, and custom dimensions engineered to your load plan are available.',
+    },
+    {
+      question: 'How quickly can I get a quote?',
+      answer: 'During business hours we respond within two hours with transparent pricing and timelines tailored to your volume and location.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -677,6 +712,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-12 text-primary-600"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+
+          <div className="space-y-6">
+            {faqItems.map((item) => (
+              <div key={item.question} className="bg-gradient-to-br from-primary-50 to-secondary-50 p-6 rounded-xl border border-primary-100 soft-shadow">
+                <h3 className="text-lg font-semibold text-primary-700 mb-2">{item.question}</h3>
+                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -722,6 +779,11 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   )
 }

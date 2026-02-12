@@ -5,6 +5,41 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function RepairPage() {
+  const faqItems = [
+    {
+      question: 'What pallet grades can you repair?',
+      answer: 'We repair Grade A and B stringer and block pallets, replacing boards and stringers to meet your specification.',
+    },
+    {
+      question: 'Do you offer on-site repairs?',
+      answer: 'Yes. We can deploy teams for on-site repair programs or handle repairs at our facilities with scheduled swaps.',
+    },
+    {
+      question: 'How do you ensure quality after repairs?',
+      answer: 'Every pallet is inspected and graded; we document repair types and can provide sample photos for approval.',
+    },
+    {
+      question: 'Can repaired pallets be heat-treated?',
+      answer: 'Repaired pallets can be heat-treated and stamped to remain compliant with ISPM 15 for export shipments.',
+    },
+    {
+      question: 'Is there a minimum volume for repairs?',
+      answer: 'We service both small batches and large recurring volumes, tailoring programs to your demand and budget.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
   return (
     <div className="pt-20">
       <section className="relative py-20 overflow-hidden bg-white">
@@ -555,6 +590,35 @@ export default function RepairPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center mb-12 text-primary-600"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+
+          <div className="space-y-6">
+            {faqItems.map((item, index) => (
+              <motion.div
+                key={item.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="bg-gradient-to-br from-primary-50 to-secondary-50 p-6 rounded-xl border border-primary-100 soft-shadow"
+              >
+                <h3 className="text-lg font-semibold text-primary-700 mb-2">{item.question}</h3>
+                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-primary-600 to-secondary-500">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <motion.div
@@ -587,6 +651,11 @@ export default function RepairPage() {
           </motion.div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   )
 }

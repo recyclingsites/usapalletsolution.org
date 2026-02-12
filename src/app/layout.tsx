@@ -11,10 +11,13 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'USA Pallet Solution - Professional Pallet Services',
-  description: 'Leading provider of new and used pallets, pallet recycling, transportation, and related services across the United States.',
-  keywords: 'pallets, used pallets, pallet recycling, pallet transportation, industrial pallets, warehouse pallets',
+  metadataBase: new URL('https://usapalletsolution.org'),
+  title: 'USA Pallet Solution | Nationwide Pallet Supply, Recycling, Repair and Logistics Services',
+  description: 'Comprehensive pallet buying, selling, recycling, repair, and transportation services for businesses across all 50 states.',
   manifest: '/site.webmanifest',
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default function RootLayout({
@@ -47,10 +50,10 @@ export default function RootLayout({
               <div>
                 <h4 className="text-lg font-semibold text-secondary-600 mb-4">Quick Links</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/about" className="text-gray-600 hover:text-primary-500 transition-colors">About Us</a></li>
-                  <li><a href="/products" className="text-gray-600 hover:text-primary-500 transition-colors">Products</a></li>
-                  <li><a href="/services" className="text-gray-600 hover:text-primary-500 transition-colors">Services</a></li>
-                  <li><a href="/contact" className="text-gray-600 hover:text-primary-500 transition-colors">Contact Us</a></li>
+                  <li><a href="/about/" className="text-gray-600 hover:text-primary-500 transition-colors">About Us</a></li>
+                  <li><a href="/products/" className="text-gray-600 hover:text-primary-500 transition-colors">Products</a></li>
+                  <li><a href="/services/" className="text-gray-600 hover:text-primary-500 transition-colors">Services</a></li>
+                  <li><a href="/contact/" className="text-gray-600 hover:text-primary-500 transition-colors">Contact Us</a></li>
                 </ul>
               </div>
               <div>
