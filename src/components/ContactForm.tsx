@@ -228,15 +228,14 @@ export function ContactForm({ productType = '', className = '', compact = false 
       const sourceUrl = typeof window !== 'undefined' ? window.location.href : ''
 
       const response = await fetch(
-        process.env.NEXT_PUBLIC_1DB_API_URL || 'https://gallant-goshawk-513.convex.site/v1/leads',
+        '/api/leads',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': process.env.NEXT_PUBLIC_1DB_API_KEY || '1db_e8adb977e0e3251da026416a6775674a',
           },
           body: JSON.stringify({
-            formSlug: process.env.NEXT_PUBLIC_FORM_SLUG || 'usapalletsolution-org-contact',
+            formSlug: 'usapalletsolution-org-contact',
             firstName: formData.firstName,
             lastName: formData.lastName,
             city: formData.city,
