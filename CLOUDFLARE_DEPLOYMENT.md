@@ -29,10 +29,13 @@ Add these environment variables in Cloudflare Pages dashboard:
 
 ```
 NODE_VERSION=18
-NEXT_PUBLIC_1DB_API_URL=https://gallant-goshawk-513.convex.site/v1/leads
-NEXT_PUBLIC_1DB_API_KEY=1db_e8adb977e0e3251da026416a6775674a
-NEXT_PUBLIC_FORM_SLUG=usapalletsolution-org-contact
+DB_API_ENDPOINT=https://gallant-goshawk-513.convex.site
+DB_API_KEY=<set in Cloudflare, server-side only>
 ```
+
+`DB_API_KEY` is the site's 1DB key. Add it as an **encrypted secret** (Settings → Variables and Secrets → type *Secret*), for Production and Preview. Only the server route `src/app/api/leads/route.ts` reads it; the browser posts to `/api/leads` and never sees it.
+
+**Never name a key `NEXT_PUBLIC_*`.** Next.js copies every `NEXT_PUBLIC_` value into the JavaScript it sends to visitors, so anyone could read it. Delete any `NEXT_PUBLIC_1DB_API_KEY`, `NEXT_PUBLIC_1DB_API_URL` or `NEXT_PUBLIC_FORM_SLUG` variable left in the Cloudflare project. The form slug is set in the route, not in an environment variable. Never paste a real key into this file or any other file in the repo: it is public.
 
 ### Node.js Version
 

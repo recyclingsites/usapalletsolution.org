@@ -1,7 +1,16 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useEffect, useRef, useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
+import { captureAttribution, gaClientId, newSubmissionId } from '@/lib/attribution'
+import {
+  SMS_CONSENT_TEXT,
+  gradeOptions,
+  initialSelections,
+  productOptions,
+  serviceOptions,
+  timeframeOptions,
+} from '@/lib/lead-options'
 
 interface ContactFormProps {
   productType?: string
@@ -13,10 +22,14 @@ interface ValidationErrors {
   [key: string]: string
 }
 
+// A failed submit is retried once after this pause (network error or 5xx).
+const RETRY_DELAY_MS = 800
+
 export function ContactForm({ productType = '', className = '', compact = false }: ContactFormProps) {
-  const [formData, setFormData] = useState({
+  const emptyForm = () => ({
     firstName: '',
     lastName: '',
+    streetAddress: '',
     city: '',
     stateProvince: '',
     postalCode: '',
@@ -25,11 +38,21 @@ export function ContactForm({ productType = '', className = '', compact = false 
     company: '',
     message: '',
     quantity: '',
-    productType: productType,
-    selectService: '',
+    ...initialSelections(productType),
     grade: '',
+    timeframe: '',
+    smsConsent: false,
     honeypot: '', // Bot trap field
   })
+  const [formData, setFormData] = useState(emptyForm)
+
+  // Made on load and kept across retries, so 1DB can drop a repeated send.
+  const submissionId = useRef('')
+  const attribution = useRef<Record<string, string>>({})
+  useEffect(() => {
+    submissionId.current = newSubmissionId()
+    attribution.current = captureAttribution()
+  }, [])
 
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
   const [touched, setTouched] = useState<{[key: string]: boolean}>({})
@@ -63,24 +86,10 @@ export function ContactForm({ productType = '', className = '', compact = false 
     return usZipRegex.test(code) || canadianRegex.test(code)
   }
 
-  const validateName = (name: string): boolean => {
-    // Only letters, spaces, hyphens, apostrophes. Min 2 chars.
-    return /^[a-zA-Z\s'-]{2,50}$/.test(name)
-  }
-
-  const validateCity = (city: string): boolean => {
-    // Only letters, spaces, hyphens, apostrophes
-    return /^[a-zA-Z\s'-]{2,50}$/.test(city)
-  }
-
-  const validateState = (state: string): boolean => {
-    // 2-letter state code or full state/province name
-    return /^[a-zA-Z\s]{2,50}$/.test(state)
-  }
-
   const validateQuantity = (quantity: string): boolean => {
-    const num = parseInt(quantity)
-    return !isNaN(num) && num > 0 && num <= 1000000
+    if (!/^\d+$/.test(quantity.trim())) return false
+    const num = Number(quantity)
+    return num > 0 && num <= 1000000
   }
 
   // Format phone as user types
@@ -96,7 +105,12 @@ export function ContactForm({ productType = '', className = '', compact = false 
     switch (name) {
       case 'firstName':
         if (!value.trim()) return 'First name is required'
-        if (!validateName(value)) return 'Please enter a valid first name (letters only)'
+        if (value.trim().length > 80) return 'First name must be under 80 characters'
+        return ''
+
+      case 'lastName':
+        if (!value.trim()) return 'Last name is required'
+        if (value.trim().length > 80) return 'Last name must be under 80 characters'
         return ''
 
       case 'email':
@@ -114,25 +128,38 @@ export function ContactForm({ productType = '', className = '', compact = false 
         if (!validatePostalCode(value)) return 'Please enter a valid ZIP code (e.g., 12345 or 12345-6789) or Canadian postal code (e.g., A1A 1A1)'
         return ''
 
+      case 'streetAddress':
+        if (value.trim().length > 200) return 'Street address must be under 200 characters'
+        return ''
+
       case 'city':
-        if (value && !validateCity(value)) return 'Please enter a valid city name (letters only)'
+        if (value.trim().length > 80) return 'City must be under 80 characters'
         return ''
 
       case 'stateProvince':
-        if (value && !validateState(value)) return 'Please enter a valid state/province'
+        if (value.trim().length > 40) return 'State/Province must be under 40 characters'
         return ''
 
       case 'quantity':
         if (!value.trim()) return 'Quantity is required'
-        if (!validateQuantity(value)) return 'Please enter a valid quantity (1-1,000,000)'
+        if (!validateQuantity(value)) return 'Please enter a whole number from 1 to 1,000,000'
         return ''
 
       case 'productType':
         if (!value) return 'Please select a product type'
         return ''
 
+      case 'selectService':
+        if (!value) return 'Please select a service'
+        return ''
+
       case 'company':
-        if (value && value.length < 2) return 'Company name must be at least 2 characters'
+        if (value && value.trim().length < 2) return 'Company name must be at least 2 characters'
+        if (value.trim().length > 120) return 'Company name must be under 120 characters'
+        return ''
+
+      case 'message':
+        if (value.length > 2000) return 'Additional details must be under 2,000 characters'
         return ''
 
       default:
@@ -142,6 +169,12 @@ export function ContactForm({ productType = '', className = '', compact = false 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
+
+    if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
+      const checked = e.target.checked
+      setFormData(prev => ({ ...prev, [name]: checked }))
+      return
+    }
 
     // Format phone number as user types
     let formattedValue = value
@@ -178,16 +211,20 @@ export function ContactForm({ productType = '', className = '', compact = false 
 
     // Validate all required fields
     errors.firstName = validateField('firstName', formData.firstName)
+    errors.lastName = validateField('lastName', formData.lastName)
     errors.email = validateField('email', formData.email)
     errors.phone = validateField('phone', formData.phone)
     errors.postalCode = validateField('postalCode', formData.postalCode)
     errors.quantity = validateField('quantity', formData.quantity)
     errors.productType = validateField('productType', formData.productType)
+    errors.selectService = validateField('selectService', formData.selectService)
 
     // Validate optional fields if filled
+    if (formData.streetAddress) errors.streetAddress = validateField('streetAddress', formData.streetAddress)
     if (formData.city) errors.city = validateField('city', formData.city)
     if (formData.stateProvince) errors.stateProvince = validateField('stateProvince', formData.stateProvince)
     if (formData.company) errors.company = validateField('company', formData.company)
+    if (formData.message) errors.message = validateField('message', formData.message)
 
     // Remove empty errors
     Object.keys(errors).forEach(key => {
@@ -206,18 +243,30 @@ export function ContactForm({ productType = '', className = '', compact = false 
     return Object.keys(errors).length === 0
   }
 
+  // POST once, and once more after a pause on a network error or a 5xx.
+  const postLead = async (body: string): Promise<Response> => {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+        })
+        if (response.status < 500 || attempt > 0) return response
+      } catch {
+        if (attempt > 0) throw new Error('We could not send your request. Please check your connection and try again.')
+      }
+      await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS))
+    }
+  }
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setError('')
 
-    // Check honeypot (bot trap)
-    if (formData.honeypot) {
-      setError('Invalid submission detected.')
-      return
-    }
-
-    // Validate all fields
-    if (!validateForm()) {
+    // Validate all fields (a filled honeypot goes to the server, which answers
+    // as for a success and sends nothing on)
+    if (!formData.honeypot && !validateForm()) {
       setError('Please fix all errors before submitting the form.')
       return
     }
@@ -225,59 +274,57 @@ export function ContactForm({ productType = '', className = '', compact = false 
     setLoading(true)
 
     try {
+      if (!submissionId.current) submissionId.current = newSubmissionId()
       const sourceUrl = typeof window !== 'undefined' ? window.location.href : ''
+      const ga = gaClientId()
 
-      const response = await fetch(
-        '/api/leads',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            formSlug: 'usapalletsolution-org-contact',
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            city: formData.city,
-            stateProvince: formData.stateProvince,
-            postalCode: formData.postalCode,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            message: formData.message,
-            quantity: formData.quantity,
-            productType: formData.productType,
-            selectService: formData.selectService,
-            grade: formData.grade,
-            sourceUrl: sourceUrl,
-          }),
-        }
+      const response = await postLead(
+        JSON.stringify({
+          ...attribution.current,
+          _1db_current_page: sourceUrl,
+          ...(ga ? { _1db_ga_client_id: ga } : {}),
+          submission_id: submissionId.current,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          streetAddress: formData.streetAddress,
+          city: formData.city,
+          stateProvince: formData.stateProvince,
+          postalCode: formData.postalCode,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          quantity: formData.quantity,
+          productType: formData.productType,
+          selectService: formData.selectService,
+          grade: formData.grade,
+          timeframe: formData.timeframe,
+          smsConsent: formData.smsConsent,
+          honeypot: formData.honeypot,
+          sourceUrl: sourceUrl,
+        })
       )
 
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.error || 'Submission failed')
+        const data: { error?: string; fields?: Record<string, string> } = await response.json().catch(() => ({}))
+        // Show the server's field errors on the matching inputs; keep what was typed.
+        if (response.status === 400 && data.fields && Object.keys(data.fields).length > 0) {
+          const fieldErrors = data.fields
+          setValidationErrors(prev => ({ ...prev, ...fieldErrors }))
+          setTouched(prev => {
+            const next = { ...prev }
+            Object.keys(fieldErrors).forEach(key => { next[key] = true })
+            return next
+          })
+        }
+        throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
       setSuccess(true)
-      setFormData({
-        firstName: '',
-        lastName: '',
-        city: '',
-        stateProvince: '',
-        postalCode: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: '',
-        quantity: '',
-        productType: productType,
-        selectService: '',
-        grade: '',
-        honeypot: '',
-      })
+      setFormData(emptyForm())
       setValidationErrors({})
       setTouched({})
+      submissionId.current = newSubmissionId()
 
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -368,7 +415,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
         {/* Last Name */}
         <div>
           <label htmlFor="lastName" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
-            Last Name
+            Last Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -377,9 +424,18 @@ export function ContactForm({ productType = '', className = '', compact = false 
             value={formData.lastName}
             onChange={handleChange}
             onBlur={handleBlur}
-            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+              touched.lastName && validationErrors.lastName
+                ? 'border-red-500 focus:border-red-600'
+                : touched.lastName && !validationErrors.lastName
+                ? 'border-green-500 focus:border-green-600'
+                : 'border-gray-300 focus:border-primary-500'
+            }`}
             placeholder="Smith"
           />
+          {touched.lastName && validationErrors.lastName && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.lastName}</p>
+          )}
         </div>
 
         {/* Email - Required */}
@@ -438,6 +494,31 @@ export function ContactForm({ productType = '', className = '', compact = false 
           )}
           {!compact && !validationErrors.phone && (
             <p className="mt-1 text-xs text-gray-500">US/Canada format: (555) 123-4567</p>
+          )}
+        </div>
+
+        {/* Street Address */}
+        <div>
+          <label htmlFor="streetAddress" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
+            Street Address
+          </label>
+          <input
+            type="text"
+            id="streetAddress"
+            name="streetAddress"
+            value={formData.streetAddress}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            autoComplete="street-address"
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+              touched.streetAddress && validationErrors.streetAddress
+                ? 'border-red-500 focus:border-red-600'
+                : 'border-gray-300 focus:border-primary-500'
+            }`}
+            placeholder="123 Main St"
+          />
+          {touched.streetAddress && validationErrors.streetAddress && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.streetAddress}</p>
           )}
         </div>
 
@@ -594,12 +675,9 @@ export function ContactForm({ productType = '', className = '', compact = false 
             }`}
           >
             <option value="">Select Product Type</option>
-            <option value="Wooden Pallets">Wooden Pallets</option>
-            <option value="Plastic Pallets">Plastic Pallets</option>
-            <option value="Metal Pallets">Metal Pallets</option>
-            <option value="Custom Pallets">Custom Pallets</option>
-            <option value="Pallet Accessories">Pallet Accessories</option>
-            <option value="General Inquiry">General Inquiry</option>
+            {productOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </select>
           {touched.productType && validationErrors.productType && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.productType}</p>
@@ -609,23 +687,30 @@ export function ContactForm({ productType = '', className = '', compact = false 
         {/* Select Service */}
         <div>
           <label htmlFor="selectService" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
-            Service Needed
+            Service Needed <span className="text-red-500">*</span>
           </label>
           <select
             id="selectService"
             name="selectService"
             value={formData.selectService}
             onChange={handleChange}
-            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
+            onBlur={handleBlur}
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+              touched.selectService && validationErrors.selectService
+                ? 'border-red-500 focus:border-red-600'
+                : touched.selectService && !validationErrors.selectService
+                ? 'border-green-500 focus:border-green-600'
+                : 'border-gray-300 focus:border-primary-500'
+            }`}
           >
-            <option value="">Select Service (Optional)</option>
-            <option value="Buying">Buying Pallets</option>
-            <option value="Selling">Selling Pallets</option>
-            <option value="Recycling">Recycling</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Repair">Repair</option>
-            <option value="Disposal">Disposal</option>
+            <option value="">Select Service</option>
+            {serviceOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </select>
+          {touched.selectService && validationErrors.selectService && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.selectService}</p>
+          )}
         </div>
 
         {/* Grade */}
@@ -641,11 +726,39 @@ export function ContactForm({ productType = '', className = '', compact = false 
             className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800"
           >
             <option value="">Select Grade (Optional)</option>
-            <option value="Premium A">Premium A - Like New</option>
-            <option value="Grade B">Grade B - Good Condition</option>
-            <option value="Recycled">Recycled - Refurbished</option>
-            <option value="New">New - Never Used</option>
+            {gradeOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </select>
+          {touched.grade && validationErrors.grade && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.grade}</p>
+          )}
+        </div>
+
+        {/* Timeframe */}
+        <div>
+          <label htmlFor="timeframe" className={`block ${compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-700 ${compact ? 'mb-1' : 'mb-2'}`}>
+            When do you need this?
+          </label>
+          <select
+            id="timeframe"
+            name="timeframe"
+            value={formData.timeframe}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 ${
+              touched.timeframe && validationErrors.timeframe
+                ? 'border-red-500 focus:border-red-600'
+                : 'border-gray-300 focus:border-primary-500'
+            }`}
+          >
+            <option value="">Select Timeframe (Optional)</option>
+            {timeframeOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          {touched.timeframe && validationErrors.timeframe && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.timeframe}</p>
+          )}
         </div>
 
         {/* Message */}
@@ -659,10 +772,37 @@ export function ContactForm({ productType = '', className = '', compact = false 
             rows={1}
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 h-[50px] bg-white border border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors text-gray-800 resize-none"
+            onBlur={handleBlur}
+            className={`w-full px-4 py-3 h-[50px] bg-white border rounded-lg focus:outline-none transition-colors text-gray-800 resize-none ${
+              touched.message && validationErrors.message
+                ? 'border-red-500 focus:border-red-600'
+                : 'border-gray-300 focus:border-primary-500'
+            }`}
             placeholder="Tell us more about your pallet requirements, delivery location, timeline, or any special needs..."
           ></textarea>
-          <p className="mt-1 text-xs text-gray-500">Optional: Provide any additional information that helps us serve you better</p>
+          {touched.message && validationErrors.message ? (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.message}</p>
+          ) : (
+            <p className="mt-1 text-xs text-gray-500">Optional: Provide any additional information that helps us serve you better</p>
+          )}
+        </div>
+
+        {/* SMS Consent - unticked by default */}
+        <div className={compact ? 'sm:col-span-2 md:col-span-3 lg:col-span-4' : 'md:col-span-2'}>
+          <label htmlFor="smsConsent" className={`flex items-start gap-2 ${compact ? 'text-xs' : 'text-sm'} text-gray-700 cursor-pointer`}>
+            <input
+              type="checkbox"
+              id="smsConsent"
+              name="smsConsent"
+              checked={formData.smsConsent}
+              onChange={handleChange}
+              className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-gray-300 accent-primary-500"
+            />
+            <span>{SMS_CONSENT_TEXT}</span>
+          </label>
+          {touched.smsConsent && validationErrors.smsConsent && (
+            <p className="mt-1 text-sm text-red-600">{validationErrors.smsConsent}</p>
+          )}
         </div>
       </div>
 
