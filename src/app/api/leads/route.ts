@@ -111,6 +111,11 @@ function validate(payload: Payload): Record<string, string> {
     fields.timeframe = 'Please choose one of the options'
   }
   if (text(payload, 'message').length > 2000) fields.message = 'Additional details must be under 2,000 characters'
+  // Made by the form on load. Without it 1DB can't drop a repeated send, so
+  // the route never invents one.
+  if (!SUBMISSION_ID.test(text(payload, 'submission_id'))) {
+    fields.submission_id = 'Please reload the page and try again'
+  }
   return fields
 }
 
@@ -215,14 +220,6 @@ async function formFieldErrors(response: Response): Promise<Record<string, strin
 }
 
 export async function POST(request: Request) {
-  // DB_* are the current names; 1DB_* are the names this site's Cloudflare
-  // project was first set up with.
-  const apiEndpoint = (serverEnv('DB_API_ENDPOINT') || serverEnv('1DB_API_ENDPOINT')).replace(/\/+$/, '')
-  const apiKey = serverEnv('DB_API_KEY') || serverEnv('1DB_API_KEY')
-  if (!apiEndpoint || !apiKey) {
-    return Response.json({ error: TRY_AGAIN }, { status: 500 })
-  }
-
   let payload: Payload
   try {
     const parsed: unknown = await request.json()
@@ -232,7 +229,8 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Invalid request body' }, { status: 400 })
   }
 
-  // Honeypot: answer as for a success and send nothing.
+  // Honeypot first, so a bot always gets the same answer as a success and
+  // nothing is sent on.
   if (text(payload, 'honeypot')) {
     return Response.json({ success: true })
   }
@@ -242,9 +240,14 @@ export async function POST(request: Request) {
     return Response.json({ error: CHECK_FIELDS, fields }, { status: 400 })
   }
 
-  // The form makes this id on load; a caller without one gets one here.
-  const sent = text(payload, 'submission_id')
-  const submissionId = SUBMISSION_ID.test(sent) ? sent : crypto.randomUUID()
+  // DB_* are the current names; 1DB_* are the names this site's Cloudflare
+  // project was first set up with. Missing config is a 503, which the form
+  // does not retry: a retry can't fix it.
+  const apiEndpoint = (serverEnv('DB_API_ENDPOINT') || serverEnv('1DB_API_ENDPOINT')).replace(/\/+$/, '')
+  const apiKey = serverEnv('DB_API_KEY') || serverEnv('1DB_API_KEY')
+  if (!apiEndpoint || !apiKey) {
+    return Response.json({ error: TRY_AGAIN }, { status: 503 })
+  }
 
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -259,19 +262,32 @@ export async function POST(request: Request) {
   const response = await sendTo1db(
     `${apiEndpoint}/v1/leads`,
     headers,
-    JSON.stringify(buildLead(payload, submissionId)),
+    JSON.stringify(buildLead(payload, text(payload, 'submission_id'))),
   )
 
   if (response?.ok) {
     return Response.json({ success: true })
   }
 
-  if (response?.status === 400) {
-    const serverFields = await formFieldErrors(response)
-    if (Object.keys(serverFields).length > 0) {
-      return Response.json({ error: CHECK_FIELDS, fields: serverFields }, { status: 400 })
-    }
+  // Still rate limited after the one retry: pass the 429 and its wait back.
+  if (response?.status === 429) {
+    return Response.json(
+      { error: TRY_AGAIN },
+      { status: 429, headers: { 'Retry-After': response.headers.get('Retry-After') || '60' } },
+    )
   }
 
+  if (response && response.status >= 400 && response.status < 500) {
+    if (response.status === 400) {
+      const serverFields = await formFieldErrors(response)
+      if (Object.keys(serverFields).length > 0) {
+        return Response.json({ error: CHECK_FIELDS, fields: serverFields }, { status: 400 })
+      }
+    }
+    // 401/403/404 or an unmappable 400: a retry can't fix it, so not a 5xx.
+    return Response.json({ error: TRY_AGAIN }, { status: 400 })
+  }
+
+  // A 5xx or a network failure, after the route's one retry.
   return Response.json({ error: TRY_AGAIN }, { status: 502 })
 }

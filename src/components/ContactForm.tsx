@@ -173,6 +173,8 @@ export function ContactForm({ productType = '', className = '', compact = false 
     if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
       const checked = e.target.checked
       setFormData(prev => ({ ...prev, [name]: checked }))
+      // Changing the box clears any error the server put on it.
+      setValidationErrors(prev => ({ ...prev, [name]: '' }))
       return
     }
 
@@ -244,6 +246,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
   }
 
   // POST once, and once more after a pause on a network error or a 5xx.
+  // 503 means the route is not configured, which a retry can't fix.
   const postLead = async (body: string): Promise<Response> => {
     for (let attempt = 0; ; attempt++) {
       try {
@@ -252,7 +255,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
           headers: { 'Content-Type': 'application/json' },
           body,
         })
-        if (response.status < 500 || attempt > 0) return response
+        if (response.status < 500 || response.status === 503 || attempt > 0) return response
       } catch {
         if (attempt > 0) throw new Error('We could not send your request. Please check your connection and try again.')
       }
@@ -317,7 +320,8 @@ export function ContactForm({ productType = '', className = '', compact = false 
             return next
           })
         }
-        throw new Error(data.error || 'Something went wrong. Please try again.')
+        // submission_id has no input of its own, so its message goes in the banner.
+        throw new Error(data.fields?.submission_id || data.error || 'Something went wrong. Please try again.')
       }
 
       setSuccess(true)
