@@ -44,9 +44,9 @@ npm install
 
 3. Create `.env.local` file and add your environment variables:
 ```env
-NEXT_PUBLIC_1DB_API_KEY=your_api_key_here
-NEXT_PUBLIC_1DB_API_URL=https://gallant-goshawk-513.convex.site/v1/leads
-NEXT_PUBLIC_FORM_SLUG=usapalletsolution-org-contact
+# Server-side only (read by src/app/api/leads/route.ts). Never NEXT_PUBLIC_.
+DB_API_ENDPOINT=https://gallant-goshawk-513.convex.site
+DB_API_KEY=your_api_key_here
 NEXT_PUBLIC_SITE_URL=https://usapalletsolution.org
 NEXT_PUBLIC_COMPANY_EMAIL=info@usapalletsolution.org
 NEXT_PUBLIC_COMPANY_ADDRESS=Your company address
@@ -136,22 +136,21 @@ usapalletsolution.org/
 
 ## Lead Capture Integration
 
-The website uses 1db for lead management. All contact forms submit to the 1db API with the following fields:
+The website uses 1db for lead management. Every contact form posts to the site's own server route, `/api/leads` (`src/app/api/leads/route.ts`), which checks each field and forwards an allowlisted lead to 1db with the server-side `DB_API_KEY`. The browser never sees the key. Form options and their 1db/Repackify values are in `src/lib/lead-options.ts`.
 
-- First Name (required)
-- Last Name
-- City
-- State/Province
+Form fields:
+
+- First Name, Last Name (required)
+- Email, Phone (required)
+- Street Address, City, State/Province
 - Postal Code (required)
-- Email (required)
-- Phone (required)
 - Company
-- Message
 - Quantity (required)
-- Product Type (required)
-- Select Service
-- Grade
-- Source URL (hidden)
+- Product Type (required), Service Needed (required), Pallet Grade
+- When do you need this?
+- Additional Details
+- SMS consent checkbox (unticked by default)
+- Hidden: submission id, UTM tags, click IDs, referrer, landing and current page, and a honeypot
 
 ## Color Scheme
 
