@@ -9,11 +9,12 @@ export async function generateStaticParams() {
 }
 
 interface Props {
-  params: { state: string }
+  params: Promise<{ state: string }>
 }
 
-export default function StatePage({ params }: Props) {
-  const state = getStateBySlug(params.state)
+export default async function StatePage({ params }: Props) {
+  const { state: stateSlug } = await params
+  const state = getStateBySlug(stateSlug)
 
   if (!state) {
     return (
@@ -43,8 +44,11 @@ export default function StatePage({ params }: Props) {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800">
               Pallet Services in {state.name}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl">
+            <p className="text-xl text-gray-600 max-w-3xl mb-4">
               {state.description}
+            </p>
+            <p className="text-lg text-gray-600 max-w-3xl">
+              Requests from {state.name} go to partner suppliers in our network. Availability depends on partner suppliers.
             </p>
           </div>
         </div>
@@ -57,7 +61,7 @@ export default function StatePage({ params }: Props) {
               Request a Quote in {state.name}
             </h2>
             <p className="text-center text-gray-600 mb-8">
-              Get customized pallet solutions for your {state.name} business
+              A free, no-obligation quote request for your {state.name} business
             </p>
             <ContactForm productType={`${state.name} Service Inquiry`} />
           </div>
@@ -69,25 +73,25 @@ export default function StatePage({ params }: Props) {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
-                <div className="text-5xl mb-4">👥</div>
-                <h3 className="text-3xl font-bold text-primary-600 mb-2">{state.population}</h3>
-                <p className="text-gray-600">Population</p>
+                <div className="text-5xl mb-4">📝</div>
+                <h3 className="text-2xl font-bold text-primary-600 mb-2">Send a Request</h3>
+                <p className="text-gray-600">Tell us what you need and where in {state.name} you are</p>
               </div>
               <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
-                <div className="text-5xl mb-4">🏭</div>
-                <h3 className="text-3xl font-bold text-secondary-600 mb-2">{state.warehouseLocations}</h3>
-                <p className="text-gray-600">Distribution Centers</p>
+                <div className="text-5xl mb-4">📨</div>
+                <h3 className="text-2xl font-bold text-secondary-600 mb-2">We Pass It On</h3>
+                <p className="text-gray-600">Your request goes to partner suppliers in our network</p>
               </div>
               <div className="bg-white p-8 rounded-2xl soft-shadow text-center">
-                <div className="text-5xl mb-4">📍</div>
-                <h3 className="text-3xl font-bold text-primary-600 mb-2">{state.cities.length}</h3>
-                <p className="text-gray-600">Cities Served</p>
+                <div className="text-5xl mb-4">🤝</div>
+                <h3 className="text-2xl font-bold text-primary-600 mb-2">A Supplier Follows Up</h3>
+                <p className="text-gray-600">A partner supplier follows up with a quote if available</p>
               </div>
             </div>
 
             <div className="mb-16">
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
-                Industries We Serve in {state.name}
+                Key Industries in {state.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {state.keyIndustries.map((industry, index) => (
@@ -110,35 +114,33 @@ export default function StatePage({ params }: Props) {
 
             <div className="mb-16">
               <h2 className="text-4xl font-bold mb-6 text-gray-800">
-                Why Choose Us in {state.name}
+                How Requests From {state.name} Work
               </h2>
               <div className="bg-white p-8 rounded-2xl soft-shadow">
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <p>
-                    Our presence in {state.name} ensures that you receive personalized service backed by local
-                    expertise and national resources. We understand the unique requirements of {state.name} industries
-                    and have established relationships with regional carriers to ensure fast,
-                    reliable delivery throughout the state.
+                    USA Pallet Solution is a referral service. We do not stock or deliver pallets ourselves. When you
+                    send a request from {state.name}, we pass it to partner suppliers in our network, who quote and
+                    fulfill the work directly.
                   </p>
                   <p>
-                    Whether you are in a major metropolitan area or a more remote location, our distribution
-                    network is designed to serve you efficiently. We maintain substantial inventory levels
-                    to meet demand spikes and offer flexible delivery schedules to accommodate your operational
-                    needs.
+                    Whether you are in a metropolitan area or a more remote part of {state.name}, the details in your
+                    request help: pallet size, quantity, material, load weight and your location. Availability and
+                    pricing depend on partner suppliers.
                   </p>
                   <p>
-                    For businesses in {state.name}, we offer comprehensive services including:
+                    Requests from {state.name} can cover the following, through partner suppliers:
                   </p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                     {[
-                      'Same-day delivery in major cities',
-                      'Custom pallet manufacturing',
-                      'Heat treatment and certification',
-                      'Pallet recycling and buyback programs',
-                      'Emergency rush orders',
-                      'Volume discounts for regular customers',
-                      'Dedicated account management',
-                      'Industry-specific solutions'
+                      'New and recycled pallets',
+                      'Custom-sized pallets',
+                      'ISPM 15 heat-treated pallets for export',
+                      'Pallet recycling and buying used pallets',
+                      'Pallet repair',
+                      'Pallet pickup and disposal',
+                      'Pallet delivery',
+                      'Plastic and metal pallet options'
                     ].map((service, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <svg className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -154,11 +156,10 @@ export default function StatePage({ params }: Props) {
 
             <div>
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
-                Cities We Serve in {state.name}
+                Cities in {state.name}
               </h2>
               <p className="text-gray-600 mb-8 text-lg">
-                Select a city to view detailed information about our services, local industries, coverage areas,
-                and specific solutions available in that market.
+                Select a city to see its local industries, nearby areas and how to send a quote request from there.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {state.cities.map((city) => (
@@ -180,7 +181,6 @@ export default function StatePage({ params }: Props) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
-                      <p className="text-sm text-gray-500 mb-3">Population: {city.population}</p>
                       <p className="text-sm text-gray-600 line-clamp-2">{city.description}</p>
                       <div className="mt-4 pt-4 border-t border-gray-100">
                         <p className="text-xs text-gray-500 font-semibold mb-2">Key Industries:</p>
@@ -215,15 +215,15 @@ export default function StatePage({ params }: Props) {
                 Ready to Get Started in {state.name}?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Contact our {state.name} team today for a free quote and discover how we can help
-                optimize your pallet operations.
+                Send a free, no-obligation quote request from {state.name} and a partner supplier follows up.
+                Availability depends on partner suppliers.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
                   href="/contact"
                   className="px-10 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover"
                 >
-                  Contact Us
+                  Request a Quote
                 </Link>
                 <Link
                   href="/products"

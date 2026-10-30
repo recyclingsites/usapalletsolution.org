@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Metal Pallets | Steel and Aluminum Heavy-Duty Pallets for Demanding Loads Nationwide',
-  description: 'Order durable steel and aluminum pallets for heavy, high-heat, or closed-loop applications across the country.',
+  title: 'Metal Pallets | Steel and Aluminum Pallets for Heavy-Duty Loads',
+  description: 'Compare steel and aluminum pallets for heavy or high-temperature applications. Available through partner suppliers; pricing is by quote.',
   alternates: { canonical: '/products/metal-pallets/' },
 }
 

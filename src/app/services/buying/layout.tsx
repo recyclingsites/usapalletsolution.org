@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Buying Service | Sell Surplus Pallets for Fast Cash Nationwide Today',
-  description: 'Turn excess pallets into immediate payment with nationwide pickup, transparent pricing, and reliable scheduling.',
+  title: 'Pallet Buying | Sell Used Pallets to Partner Suppliers',
+  description: 'Have used or surplus pallets? Send a free, no-obligation quote request and partner suppliers may buy them. Availability depends on partner suppliers.',
   alternates: { canonical: '/services/buying/' },
 }
 

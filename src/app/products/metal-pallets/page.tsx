@@ -16,7 +16,7 @@ export default function MetalPalletsPage() {
               <span className="text-gray-300">Metal Pallets</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">Metal Pallets</h1>
-            <p className="text-xl text-gray-300 max-w-3xl">Industrial-grade steel pallets for heavy-duty applications</p>
+            <p className="text-xl text-gray-300 max-w-3xl">Steel and aluminum pallets for heavy-duty applications, available through partner suppliers in our network</p>
           </motion.div>
         </div>
       </section>
@@ -30,11 +30,12 @@ export default function MetalPalletsPage() {
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-primary-400">Unmatched Durability</h2>
+            <h2 className="text-4xl font-bold mb-6 text-primary-400">Durability for Demanding Loads</h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              Metal pallets are the ultimate choice for extreme conditions and heavy loads. Built from high-grade steel,
-              they offer unparalleled strength, fire resistance, and longevity. Perfect for automotive, chemical,
-              and heavy manufacturing industries.
+              Metal pallets suit heavy loads and harsh conditions. Steel offers high strength, does not burn, and
+              has a long service life, while aluminum is lighter. They are often used in automotive and heavy
+              manufacturing. They usually cost more up front than wood or plastic, so they tend to make sense for
+              long-term reuse. Availability depends on partner suppliers, and pricing is by quote.
             </p>
           </motion.div>
 
@@ -42,10 +43,10 @@ export default function MetalPalletsPage() {
             <h2 className="text-4xl font-bold mb-8 text-secondary-400">Advantages</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { title: 'Maximum Load Capacity', description: 'Handle loads up to 10,000+ lbs', icon: '💪' },
-                { title: 'Fire Resistant', description: 'Safe for high-temperature environments', icon: '🔥' },
-                { title: 'Long Lifespan', description: '10+ years of reliable service', icon: '⏳' },
-                { title: 'Pest Proof', description: 'No risk of infestation or contamination', icon: '🛡️' },
+                { title: 'High Load Capacity', description: 'Suited to heavier loads; confirm the rating with the supplier', icon: '💪' },
+                { title: 'Fire Resistant', description: 'Metal does not burn, which helps in high-temperature areas', icon: '🔥' },
+                { title: 'Long Service Life', description: 'Stands up to repeated use in reusable systems', icon: '⏳' },
+                { title: 'Pest Proof', description: 'Not affected by pests or rot', icon: '🛡️' },
                 { title: 'Stackable', description: 'Efficient storage and transport', icon: '📚' },
                 { title: 'Weatherproof', description: 'Rust-resistant coatings available', icon: '☔' },
               ].map((adv, index) => (
@@ -66,7 +67,7 @@ export default function MetalPalletsPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold mb-8 text-primary-400">Ideal Applications</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {['Automotive Manufacturing', 'Chemical Storage', 'Heavy Industry', 'Outdoor Storage', 'Export Shipping', 'Aerospace'].map((app, index) => (
+              {['Automotive Manufacturing', 'Drum Handling', 'Heavy Industry', 'Outdoor Storage', 'Export Shipping', 'High-Temperature Processes'].map((app, index) => (
                 <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }} className="bg-gradient-to-br from-primary-500/10 to-secondary-500/10 p-6 rounded-xl border border-secondary-500/30 text-center">
                   <p className="text-secondary-400 font-semibold">{app}</p>

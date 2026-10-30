@@ -24,7 +24,7 @@ export default function WoodenPalletsPage() {
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">Wooden Pallets</h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Premium quality wooden pallets - the industry standard for reliable material handling
+              The standard choice for most material handling, available through partner suppliers in our network
             </p>
           </motion.div>
         </div>
@@ -51,13 +51,13 @@ export default function WoodenPalletsPage() {
             >
               <h2 className="text-4xl font-bold mb-6 text-primary-400">Product Overview</h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Our wooden pallets are crafted from high-quality lumber, designed to withstand the rigors
-                of shipping, storage, and handling. Available in both new and refurbished conditions, we
-                offer a wide range of sizes and specifications to meet your specific needs.
+                Wooden pallets are built to handle shipping, storage, and repeated forklift use, and they are
+                easy to repair. Through partner suppliers you can request new or used pallets in common sizes
+                and specifications. Availability depends on partner suppliers, and pricing is by quote.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
-                All our wooden pallets undergo thorough inspection and can be heat-treated to meet
-                international shipping standards (ISPM 15 compliant).
+                If your pallets will ship abroad, ask for ISPM 15 heat treatment, which means a core temperature
+                of 56 °C for 30 minutes, with the IPPC mark on the pallet. Check current regulations for your destination.
               </p>
             </motion.div>
 
@@ -73,22 +73,22 @@ export default function WoodenPalletsPage() {
                 {[
                   {
                     title: 'New Wooden Pallets',
-                    description: 'Brand new pallets built to your specifications',
-                    features: ['Premium lumber', 'Custom sizes', 'ISPM 15 certified', 'Maximum durability'],
+                    description: 'Newly built pallets, including to your specifications',
+                    features: ['New lumber', 'Custom sizes', 'Consistent dimensions', 'Heat treatment on request'],
                   },
                   {
                     title: 'Used Wooden Pallets',
-                    description: 'Quality inspected recycled pallets at competitive prices',
-                    features: ['Grade A & B options', 'Cost-effective', 'Environmentally friendly', 'Various sizes'],
+                    description: 'Recycled and repaired pallets, usually lower in cost than new',
+                    features: ['Grade A & B options', 'Cost-effective', 'Reuses an existing pallet', 'Various sizes'],
                   },
                   {
                     title: 'Heat-Treated Pallets',
-                    description: 'ISPM 15 compliant pallets for international shipping',
-                    features: ['Export ready', 'Pest-free certification', 'Meets regulations', 'Stamped & certified'],
+                    description: 'ISPM 15 treated pallets for international shipping',
+                    features: ['56 °C for 30 minutes core temperature', 'IPPC mark on the pallet', 'Used for export', 'Check current regulations'],
                   },
                   {
                     title: 'Block Pallets',
-                    description: '4-way entry pallets for maximum versatility',
+                    description: '4-way entry pallets for flexible handling',
                     features: ['All-side access', 'Heavy-duty', 'Stable stacking', 'Forklift & pallet jack'],
                   },
                 ].map((type, index) => (
@@ -129,20 +129,20 @@ export default function WoodenPalletsPage() {
                     <tr>
                       <th className="px-6 py-4 text-left text-primary-400 font-semibold">Size</th>
                       <th className="px-6 py-4 text-left text-primary-400 font-semibold">Dimensions</th>
-                      <th className="px-6 py-4 text-left text-primary-400 font-semibold">Load Capacity</th>
+                      <th className="px-6 py-4 text-left text-primary-400 font-semibold">Common Use</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-primary-500/10">
                     {[
-                      { size: 'Standard GMA', dimensions: '48" × 40"', capacity: 'Up to 4,600 lbs' },
-                      { size: 'Euro Pallet', dimensions: '47.2" × 39.4"', capacity: 'Up to 4,400 lbs' },
-                      { size: 'Half Pallet', dimensions: '48" × 20"', capacity: 'Up to 2,000 lbs' },
-                      { size: 'Custom Size', dimensions: 'Made to order', capacity: 'Varies' },
+                      { size: 'Standard GMA', dimensions: '48" × 40"', use: 'General shipping and grocery distribution' },
+                      { size: 'Euro Pallet', dimensions: '1200 × 800 mm (47.2" × 31.5")', use: 'European distribution' },
+                      { size: 'Half Pallet', dimensions: '48" × 20"', use: 'Smaller loads and retail displays' },
+                      { size: 'Custom Size', dimensions: 'Made to order', use: 'Non-standard loads' },
                     ].map((spec, index) => (
                       <tr key={index} className="hover:bg-primary-500/5 transition-colors">
                         <td className="px-6 py-4 text-gray-300">{spec.size}</td>
                         <td className="px-6 py-4 text-gray-400">{spec.dimensions}</td>
-                        <td className="px-6 py-4 text-secondary-400">{spec.capacity}</td>
+                        <td className="px-6 py-4 text-secondary-400">{spec.use}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -159,12 +159,12 @@ export default function WoodenPalletsPage() {
               <h2 className="text-4xl font-bold mb-8 text-secondary-400">Key Benefits</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { icon: '💪', title: 'Durable', description: 'Built to last with quality lumber' },
-                  { icon: '♻️', title: 'Sustainable', description: 'Recyclable and repairable' },
-                  { icon: '💰', title: 'Cost-Effective', description: 'Great value for your budget' },
+                  { icon: '💪', title: 'Durable', description: 'Stands up to repeated handling and can be repaired' },
+                  { icon: '♻️', title: 'Sustainable', description: 'Reusing a pallet avoids building a new one' },
+                  { icon: '💰', title: 'Cost-Effective', description: 'Usually the lowest purchase cost of the common materials' },
                   { icon: '🌍', title: 'Versatile', description: 'Suitable for various applications' },
-                  { icon: '✓', title: 'Compliant', description: 'Meets industry standards' },
-                  { icon: '📦', title: 'Available', description: 'Large inventory in stock' },
+                  { icon: '✓', title: 'Export Option', description: 'Can be heat-treated and marked under ISPM 15' },
+                  { icon: '📦', title: 'Easy to Source', description: 'Common sizes are widely used; availability depends on partner suppliers' },
                 ].map((benefit, index) => (
                   <motion.div
                     key={index}

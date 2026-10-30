@@ -7,24 +7,24 @@ import Link from 'next/link'
 export default function SellingPage() {
   const faqItems = [
     {
-      question: 'What pallet grades do you sell?',
-      answer: 'We stock Grade A, Grade B, new builds, heat-treated export pallets, and specialty sizes to match your load needs.',
+      question: 'What pallet grades can I request?',
+      answer: 'You can request Grade A, Grade B, new builds, heat-treated export pallets and specialty sizes. Availability depends on partner suppliers.',
     },
     {
-      question: 'Can you guarantee consistent specifications?',
-      answer: 'Yes. We grade every load, document specs, and provide sample photos or pre-shipment approvals for consistency.',
+      question: 'How do I get consistent specifications?',
+      answer: 'State the size, grade and load you need in your request, then confirm the specification and any samples with the partner supplier before you order.',
     },
     {
-      question: 'Do you offer just-in-time deliveries?',
-      answer: 'We stage inventory near your facilities and schedule JIT deliveries or recurring drops to keep your operations supplied.',
+      question: 'Can deliveries be scheduled around my operation?',
+      answer: 'Tell us how often you need pallets in your request. Delivery schedules are agreed with the partner supplier that takes on your order.',
     },
     {
-      question: 'Are volume discounts available?',
-      answer: 'We offer contract pricing and volume tiers. The higher the weekly or monthly volume, the better the per-pallet rate.',
+      question: 'How does pricing work for larger orders?',
+      answer: 'Pricing is by quote from partner suppliers. Include your expected order size and how often you will reorder so the quote reflects your actual volume.',
     },
     {
-      question: 'Can you support multi-location networks?',
-      answer: 'Absolutely. We coordinate inventory and delivery schedules across multiple plants or warehouses nationwide.',
+      question: 'Can I request pallets for several locations?',
+      answer: 'Yes. List each location in your request. Availability depends on partner suppliers near each site.',
     },
   ]
 
@@ -54,7 +54,7 @@ export default function SellingPage() {
               <span className="text-gray-700">Pallet Selling</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Buy Quality Pallets</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Extensive inventory of new and refurbished pallets. Premium quality, competitive prices, and fast nationwide delivery.</p>
+            <p className="text-xl text-gray-700 max-w-3xl">Need new or refurbished pallets? Tell us what you need and we pass your request to partner suppliers. Requests are welcome from across the US; availability depends on partner suppliers.</p>
           </motion.div>
         </div>
       </section>
@@ -62,19 +62,19 @@ export default function SellingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-primary-600">Your Trusted Pallet Supplier</h2>
+            <h2 className="text-4xl font-bold mb-8 text-primary-600">Find a Pallet Supplier</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                USA Pallet Solution is one of America's premier pallet suppliers, providing businesses across all industries with high-quality pallets at competitive prices. With over 15 years of experience and an inventory exceeding 2 million pallets, we have the capacity and expertise to meet any pallet requirement - from single pallet purchases to ongoing supply agreements for major distribution centers.
+                USA Pallet Solution is a referral service, not a pallet stockist. You send a free, no-obligation quote request, we pass it to partner suppliers in our network, and a partner supplier follows up with a quote. Orders, from a small purchase to a repeat supply, are fulfilled by the partner supplier.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our comprehensive inventory includes new wooden pallets, refurbished Grade A pallets, plastic pallets, metal pallets, custom-sized pallets, and specialty pallets for unique applications. Every pallet in our inventory undergoes rigorous inspection to ensure it meets or exceeds industry standards. We understand that pallets are the foundation of your supply chain, and substandard pallets can lead to product damage, injuries, and operational disruptions. That's why quality is our top priority.
+                You can request new wooden pallets, refurbished Grade A pallets, plastic pallets, metal pallets, custom-sized pallets and pallets for specific uses. Pallets carry your product through the supply chain, and an unsuitable pallet can lead to product damage, injuries and delays, so it pays to confirm the grade and specification with the supplier before ordering.
               </p>
               <p className="mb-6 leading-relaxed">
-                Beyond just selling pallets, we provide complete pallet solutions. Our team works with you to understand your specific needs - load capacity requirements, warehouse space constraints, shipping destinations, budget considerations, and sustainability goals. Based on this understanding, we recommend the optimal pallet solutions that balance cost-effectiveness with performance. Whether you need heat-treated pallets for international shipping, food-grade pallets for consumables, or heavy-duty pallets for industrial equipment, we have the right solution.
+                The right pallet depends on your load weight, racking, warehouse space, shipping destination and budget. Include those details in your request so a partner supplier can respond with something suitable. If you are shipping overseas, say so, because wood packaging for many destinations must meet ISPM 15. Check current regulations for your destination.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our logistics network ensures fast delivery anywhere in the United States. With strategically located distribution centers and partnerships with major carriers, we offer same-day, next-day, and scheduled delivery options. Large orders? We provide full truckload shipping at competitive rates. Small orders? LTL shipping ensures cost-effective delivery. Our delivery team is trained in proper pallet handling and will work with your receiving department to ensure smooth, efficient unloading.
+                Delivery is arranged by the partner supplier and depends on your location, order size and the supplier. Larger orders usually move as a full truckload, and smaller orders can move as less-than-truckload freight. Confirm timing, unloading needs and any delivery charges when a partner supplier follows up.
               </p>
             </div>
           </motion.div>
@@ -100,83 +100,65 @@ export default function SellingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Our Pallet Inventory</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Pallet Types You Can Request</h2>
             <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              From standard GMA pallets to specialized custom solutions, our vast inventory ensures we have the perfect pallets for your operation.
+              From standard GMA pallets to custom builds, these are common pallet types to ask for. Availability and pricing come from partner suppliers.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   category: 'New Wooden Pallets - GMA 48x40',
-                  stock: '500,000+ in stock',
-                  condition: 'Brand New',
-                  price: '$12-$18 each',
-                  features: ['Standard 48x40 dimensions', 'ISPM 15 heat treated', 'Hardwood construction', 'Load capacity: 2,800 lbs'],
+                  condition: 'New',
+                  features: ['Standard 48x40 inch size', 'Widely used in US grocery and retail', 'Ask for heat treatment if exporting', 'Confirm load rating with the supplier'],
                   icon: '🆕'
                 },
                 {
                   category: 'Refurbished Grade A Pallets',
-                  stock: '1,000,000+ available',
-                  condition: 'Like New',
-                  price: '$6-$10 each',
-                  features: ['Professionally inspected', 'Repaired and reconditioned', 'Minimum 3 trip guarantee', 'Significant cost savings'],
+                  condition: 'Used, Repaired',
+                  features: ['Inspected and repaired by the supplier', 'Often lower cost than new', 'Reuses an existing pallet', 'Confirm grade definition with the supplier'],
                   icon: '♻️'
                 },
                 {
                   category: 'Custom Size Wooden Pallets',
-                  stock: 'Made to order',
                   condition: 'New',
-                  price: '$15-$35 each',
-                  features: ['Any size specification', '2-3 week lead time', 'Custom load requirements', 'Bulk pricing available'],
+                  features: ['Built to your dimensions', 'Share your load requirements', 'Lead time set by the supplier', 'Pricing by quote'],
                   icon: '📏'
                 },
                 {
                   category: 'Plastic Pallets - Premium',
-                  stock: '50,000+ ready to ship',
                   condition: 'New & Used',
-                  price: '$35-$120 each',
-                  features: ['Hygienic and easy to clean', 'Long service life', 'Various colors available', 'Recyclable material'],
+                  features: ['Easy to clean', 'Long service life', 'Higher upfront cost than wood', 'Recyclable at end of life where facilities exist'],
                   icon: '🔷'
                 },
                 {
                   category: 'Block Pallets - 4-Way Entry',
-                  stock: '200,000+ in stock',
-                  condition: 'New & Grade A',
-                  price: '$14-$22 each',
-                  features: ['Four-way forklift access', 'Higher load capacity', 'Better stability', 'Standard and custom sizes'],
+                  condition: 'New & Used',
+                  features: ['Four-way forklift access', 'Stable for pallet jacks and racking', 'Standard and custom sizes', 'Confirm load rating with the supplier'],
                   icon: '⬛'
                 },
                 {
                   category: 'Euro Pallets (EPAL)',
-                  stock: '100,000+ available',
-                  condition: 'Certified',
-                  price: '$18-$28 each',
-                  features: ['EPAL certified', 'International standard', 'Heat treated', '800mm x 1200mm'],
+                  condition: 'European Standard',
+                  features: ['1200 x 800 mm', 'Used in European supply chains', 'Carries the EPAL mark', 'US availability varies'],
                   icon: '🇪🇺'
                 },
                 {
                   category: 'Heavy-Duty Industrial Pallets',
-                  stock: '75,000+ in stock',
                   condition: 'New',
-                  price: '$20-$40 each',
-                  features: ['Extra thick deck boards', 'Load capacity: 5,000+ lbs', 'Reinforced construction', 'Ideal for machinery'],
+                  features: ['Thicker deck boards', 'Reinforced construction', 'Suited to machinery and dense loads', 'Confirm load rating with the supplier'],
                   icon: '🏗️'
                 },
                 {
                   category: 'Export/Heat-Treated Pallets',
-                  stock: '300,000+ ready',
-                  condition: 'ISPM 15 Compliant',
-                  price: '$10-$16 each',
-                  features: ['ISPM 15 certified', 'Proper documentation', 'International shipping ready', 'Pest-free guarantee'],
+                  condition: 'ISPM 15 Heat Treated',
+                  features: ['Core temperature of 56 °C for 30 minutes', 'Marked with the IPPC mark', 'Needed by many destination countries', 'Check current regulations'],
                   icon: '🌍'
                 },
                 {
-                  category: 'Specialty Food-Grade Pallets',
-                  stock: '50,000+ available',
-                  condition: 'Premium Quality',
-                  price: '$16-$25 each',
-                  features: ['FDA compliant', 'Clean and sanitized', 'No chemical treatment', 'Food industry approved'],
-                  icon: '🍎'
+                  category: 'Metal Pallets',
+                  condition: 'New & Used',
+                  features: ['Steel and aluminum options', 'Durable under heavy use', 'Higher upfront cost than wood', 'Confirm load rating with the supplier'],
+                  icon: '🔩'
                 },
               ].map((item, index) => (
                 <motion.div
@@ -190,12 +172,10 @@ export default function SellingPage() {
                   <div className="flex items-start justify-between mb-4">
                     <div className="text-5xl">{item.icon}</div>
                     <div className="text-right">
-                      <div className="text-sm text-gray-600">{item.stock}</div>
                       <div className="text-xs font-semibold text-secondary-500 mt-1">{item.condition}</div>
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-primary-600 mb-3">{item.category}</h3>
-                  <div className="text-2xl font-bold text-secondary-500 mb-4">{item.price}</div>
                   <ul className="space-y-2">
                     {item.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
@@ -221,50 +201,40 @@ export default function SellingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Why Buy From USA Pallet Solution
+            Why Request Pallets Through USA Pallet Solution
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: '✓',
-                title: 'Quality Guaranteed',
-                description: 'Every pallet undergoes rigorous inspection. We stand behind our products with a satisfaction guarantee. Defective pallets replaced at no charge.'
+                icon: '📋',
+                title: 'One Simple Request',
+                description: 'Describe the pallets you need once. We pass your request to partner suppliers in our network, so you do not have to contact suppliers one at a time.'
               },
               {
                 icon: '🚚',
-                title: 'Fast Delivery',
-                description: 'Same-day delivery available in major metros. Next-day service in most regions. Scheduled deliveries to match your operations. Real-time tracking available.'
+                title: 'Delivery Through Partner Suppliers',
+                description: 'Partner suppliers can arrange delivery. Timing depends on your location, the order and the supplier, and is agreed when you order.'
               },
               {
                 icon: '💰',
-                title: 'Competitive Pricing',
-                description: 'Best value in the industry. Volume discounts on large orders. Contract pricing for ongoing needs. No hidden fees or surprise charges.'
+                title: 'Pricing by Quote',
+                description: 'Pricing comes from partner suppliers as a quote based on your request, so you can review it before deciding.'
               },
               {
-                icon: '📞',
-                title: 'Expert Support',
-                description: 'Dedicated account managers for business clients. Technical support for pallet selection. 24/7 customer service availability. Industry expertise at your service.'
-              },
-              {
-                icon: '📦',
-                title: 'Massive Inventory',
-                description: 'Over 2 million pallets in stock. Never experience supply shortages. Multiple warehouses nationwide. Emergency orders fulfilled quickly.'
+                icon: '✓',
+                title: 'Free, No Obligation',
+                description: 'Sending a quote request is free, and you are not committed to anything until you agree terms with a partner supplier.'
               },
               {
                 icon: '♻️',
-                title: 'Eco-Friendly Options',
-                description: 'Refurbished pallets reduce environmental impact. Sustainable sourcing practices. Recycling programs available. Carbon-neutral shipping options.'
+                title: 'Used and Repaired Options',
+                description: 'Ask for refurbished pallets if they suit your load. Reusing a pallet avoids building a new one.'
               },
               {
-                icon: '🔒',
-                title: 'Reliable & Licensed',
-                description: 'Fully licensed and insured. 15+ years in business. Proven track record. Thousands of satisfied clients.'
-              },
-              {
-                icon: '📊',
-                title: 'Custom Solutions',
-                description: 'Custom sizes and specifications. Pallet management programs. Inventory management services. Consignment options available.'
+                icon: '📏',
+                title: 'Custom Sizes',
+                description: 'Include your dimensions and load requirements in your request. Custom builds depend on partner suppliers.'
               },
             ].map((benefit, index) => (
               <motion.div
@@ -292,7 +262,7 @@ export default function SellingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Bulk Order Pricing & Volume Discounts
+            Bulk Orders & Repeat Needs
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -302,24 +272,23 @@ export default function SellingPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Standard Volume Pricing</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">What Shapes a Bulk Quote</h3>
+              <ul className="space-y-4">
                 {[
-                  { quantity: '1-99 pallets', discount: 'Standard Rate', price: '$12-$18 each' },
-                  { quantity: '100-499 pallets', discount: '10% Off', price: '$10.80-$16.20 each' },
-                  { quantity: '500-999 pallets', discount: '15% Off', price: '$10.20-$15.30 each' },
-                  { quantity: '1,000-4,999 pallets', discount: '20% Off', price: '$9.60-$14.40 each' },
-                  { quantity: '5,000+ pallets', discount: '25% Off', price: 'Custom Pricing' },
-                ].map((tier, index) => (
-                  <div key={index} className="bg-white p-4 rounded-lg border border-primary-200">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-bold text-primary-600">{tier.quantity}</span>
-                      <span className="text-sm font-semibold text-secondary-500">{tier.discount}</span>
-                    </div>
-                    <div className="text-gray-700">{tier.price}</div>
-                  </div>
+                  'Pallet type, size and grade',
+                  'Order quantity and how often you reorder',
+                  'Current supply in your region',
+                  'Delivery distance and freight type',
+                  'Any custom build or heat treatment needs'
+                ].map((factor, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-secondary-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-gray-700">{factor}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
 
             <motion.div
@@ -328,17 +297,17 @@ export default function SellingPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Contract Pricing Benefits</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">What to Include in a Bulk Request</h3>
               <ul className="space-y-4">
                 {[
-                  'Lock in rates for 12+ months',
-                  'Additional 5-10% discount on all orders',
-                  'Priority inventory allocation',
-                  'Flexible payment terms (Net 30/60)',
-                  'Dedicated account management',
-                  'Free quarterly pallet audits',
-                  'Customized reporting and analytics',
-                  'Emergency order guarantees'
+                  'Pallet size, material and grade',
+                  'Total quantity needed',
+                  'Whether the need is one-off or repeating',
+                  'Delivery location or locations',
+                  'Your load type and approximate weight',
+                  'Loading dock or forklift access at your site',
+                  'Export destination, if any',
+                  'Any target dates'
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-secondary-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -359,7 +328,7 @@ export default function SellingPage() {
           >
             <h3 className="text-2xl font-bold text-primary-600 mb-4">Need a Custom Quote?</h3>
             <p className="text-gray-600 mb-6">
-              Large volume orders, special requirements, or long-term contracts? Contact our sales team for personalized pricing and solutions.
+              Large orders, special requirements or repeat supply? Send the details through the form and we will pass your request to partner suppliers.
             </p>
             <Link
               href="#contact-form"
@@ -389,21 +358,21 @@ export default function SellingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: 'Same-Day Delivery',
-                description: 'Available in major metropolitan areas',
-                features: ['Order by 10 AM', 'Delivery by 5 PM', 'Limited to local area', '$50 rush fee'],
-                icon: '⚡'
+                title: 'Delivery by Partner Supplier',
+                description: 'The usual option for most orders',
+                features: ['Arranged by the partner supplier', 'Timing agreed when you order', 'Depends on your location', 'Delivery cost included in the quote or stated separately'],
+                icon: '🚚'
               },
               {
-                title: 'Next-Day Delivery',
-                description: 'Most common option for urgent needs',
-                features: ['Order by 3 PM', 'Delivery next business day', 'Available in most regions', 'Standard shipping rates'],
-                icon: '📅'
+                title: 'Customer Pickup',
+                description: 'An option if you have your own transport',
+                features: ['Ask the partner supplier if it is offered', 'Collection point set by the supplier', 'Confirm loading arrangements', 'Depends on the supplier'],
+                icon: '🏷️'
               },
               {
-                title: 'Scheduled Delivery',
-                description: 'Plan ahead for best rates',
-                features: ['Choose your date', '3-7 business days', 'Lowest cost option', 'Flexible scheduling'],
+                title: 'Repeat Deliveries',
+                description: 'For operations with a regular pallet need',
+                features: ['Mention it in your request', 'Agreed with the partner supplier', 'Share your expected quantities', 'Depends on the supplier'],
                 icon: '📆'
               },
             ].map((option, index) => (
@@ -438,53 +407,29 @@ export default function SellingPage() {
             viewport={{ once: true }}
             className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
           >
-            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Shipping Costs</h3>
+            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Truckload or Less Than Truckload</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h4 className="font-bold text-primary-600 mb-4">Full Truckload (FTL)</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li className="flex justify-between">
-                    <span>Within 100 miles:</span>
-                    <span className="font-semibold">$300-$500</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>100-300 miles:</span>
-                    <span className="font-semibold">$500-$1,000</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>300-600 miles:</span>
-                    <span className="font-semibold">$1,000-$1,800</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>600+ miles:</span>
-                    <span className="font-semibold">Custom Quote</span>
-                  </li>
+                  <li>Uses a whole trailer for your order</li>
+                  <li>Common for large pallet orders</li>
+                  <li>A loading dock or forklift usually helps</li>
+                  <li>Cost depends on distance and quantity</li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold text-primary-600 mb-4">Less Than Truckload (LTL)</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li className="flex justify-between">
-                    <span>1-10 pallets:</span>
-                    <span className="font-semibold">$150-$300</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>11-20 pallets:</span>
-                    <span className="font-semibold">$200-$400</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>21+ pallets:</span>
-                    <span className="font-semibold">FTL Recommended</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Distance surcharge:</span>
-                    <span className="font-semibold">Varies</span>
-                  </li>
+                  <li>Shares trailer space with other freight</li>
+                  <li>Suited to smaller orders</li>
+                  <li>Can cost more per pallet than a full truckload</li>
+                  <li>Confirm unloading needs with the supplier</li>
                 </ul>
               </div>
             </div>
             <p className="text-sm text-gray-600 mt-6 text-center">
-              Free delivery on orders over $2,500 within 50 miles. Actual shipping costs calculated at checkout based on distance and volume.
+              Delivery costs come from partner suppliers as part of your quote.
             </p>
           </motion.div>
         </div>
@@ -505,35 +450,31 @@ export default function SellingPage() {
             {[
               {
                 question: 'What is the minimum order quantity?',
-                answer: 'We have no minimum! You can order as few as 1 pallet or as many as 100,000+. However, for very small orders (under 10 pallets), shipping costs may be proportionally higher. We always provide transparent pricing so you can make informed decisions.'
+                answer: 'USA Pallet Solution sets no minimum for a request. Partner suppliers may have their own minimums, and delivery can make very small orders cost more per pallet.'
               },
               {
-                question: 'Do you offer pallet pick-up services?',
-                answer: 'Yes, we offer customer pickup from our warehouses if you prefer to handle your own transportation. This can reduce costs for local customers with their own trucks. Contact us to schedule a pickup time at our nearest facility.'
+                question: 'Can I collect pallets myself?',
+                answer: 'Some partner suppliers may allow it. Mention it in your request and confirm the details when a partner supplier follows up.'
               },
               {
-                question: 'What payment methods do you accept?',
-                answer: 'We accept credit cards (Visa, MasterCard, AmEx), ACH bank transfers, checks, wire transfers, and offer net terms (Net 30/60) for qualified business customers with established credit. First-time customers typically start with prepayment or COD.'
+                question: 'What payment methods are accepted?',
+                answer: 'USA Pallet Solution does not take payment. Payment methods are set by the partner supplier you order from.'
               },
               {
                 question: 'Can I inspect pallets before purchasing?',
-                answer: 'Absolutely! We welcome facility visits for customers who want to inspect pallets before committing to large orders. Schedule an appointment with our team, and we\'ll give you a full tour and let you examine our inventory firsthand.'
+                answer: 'Ask the partner supplier that follows up. For larger orders, it is sensible to request samples or photos before committing.'
               },
               {
                 question: 'What if pallets arrive damaged?',
-                answer: 'We guarantee all pallets arrive in the condition described. If pallets are damaged during shipping, document the damage with the carrier, take photos, and contact us immediately. We will replace damaged pallets at no charge or provide a full refund.'
+                answer: 'Your order is with the partner supplier, so raise it with that supplier. Photograph the damage and note it with the carrier at delivery.'
               },
               {
-                question: 'Do you provide pallet management services?',
-                answer: 'Yes! For customers with ongoing needs, we offer comprehensive pallet management programs including inventory tracking, scheduled deliveries, pallet retrieval, repair services, and analytics. These programs are customized to your specific requirements and can significantly reduce your total cost of pallet ownership.'
+                question: 'Are pallets available for international shipping?',
+                answer: 'You can request heat-treated pallets with the ISPM 15 IPPC mark. Requirements vary by destination, so check current regulations and confirm the marking with the partner supplier.'
               },
               {
-                question: 'Are your pallets suitable for international shipping?',
-                answer: 'Yes, we carry extensive inventory of ISPM 15 certified heat-treated pallets required for international shipping. All export pallets come with proper certification and marking. We can also arrange for fumigation if required by specific destination countries.'
-              },
-              {
-                question: 'What is your return policy?',
-                answer: 'We accept returns within 30 days of purchase for unused pallets in original condition. Customer is responsible for return shipping unless the return is due to our error. A 15% restocking fee applies to all returns. Refunds are processed within 10 business days of receiving returned pallets.'
+                question: 'What is the return policy?',
+                answer: 'Returns are handled by the partner supplier you order from, so confirm its terms before ordering.'
               },
             ].map((faq, index) => (
               <motion.div
@@ -590,7 +531,7 @@ export default function SellingPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-white">Ready to Order Pallets?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Get instant pricing, check inventory availability, and place your order today. Fast delivery nationwide.
+              Send a free, no-obligation quote request and we will pass it to partner suppliers in our network.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -603,12 +544,12 @@ export default function SellingPage() {
               >
                 Get Quote Now
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                Call: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Accessories | Covers, Dunnage, Edge Protectors and Safety Supplies Nationwide Available',
-  description: 'Stock up on pallet collars, slip sheets, edge protection, and safety add-ons for secure shipping.',
+  title: 'Pallet Accessories | Collars, Covers, Strapping and Load Securing Supplies',
+  description: 'Request quotes on pallet collars, slip sheets, corner protectors, strapping, and covers, available through partner suppliers.',
   alternates: { canonical: '/products/accessories/' },
 }
 

@@ -13,14 +13,14 @@ export default function SizesPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Complete Pallet Size Guide</h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl">
-              Comprehensive guide to standard and custom pallet dimensions. Find the perfect size for your industry, understand international standards, and learn how to optimize your supply chain with the right pallet dimensions.
+              A guide to standard and custom pallet dimensions. Compare common sizes by industry, understand international standards, and work out which footprint suits your loads.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#size-chart" className="px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover">
                 View Size Chart
               </a>
               <a href="#size-selector" className="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow border border-primary-200">
-                Size Selection Tool
+                Size Selection Guide
               </a>
             </div>
           </motion.div>
@@ -40,7 +40,7 @@ export default function SizesPage() {
               Why Pallet Size Matters
             </motion.h2>
             <p className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
-              Selecting the correct pallet size impacts your entire supply chain, from warehouse efficiency to shipping costs. Understanding standard sizes helps you optimize operations and reduce expenses.
+              The pallet size you choose affects your whole supply chain, from warehouse storage to freight. Understanding standard sizes helps you plan loads and avoid problems at receiving.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -48,32 +48,32 @@ export default function SizesPage() {
                 {
                   icon: '💰',
                   title: 'Cost Efficiency',
-                  description: 'Standard sizes maximize trailer space, reducing shipping costs by up to 25%. Proper sizing eliminates wasted space and reduces per-unit transportation expenses.',
+                  description: 'Standard sizes make better use of trailer space. A footprint that suits the load avoids wasted space and helps keep per-unit transportation expenses down.',
                 },
                 {
                   icon: '🏭',
                   title: 'Warehouse Optimization',
-                  description: 'Correct pallet dimensions ensure perfect fit in racking systems, maximizing vertical storage and improving warehouse density by 15-30%.',
+                  description: 'Pallet dimensions that match your racking let you use bays and vertical storage as designed, without loads hanging over beams or into aisles.',
                 },
                 {
                   icon: '🚚',
                   title: 'Loading Efficiency',
-                  description: 'Standard sizes enable faster loading and unloading, reducing dock time by 40% and improving overall supply chain velocity.',
+                  description: 'Dock equipment, forklifts and conveyors are generally set up around standard sizes, so standard pallets tend to move through loading and unloading more easily.',
                 },
                 {
                   icon: '🌍',
                   title: 'Global Compatibility',
-                  description: 'Understanding international standards ensures smooth cross-border shipping and reduces delays at customs and distribution centers.',
+                  description: 'Pallet standards differ by region. Knowing what your destination uses helps you match the equipment and racking at the receiving end.',
                 },
                 {
                   icon: '📦',
                   title: 'Product Protection',
-                  description: 'Properly sized pallets prevent overhang, reduce product damage, and ensure stable loads during transport and storage.',
+                  description: 'Properly sized pallets prevent overhang, reduce product damage, and support stable loads during transport and storage.',
                 },
                 {
                   icon: '♻️',
                   title: 'Sustainability',
-                  description: 'Optimized pallet sizes reduce material waste, lower carbon footprint, and improve recyclability at end of life.',
+                  description: 'Standard sizes are easier to reuse, repair and recycle, and reusing a pallet avoids building a new one.',
                 },
               ].map((benefit, index) => (
                 <motion.div
@@ -107,7 +107,7 @@ export default function SizesPage() {
               Standard North American Pallet Sizes
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              North America uses several standard pallet sizes, each optimized for specific industries and applications. Understanding these standards helps you make informed decisions for your operations.
+              North America uses several common pallet sizes, each associated with particular industries. The 48" × 40" is the size most buyers will encounter, but others are standard in their own sectors.
             </p>
 
             <div className="bg-white rounded-2xl soft-shadow overflow-hidden mb-12">
@@ -117,25 +117,24 @@ export default function SizesPage() {
                     <tr>
                       <th className="px-6 py-4 text-left font-semibold">Size Name</th>
                       <th className="px-6 py-4 text-left font-semibold">Dimensions (L × W)</th>
+                      <th className="px-6 py-4 text-left font-semibold">Metric (mm)</th>
                       <th className="px-6 py-4 text-left font-semibold">Primary Industry</th>
-                      <th className="px-6 py-4 text-left font-semibold">Static Load</th>
-                      <th className="px-6 py-4 text-left font-semibold">Dynamic Load</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {[
-                      { name: 'GMA Pallet', dimensions: '48" × 40"', industry: 'Grocery, Retail, Consumer Goods', static: '5,500 lbs', dynamic: '4,600 lbs', description: 'The most common pallet in North America, used by 30% of all businesses' },
-                      { name: 'CHEP Pallet (Blue)', dimensions: '48" × 40"', industry: 'Pooling System, Retail', static: '4,400 lbs', dynamic: '2,800 lbs', description: 'Standardized rental pallet system used globally' },
-                      { name: 'Euro Pallet (EPAL)', dimensions: '47.2" × 39.4"', industry: 'European Standard, Export', static: '5,500 lbs', dynamic: '4,400 lbs', description: 'Required for many European imports/exports' },
-                      { name: 'Half Pallet', dimensions: '48" × 20"', industry: 'Retail Display, Small Loads', static: '3,000 lbs', dynamic: '2,000 lbs', description: 'Perfect for retail displays and smaller shipments' },
-                      { name: 'Quarter Pallet', dimensions: '24" × 20"', industry: 'Retail, Small Products', static: '1,500 lbs', dynamic: '1,000 lbs', description: 'Ideal for end-cap displays and promotional items' },
-                      { name: 'Drum Pallet', dimensions: '42" × 42"', industry: 'Chemical, Petroleum, Drums', static: '4,500 lbs', dynamic: '3,000 lbs', description: 'Square design accommodates four 55-gallon drums' },
-                      { name: 'Automotive Pallet', dimensions: '48" × 45"', industry: 'Automotive Parts', static: '4,600 lbs', dynamic: '3,500 lbs', description: 'Wider design for automotive industry standards' },
-                      { name: 'Beverage Pallet', dimensions: '36" × 36"', industry: 'Beverages, Bottling', static: '4,200 lbs', dynamic: '3,000 lbs', description: 'Square design perfect for beverage industry' },
-                      { name: 'Pharmaceutical', dimensions: '40" × 48"', industry: 'Pharma, Medical Supplies', static: '3,800 lbs', dynamic: '2,500 lbs', description: 'Clean room compatible, strict quality standards' },
-                      { name: 'Telecommunications', dimensions: '48" × 48"', industry: 'Telecom Equipment', static: '4,000 lbs', dynamic: '3,000 lbs', description: 'Large square format for heavy equipment' },
-                      { name: 'Dairy Pallet', dimensions: '40" × 40"', industry: 'Dairy Products', static: '3,500 lbs', dynamic: '2,800 lbs', description: 'Standard in dairy industry for milk crates' },
-                      { name: 'Cement Block', dimensions: '40" × 48"', industry: 'Construction Materials', static: '6,000 lbs', dynamic: '4,000 lbs', description: 'Heavy-duty for construction materials' },
+                      { name: 'GMA Pallet', dimensions: '48" × 40"', metric: '1219 × 1016', industry: 'Grocery, Retail, Consumer Goods', description: 'The most common pallet size in North America' },
+                      { name: 'Drum Pallet', dimensions: '48" × 48"', metric: '1219 × 1219', industry: 'Drums, Chemicals', description: 'Large square format that can seat four 55-gallon drums' },
+                      { name: 'Telecom and Paint Pallet', dimensions: '42" × 42"', metric: '1067 × 1067', industry: 'Telecommunications, Paint', description: 'Square format and one of the ISO 6780 sizes' },
+                      { name: 'Military and Cement Pallet', dimensions: '40" × 48"', metric: '1016 × 1219', industry: 'Military, Cement', description: 'Same footprint as the GMA, with 40" stringers and 48" deck boards' },
+                      { name: 'Chemical and Beverage Pallet', dimensions: '48" × 42"', metric: '1219 × 1067', industry: 'Chemicals, Beverages', description: 'Slightly wider than the GMA footprint' },
+                      { name: 'Automotive Pallet', dimensions: '48" × 45"', metric: '1219 × 1143', industry: 'Automotive Parts', description: 'Wider format associated with automotive parts' },
+                      { name: 'Square Drum Pallet', dimensions: '44" × 44"', metric: '1118 × 1118', industry: 'Drums, Chemicals', description: 'Smaller square option for drum and chemical loads' },
+                      { name: 'Dairy Pallet', dimensions: '40" × 40"', metric: '1016 × 1016', industry: 'Dairy Products', description: 'Square format associated with dairy distribution' },
+                      { name: 'Beverage Pallet', dimensions: '36" × 36"', metric: '914 × 914', industry: 'Beverages', description: 'Compact square format' },
+                      { name: 'Beverage and Paper Pallet', dimensions: '48" × 36"', metric: '1219 × 914', industry: 'Beverages, Shingles, Packaged Paper', description: 'Narrower format for dense loads' },
+                      { name: 'Half Pallet', dimensions: '48" × 20"', metric: '1219 × 508', industry: 'Retail Display, Small Loads', description: 'Used for retail displays and smaller shipments' },
+                      { name: 'Quarter Pallet', dimensions: '24" × 20"', metric: '610 × 508', industry: 'Retail, Small Products', description: 'Used for end-cap displays and promotional items' },
                     ].map((size, index) => (
                       <motion.tr
                         key={index}
@@ -150,9 +149,8 @@ export default function SizesPage() {
                           <div className="text-xs text-gray-500 mt-1">{size.description}</div>
                         </td>
                         <td className="px-6 py-4 text-secondary-600 font-mono font-bold">{size.dimensions}</td>
+                        <td className="px-6 py-4 text-gray-600 text-sm font-mono">{size.metric}</td>
                         <td className="px-6 py-4 text-gray-600 text-sm">{size.industry}</td>
-                        <td className="px-6 py-4 text-gray-700 font-medium">{size.static}</td>
-                        <td className="px-6 py-4 text-gray-700 font-medium">{size.dynamic}</td>
                       </motion.tr>
                     ))}
                   </tbody>
@@ -166,13 +164,13 @@ export default function SizesPage() {
               viewport={{ once: true }}
               className="bg-secondary-50 border border-secondary-200 p-6 rounded-xl"
             >
-              <h3 className="text-xl font-bold text-secondary-700 mb-3">Understanding Load Capacities:</h3>
+              <h3 className="text-xl font-bold text-secondary-700 mb-3">Reading This Chart:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
                 <div>
-                  <span className="font-bold">Static Load:</span> Maximum weight when pallet is stationary on the ground or in storage
+                  <span className="font-bold">Dimensions:</span> Nominal sizes, with the stringer length first. Actual pallets can vary slightly, so confirm exact measurements with the supplier.
                 </div>
                 <div>
-                  <span className="font-bold">Dynamic Load:</span> Maximum weight when pallet is being moved by forklift or pallet jack
+                  <span className="font-bold">Industries:</span> Common associations, not rules. Check what your customers and receiving sites actually require before you order.
                 </div>
               </div>
             </motion.div>
@@ -193,7 +191,7 @@ export default function SizesPage() {
               International Pallet Size Standards
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Different regions have adopted different standard sizes based on local industry needs, shipping containers, and historical practices. Understanding these variations is crucial for international trade.
+              Different regions have adopted different standard sizes based on local industry needs and historical practice. ISO 6780 recognizes six pallet sizes used around the world, and knowing them helps with international trade.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -203,54 +201,54 @@ export default function SizesPage() {
                   flag: '🇺🇸',
                   standard: '48" × 40"',
                   metric: '1219 × 1016 mm',
-                  usage: 'Used by approximately 35% of all pallets in North America',
-                  notes: 'GMA standard, optimized for North American trailer widths (96 inches)',
-                  compatibility: 'Fits perfectly in 48-foot trailers (24 pallets per layer)',
+                  usage: 'The most common pallet size in North America',
+                  notes: 'Known as the GMA size, and one of the ISO 6780 sizes',
+                  compatibility: 'A 48-foot trailer typically holds 24 on the floor, loaded straight',
                 },
                 {
-                  region: 'Europe',
+                  region: 'Europe: EUR Pallet',
                   flag: '🇪🇺',
+                  standard: '47.2" × 31.5"',
+                  metric: '1200 × 800 mm',
+                  usage: 'The standard EUR pallet, widely used across Europe',
+                  notes: 'The EPAL Euro pallet size, and one of the ISO 6780 sizes',
+                  compatibility: 'Common in European road transport and retail distribution',
+                },
+                {
+                  region: 'Europe and Asia',
+                  flag: '🌍',
                   standard: '47.2" × 39.4"',
                   metric: '1200 × 1000 mm',
-                  usage: 'EUR-pallet, most common in European Union',
-                  notes: 'Required for EPAL certification, essential for EU shipping',
-                  compatibility: 'Optimized for European trucks and rail cars',
+                  usage: 'Used in Europe, Asia and for international shipments',
+                  notes: 'An ISO 6780 size, sometimes called the industrial pallet',
+                  compatibility: 'Close to the 48" × 40" footprint, but not interchangeable with it',
                 },
                 {
                   region: 'Australia',
                   flag: '🇦🇺',
-                  standard: '46" × 46"',
+                  standard: '45.9" × 45.9"',
                   metric: '1165 × 1165 mm',
-                  usage: 'Standard Australian pallet (SAP)',
-                  notes: 'Square design popular in Asia-Pacific region',
-                  compatibility: 'Works well in both truck and container shipping',
+                  usage: 'The standard Australian pallet',
+                  notes: 'Square format, and an ISO 6780 size',
+                  compatibility: 'Confirm fit if you are shipping into Australian supply chains',
                 },
                 {
                   region: 'Asia',
                   flag: '🌏',
                   standard: '43.3" × 43.3"',
                   metric: '1100 × 1100 mm',
-                  usage: 'Common in Japan, Korea, and other Asian countries',
-                  notes: 'T11 pallet, ISO 6780 standard',
-                  compatibility: 'Optimized for Asian shipping containers',
+                  usage: 'Common in Japan, Korea and other Asian countries',
+                  notes: 'Known as the T11 pallet, and an ISO 6780 size',
+                  compatibility: 'Check container and racking fit at the destination',
                 },
                 {
-                  region: 'ISO Standard 1',
+                  region: 'North America, Europe and Asia',
                   flag: '🌍',
-                  standard: '47.2" × 39.4"',
-                  metric: '1200 × 1000 mm',
-                  usage: 'Globally recognized ISO 6780 standard',
-                  notes: 'Same as EUR-pallet, widely accepted internationally',
-                  compatibility: 'Universal acceptance in most countries',
-                },
-                {
-                  region: 'ISO Standard 2',
-                  flag: '🌍',
-                  standard: '39.4" × 47.2"',
-                  metric: '1000 × 1200 mm',
-                  usage: 'Alternate orientation of ISO standard',
-                  notes: 'Used when longer dimension is needed perpendicular to direction of travel',
-                  compatibility: 'Same as ISO Standard 1, different orientation',
+                  standard: '42" × 42"',
+                  metric: '1067 × 1067 mm',
+                  usage: 'Used across regions, including telecom and paint in North America',
+                  notes: 'Square format, and an ISO 6780 size',
+                  compatibility: 'Check container and racking fit at the destination',
                 },
               ].map((standard, index) => (
                 <motion.div
@@ -296,7 +294,7 @@ export default function SizesPage() {
             >
               <h3 className="text-2xl font-bold mb-4">Exporting Internationally?</h3>
               <p className="text-lg mb-6 opacity-90">
-                We offer ISPM 15 certified pallets in all international standard sizes, ensuring your shipments meet global requirements and avoid costly delays at customs.
+                Wood packaging in international trade generally has to meet ISPM 15. Tell us your destination and partner suppliers in our network can quote treated and marked pallets in the sizes they carry. Check current requirements for your destination.
               </p>
               <Link href="/products/export-pallets" className="inline-block px-8 py-3 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors">
                 Learn About Export Pallets
@@ -318,7 +316,7 @@ export default function SizesPage() {
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Need Help Choosing a Size?</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Our pallet experts can help you select the perfect size for your specific needs. Get a free consultation and quote today.
+                Send a free, no-obligation quote request with your load details. We pass it to partner suppliers in our network, and a partner supplier follows up. Requests are welcome from across the US; availability depends on partner suppliers.
               </p>
             </motion.div>
             <ContactForm productType="Size Guide Inquiry" />
@@ -353,7 +351,7 @@ export default function SizesPage() {
                     'Account for packaging materials and overhang',
                     'Consider how products will be stacked or arranged',
                     'Calculate total footprint needed per pallet',
-                    'Allow 1-2 inches clearance on all sides for stability',
+                    'Leave a small margin inside the pallet edge for stability',
                   ],
                   tip: 'Products should not overhang the pallet edge to prevent damage during handling',
                 },
@@ -362,13 +360,13 @@ export default function SizesPage() {
                   title: 'Consider Your Transport Method',
                   description: 'Different transportation modes favor different pallet sizes',
                   details: [
-                    'Truck: 48" × 40" pallets fit perfectly in 48-foot trailers (24 per layer)',
-                    'Container: 40" × 48" can fit more pallets in 20-foot containers',
+                    'Truck: A 48-foot trailer typically holds 24 pallets of 48" × 40" on the floor, loaded straight',
+                    'Container: Interiors do not divide evenly by most pallet footprints, so plan the layout first',
                     'Rail: Standard sizes work best for intermodal shipping',
-                    'Air freight: Smaller, lighter pallets reduce costs',
-                    'Calculate pallets per load to maximize trailer/container utilization',
+                    'Air freight: Weight counts, so lighter pallets are usually preferred',
+                    'Calculate pallets per load to make full use of the trailer or container',
                   ],
-                  tip: 'Wasted trailer space costs money - choose sizes that maximize capacity',
+                  tip: 'Unused trailer space adds cost, so check the load plan before you commit to a size',
                 },
                 {
                   step: 3,
@@ -379,7 +377,7 @@ export default function SizesPage() {
                     'Check forklift capacity and mast height',
                     'Verify aisle widths accommodate pallet dimensions',
                     'Consider how pallets will be accessed (front, side, or both)',
-                    'Account for clearances required by fire codes',
+                    'Account for any fire-code clearances that apply to your site',
                   ],
                   tip: 'Non-standard sizes may require expensive rack modifications',
                 },
@@ -392,7 +390,7 @@ export default function SizesPage() {
                     'Determine if load will be stored (static) or moved (dynamic)',
                     'Consider racking load if storing pallets on shelves',
                     'Account for load distribution - concentrated vs. evenly distributed',
-                    'Add safety margin of 20-30% to maximum expected weight',
+                    'Stay under the capacity your supplier gives you, with a margin for safety',
                   ],
                   tip: 'Overloaded pallets are a major safety hazard and can collapse unexpectedly',
                 },
@@ -401,13 +399,13 @@ export default function SizesPage() {
                   title: 'Review Industry Standards',
                   description: 'Some industries require specific pallet sizes',
                   details: [
-                    'Grocery (GMA): 48" × 40" is virtually mandatory',
-                    'Automotive: 48" × 45" is industry standard',
-                    'Pharmaceuticals: Strict cleanliness and size requirements',
-                    'Export: Must comply with destination country standards',
+                    'Grocery: 48" × 40" is the expected size in most grocery distribution',
+                    'Automotive: 48" × 45" is a common size for parts',
+                    'Drums and chemicals: 48" × 48", 44" × 44" and 48" × 42" are common',
+                    'Export: Check destination requirements, including ISPM 15 for wood packaging',
                     'Check with major customers for any specific requirements',
                   ],
-                  tip: 'Non-standard sizes may be rejected by retailers and distributors',
+                  tip: 'Some retailers and distributors set pallet requirements, so ask before you ship',
                 },
                 {
                   step: 6,
@@ -476,10 +474,10 @@ export default function SizesPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
             >
-              Load Capacity Charts by Size
+              Load Capacity by Pallet Size
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Understanding load capacities helps prevent damage and ensures safety. Capacity varies based on pallet construction, wood grade, and deck board thickness.
+              Understanding load capacity helps prevent damage and supports safe handling. Capacity depends on how a pallet is built, not only on its size, so there is no single figure for any footprint. Ask the supplier for the rating of the specific pallet you are quoted.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -489,34 +487,20 @@ export default function SizesPage() {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
               >
-                <h3 className="text-2xl font-bold text-primary-600 mb-6">Wooden Pallet Capacities</h3>
-                <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-primary-600 mb-6">Wooden Pallet Capacity</h3>
+                <ul className="space-y-4">
                   {[
-                    { size: '48" × 40" (GMA)', static: '5,500 lbs', dynamic: '4,600 lbs', racking: '2,500 lbs' },
-                    { size: '48" × 48" (Telecom)', static: '4,000 lbs', dynamic: '3,000 lbs', racking: '2,200 lbs' },
-                    { size: '42" × 42" (Drum)', static: '4,500 lbs', dynamic: '3,000 lbs', racking: '2,000 lbs' },
-                    { size: '40" × 48" (Pharma)', static: '3,800 lbs', dynamic: '2,500 lbs', racking: '1,800 lbs' },
-                    { size: '36" × 36" (Beverage)', static: '4,200 lbs', dynamic: '3,000 lbs', racking: '2,000 lbs' },
-                  ].map((capacity, idx) => (
-                    <div key={idx} className="border-b border-gray-200 last:border-0 pb-4 last:pb-0">
-                      <div className="font-bold text-gray-800 mb-2">{capacity.size}</div>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <div>
-                          <div className="text-gray-500">Static</div>
-                          <div className="font-semibold text-primary-600">{capacity.static}</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-500">Dynamic</div>
-                          <div className="font-semibold text-secondary-600">{capacity.dynamic}</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-500">Racking</div>
-                          <div className="font-semibold text-gray-700">{capacity.racking}</div>
-                        </div>
-                      </div>
-                    </div>
+                    { factor: 'Wood Species', description: 'Hardwood and softwood pallets perform differently under load.' },
+                    { factor: 'Board Thickness', description: 'Thicker deck boards and stringers generally carry more.' },
+                    { factor: 'Construction', description: 'Block and stringer designs handle loads differently, and double-deck pallets spread weight better.' },
+                    { factor: 'Condition', description: 'Used and repaired pallets vary, so confirm the rating for the grade you are buying.' },
+                  ].map((item, idx) => (
+                    <li key={idx} className="border-b border-gray-200 last:border-0 pb-4 last:pb-0">
+                      <div className="font-bold text-gray-800 mb-2">{item.factor}</div>
+                      <div className="text-sm text-gray-600">{item.description}</div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
 
               <motion.div
@@ -525,34 +509,20 @@ export default function SizesPage() {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
               >
-                <h3 className="text-2xl font-bold text-secondary-600 mb-6">Plastic Pallet Capacities</h3>
-                <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-secondary-600 mb-6">Plastic Pallet Capacity</h3>
+                <ul className="space-y-4">
                   {[
-                    { size: '48" × 40" (Standard)', static: '30,000 lbs', dynamic: '5,000 lbs', racking: '2,500 lbs' },
-                    { size: '48" × 48" (Heavy Duty)', static: '35,000 lbs', dynamic: '6,000 lbs', racking: '3,000 lbs' },
-                    { size: '45" × 45" (Export)', static: '25,000 lbs', dynamic: '4,500 lbs', racking: '2,200 lbs' },
-                    { size: '40" × 48" (Nestable)', static: '15,000 lbs', dynamic: '3,000 lbs', racking: '1,500 lbs' },
-                    { size: '48" × 40" (Rackable)', static: '20,000 lbs', dynamic: '4,000 lbs', racking: '2,800 lbs' },
-                  ].map((capacity, idx) => (
-                    <div key={idx} className="border-b border-gray-200 last:border-0 pb-4 last:pb-0">
-                      <div className="font-bold text-gray-800 mb-2">{capacity.size}</div>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <div>
-                          <div className="text-gray-500">Static</div>
-                          <div className="font-semibold text-primary-600">{capacity.static}</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-500">Dynamic</div>
-                          <div className="font-semibold text-secondary-600">{capacity.dynamic}</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-500">Racking</div>
-                          <div className="font-semibold text-gray-700">{capacity.racking}</div>
-                        </div>
-                      </div>
-                    </div>
+                    { factor: 'Design', description: 'Nestable, stackable and rackable designs are made for different jobs and carry different loads.' },
+                    { factor: 'Reinforcement', description: 'Some rackable pallets use steel or other reinforcement to reduce deflection.' },
+                    { factor: 'Rating Type', description: 'A high static rating does not mean a pallet can be racked at that weight.' },
+                    { factor: 'Temperature and Time', description: 'Plastic can creep under sustained load and in heat, so ask about your storage conditions.' },
+                  ].map((item, idx) => (
+                    <li key={idx} className="border-b border-gray-200 last:border-0 pb-4 last:pb-0">
+                      <div className="font-bold text-gray-800 mb-2">{item.factor}</div>
+                      <div className="text-sm text-gray-600">{item.description}</div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
             </div>
 
@@ -566,7 +536,7 @@ export default function SizesPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Static Load Capacity</h4>
-                  <p className="text-sm text-gray-700">Maximum weight when pallet is stationary on a flat, level surface. Highest capacity rating.</p>
+                  <p className="text-sm text-gray-700">Maximum weight when pallet is stationary on a flat, level surface. Usually the highest rating.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Dynamic Load Capacity</h4>
@@ -574,7 +544,7 @@ export default function SizesPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Racking Load Capacity</h4>
-                  <p className="text-sm text-gray-700">Maximum weight when pallet is stored on warehouse racking. Lowest capacity due to concentrated stress points.</p>
+                  <p className="text-sm text-gray-700">Maximum weight when pallet is stored on warehouse racking, supported only at its edges. Usually the lowest rating.</p>
                 </div>
               </div>
             </motion.div>
@@ -595,7 +565,7 @@ export default function SizesPage() {
               Pallet Sizes by Industry
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Different industries have adopted specific pallet sizes that best suit their products and distribution networks. Using industry-standard sizes ensures compatibility with partners and customers.
+              Different industries have settled on particular pallet sizes that suit their products and distribution networks. These are common associations, so confirm with your customers.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -604,64 +574,55 @@ export default function SizesPage() {
                   industry: 'Grocery & Retail',
                   icon: '🛒',
                   sizes: ['48" × 40" (GMA)', '48" × 20" (Half)', '24" × 20" (Quarter)'],
-                  notes: 'GMA standard is mandatory for most major retailers',
-                  marketShare: '70% of industry',
+                  notes: 'The GMA size is the norm in grocery distribution',
                 },
                 {
                   industry: 'Automotive',
                   icon: '🚗',
-                  sizes: ['48" × 45"', '48" × 40"'],
-                  notes: 'Wider pallets accommodate automotive parts packaging',
-                  marketShare: '80% use 48" × 45"',
-                },
-                {
-                  industry: 'Pharmaceutical',
-                  icon: '💊',
-                  sizes: ['40" × 48"', '31.5" × 47.2"'],
-                  notes: 'Strict cleanliness and tracking requirements',
-                  marketShare: '65% use 40" × 48"',
+                  sizes: ['48" × 45"'],
+                  notes: 'A wider format associated with automotive parts',
                 },
                 {
                   industry: 'Telecommunications',
                   icon: '📡',
-                  sizes: ['48" × 48"', '40" × 48"'],
-                  notes: 'Square pallets for heavy equipment',
-                  marketShare: '90% use 48" × 48"',
+                  sizes: ['42" × 42"'],
+                  notes: 'A square format commonly listed for telecom',
                 },
                 {
                   industry: 'Chemicals & Drums',
                   icon: '🛢️',
-                  sizes: ['42" × 42"', '48" × 40"'],
-                  notes: '42" × 42" fits four 55-gallon drums perfectly',
-                  marketShare: '75% use 42" × 42"',
+                  sizes: ['48" × 48"', '44" × 44"', '48" × 42"'],
+                  notes: '48" × 48" can seat four 55-gallon drums',
                 },
                 {
                   industry: 'Beverage',
                   icon: '🥤',
-                  sizes: ['36" × 36"', '40" × 48"'],
-                  notes: 'Square design for bottles and cans',
-                  marketShare: '60% use 36" × 36"',
+                  sizes: ['48" × 42"', '48" × 36"', '36" × 36"'],
+                  notes: 'Several sizes are used for bottles and cans',
                 },
                 {
                   industry: 'Dairy',
                   icon: '🥛',
-                  sizes: ['40" × 40"', '48" × 40"'],
-                  notes: 'Optimized for milk crate dimensions',
-                  marketShare: '85% use 40" × 40"',
+                  sizes: ['40" × 40"'],
+                  notes: 'A square format associated with dairy distribution',
                 },
                 {
                   industry: 'Paint & Coatings',
                   icon: '🎨',
-                  sizes: ['42" × 42"', '48" × 40"'],
-                  notes: 'Square pallets for buckets and containers',
-                  marketShare: '55% use 42" × 42"',
+                  sizes: ['42" × 42"'],
+                  notes: 'Square pallets for pails and containers',
                 },
                 {
-                  industry: 'Consumer Electronics',
-                  icon: '📱',
-                  sizes: ['48" × 40"', '40" × 48"'],
-                  notes: 'Standard sizes for retail distribution',
-                  marketShare: '90% use 48" × 40"',
+                  industry: 'Paper & Building Materials',
+                  icon: '🧱',
+                  sizes: ['48" × 36"', '40" × 48"'],
+                  notes: '48" × 36" suits shingles and packaged paper; 40" × 48" is listed for cement',
+                },
+                {
+                  industry: 'Military',
+                  icon: '🎖️',
+                  sizes: ['40" × 48"'],
+                  notes: 'Commonly listed for military use; check the contract requirements',
                 },
               ].map((industry, index) => (
                 <motion.div
@@ -681,10 +642,7 @@ export default function SizesPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{industry.notes}</p>
-                  <div className="pt-3 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 font-semibold">{industry.marketShare}</p>
-                  </div>
+                  <p className="text-gray-600 text-sm">{industry.notes}</p>
                 </motion.div>
               ))}
             </div>
@@ -705,7 +663,7 @@ export default function SizesPage() {
               Custom Pallet Sizes
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Sometimes standard sizes don't meet your unique requirements. We manufacture custom pallets in any dimension to perfectly match your specific needs.
+              Sometimes standard sizes don't meet your requirements. Partner suppliers in our network can quote custom pallets built to the dimensions you need.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
@@ -724,7 +682,7 @@ export default function SizesPage() {
                     },
                     {
                       reason: 'Maximize Container Space',
-                      description: 'Custom sizes can increase container utilization by 15-25% for certain product types',
+                      description: 'A footprint matched to your product can make better use of container space for certain product types',
                     },
                     {
                       reason: 'Proprietary Racking Systems',
@@ -763,33 +721,11 @@ export default function SizesPage() {
                 <h3 className="text-2xl font-bold text-secondary-600 mb-6">Custom Pallet Specifications</h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-bold text-gray-800 mb-3">Available Size Ranges:</h4>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                        <span className="text-gray-600">Minimum Length:</span>
-                        <span className="font-semibold text-gray-800">18 inches</span>
-                      </div>
-                      <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                        <span className="text-gray-600">Maximum Length:</span>
-                        <span className="font-semibold text-gray-800">120 inches</span>
-                      </div>
-                      <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                        <span className="text-gray-600">Minimum Width:</span>
-                        <span className="font-semibold text-gray-800">18 inches</span>
-                      </div>
-                      <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                        <span className="text-gray-600">Maximum Width:</span>
-                        <span className="font-semibold text-gray-800">60 inches</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
                     <h4 className="font-bold text-gray-800 mb-3">Customization Options:</h4>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center text-gray-700">
                         <span className="text-primary-500 mr-2">•</span>
-                        Any dimension to 1/8 inch precision
+                        Non-standard length and width
                       </li>
                       <li className="flex items-center text-gray-700">
                         <span className="text-primary-500 mr-2">•</span>
@@ -805,19 +741,19 @@ export default function SizesPage() {
                       </li>
                       <li className="flex items-center text-gray-700">
                         <span className="text-primary-500 mr-2">•</span>
-                        Custom weight capacities
+                        Board thickness built around your load
                       </li>
                       <li className="flex items-center text-gray-700">
                         <span className="text-primary-500 mr-2">•</span>
-                        Special wood grades or treatments
+                        Choice of wood species or grade
                       </li>
                     </ul>
                   </div>
 
                   <div className="bg-primary-50 border border-primary-200 p-4 rounded-lg">
                     <div className="text-sm">
-                      <div className="font-bold text-primary-700 mb-2">Lead Time:</div>
-                      <div className="text-gray-700">Custom pallets typically ship in 2-3 weeks. Rush orders available for premium pricing.</div>
+                      <div className="font-bold text-primary-700 mb-2">What to Include in Your Request:</div>
+                      <div className="text-gray-700">Dimensions, load weight, entry type, quantity, and how the pallets will be stored and shipped. Options and lead times vary by partner supplier.</div>
                     </div>
                   </div>
                 </div>
@@ -832,7 +768,7 @@ export default function SizesPage() {
             >
               <h3 className="text-3xl font-bold mb-4">Need Custom Pallets?</h3>
               <p className="text-xl mb-6 opacity-90">
-                Our engineering team will work with you to design the perfect pallet for your specific requirements
+                Send your specifications and we will pass them to partner suppliers in our network, who can quote on your requirements
               </p>
               <Link href="/products/custom-pallets" className="inline-block px-8 py-4 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors">
                 Request Custom Quote
@@ -888,7 +824,7 @@ export default function SizesPage() {
                         <span className="flex-shrink-0 w-6 h-6 bg-primary-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
                         <div>
                           <div className="font-semibold text-gray-800">Overall Length</div>
-                          <div className="text-sm text-gray-600">Measure from the longest edge to the opposite edge</div>
+                          <div className="text-sm text-gray-600">Measure end to end along the stringers or stringer boards</div>
                         </div>
                       </li>
                       <li className="flex items-start">
@@ -969,7 +905,7 @@ export default function SizesPage() {
                   <div className="bg-secondary-50 border border-secondary-200 p-4 rounded-lg">
                     <div className="text-sm">
                       <div className="font-bold text-secondary-700 mb-2">Important:</div>
-                      <div className="text-gray-700">Always leave 1-2 inches clearance on all sides for stability and safe handling. Overhanging loads are dangerous and may be rejected.</div>
+                      <div className="text-gray-700">Keep the load inside the pallet edges, with a small margin for stability and safe handling. Overhanging loads are dangerous and may be rejected.</div>
                     </div>
                   </div>
                 </div>
@@ -1034,35 +970,32 @@ export default function SizesPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
             >
-              Cost Implications by Pallet Size
+              Cost Factors by Pallet Size
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Pallet size directly impacts your total cost of ownership. Understanding these cost factors helps you make economically sound decisions for your supply chain.
+              Pallet size affects more than the purchase price. Pricing is by quote from partner suppliers, and the factors below help you compare options sensibly.
             </p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
               >
-                <h3 className="text-2xl font-bold text-primary-600 mb-6">Purchase Price by Size</h3>
+                <h3 className="text-2xl font-bold text-primary-600 mb-6">What Shapes a Pallet Quote</h3>
                 <div className="space-y-4">
-                  <p className="text-gray-600 text-sm mb-4">Approximate price ranges for new wooden pallets (prices vary by market conditions):</p>
+                  <p className="text-gray-600 text-sm mb-4">Pallet pricing moves with lumber costs and local supply, so ask for a current quote. These details affect it:</p>
                   {[
-                    { size: '48" × 40" (GMA)', price: '$12-18', notes: 'Most economical due to high volume production' },
-                    { size: '48" × 48"', price: '$15-22', notes: 'Larger size increases material costs' },
-                    { size: '42" × 42"', price: '$14-20', notes: 'Specialty size, moderate pricing' },
-                    { size: '40" × 48"', price: '$13-19', notes: 'Common size, competitive pricing' },
-                    { size: 'Custom Size', price: '$20-35+', notes: 'Higher cost due to specialized manufacturing' },
-                    { size: 'Half Pallet (48" × 20")', price: '$8-12', notes: 'Less material, lower price' },
+                    { size: 'Size', notes: 'High-volume sizes such as 48" × 40" tend to be easier to source than specialty sizes.' },
+                    { size: 'Material', notes: 'Wood, plastic and metal differ in upfront cost and in how long they last.' },
+                    { size: 'New or Used', notes: 'Used and recycled pallets are usually the lower-cost route where they suit the load.' },
+                    { size: 'Construction', notes: 'Block pallets, heavier boards and double decks use more material.' },
+                    { size: 'Custom Work', notes: 'Non-standard sizes generally cost more than stock sizes.' },
+                    { size: 'Quantity and Location', notes: 'Order size and distance from the supplier both play a part.' },
                   ].map((item, idx) => (
                     <div key={idx} className="border-b border-gray-200 last:border-0 pb-4 last:pb-0">
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="font-bold text-gray-800">{item.size}</div>
-                        <div className="text-xl font-bold text-primary-600">{item.price}</div>
-                      </div>
+                      <div className="font-bold text-gray-800 mb-2">{item.size}</div>
                       <div className="text-sm text-gray-600">{item.notes}</div>
                     </div>
                   ))}
@@ -1080,95 +1013,33 @@ export default function SizesPage() {
                   {[
                     {
                       factor: 'Shipping Efficiency',
-                      impact: 'High',
-                      description: 'Non-standard sizes waste trailer space, increasing shipping costs by 10-30%',
+                      description: 'Non-standard sizes can leave unused trailer space, which raises the shipping cost per unit',
                     },
                     {
                       factor: 'Warehouse Storage',
-                      impact: 'Medium',
-                      description: 'Odd sizes create wasted aisle space and reduce storage density',
+                      description: 'Odd sizes can waste rack and aisle space and reduce storage density',
                     },
                     {
                       factor: 'Handling Time',
-                      impact: 'Medium',
-                      description: 'Non-standard pallets slow loading/unloading by 15-20%',
+                      description: 'Pallets that do not suit your equipment can slow loading and unloading',
                     },
                     {
                       factor: 'Resale Value',
-                      impact: 'High',
-                      description: 'Standard sizes have strong secondary markets, custom sizes may have no resale value',
+                      description: 'Standard sizes have stronger secondary markets, while custom sizes may be hard to resell',
                     },
                     {
                       factor: 'Repair Availability',
-                      impact: 'Medium',
-                      description: 'Standard sizes are easier and cheaper to repair',
-                    },
-                    {
-                      factor: 'Pooling Options',
-                      impact: 'High',
-                      description: 'Only standard sizes work with pallet pooling services like CHEP',
+                      description: 'Standard sizes are generally easier to repair, since replacement parts are more available',
                     },
                   ].map((item, idx) => (
                     <div key={idx} className="bg-warm-50 p-4 rounded-lg">
-                      <div className="flex justify-between items-start mb-2">
-                        <div className="font-bold text-gray-800">{item.factor}</div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                          item.impact === 'High' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
-                        }`}>
-                          {item.impact} Impact
-                        </span>
-                      </div>
+                      <div className="font-bold text-gray-800 mb-2">{item.factor}</div>
                       <div className="text-sm text-gray-600">{item.description}</div>
                     </div>
                   ))}
                 </div>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
-            >
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Total Cost of Ownership Comparison</h3>
-              <p className="text-gray-600 mb-6">5-year cost comparison for 1,000 pallets annually:</p>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-primary-600 text-white">
-                    <tr>
-                      <th className="px-4 py-3 text-left">Cost Factor</th>
-                      <th className="px-4 py-3 text-right">Standard 48"×40"</th>
-                      <th className="px-4 py-3 text-right">Custom Size</th>
-                      <th className="px-4 py-3 text-right">Difference</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {[
-                      { factor: 'Initial Purchase', standard: '$75,000', custom: '$125,000', diff: '+$50,000' },
-                      { factor: 'Shipping Costs (5 yr)', standard: '$500,000', custom: '$625,000', diff: '+$125,000' },
-                      { factor: 'Storage Costs (5 yr)', standard: '$200,000', custom: '$240,000', diff: '+$40,000' },
-                      { factor: 'Handling Labor (5 yr)', standard: '$150,000', custom: '$180,000', diff: '+$30,000' },
-                      { factor: 'Repairs (5 yr)', standard: '$25,000', custom: '$40,000', diff: '+$15,000' },
-                      { factor: 'Resale Value', standard: '-$15,000', custom: '$0', diff: '+$15,000' },
-                      { factor: 'Total 5-Year Cost', standard: '$935,000', custom: '$1,210,000', diff: '+$275,000', highlight: true },
-                    ].map((row, idx) => (
-                      <tr key={idx} className={row.highlight ? 'bg-primary-50 font-bold' : ''}>
-                        <td className="px-4 py-3 text-gray-800">{row.factor}</td>
-                        <td className="px-4 py-3 text-right text-gray-700">{row.standard}</td>
-                        <td className="px-4 py-3 text-right text-gray-700">{row.custom}</td>
-                        <td className="px-4 py-3 text-right text-red-600 font-semibold">{row.diff}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="mt-4 bg-secondary-50 border border-secondary-200 p-4 rounded-lg">
-                <p className="text-sm text-gray-700">
-                  <span className="font-bold">Note:</span> These are estimated costs for illustration. Actual costs vary by region, volume, and specific requirements. Custom sizes may be justified when they provide significant operational benefits.
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -1242,7 +1113,7 @@ export default function SizesPage() {
                       Deck boards only on top, no bottom deck. Lighter weight and lower cost option for one-way shipments.
                     </p>
                     <div className="text-xs text-gray-500">
-                      <span className="font-semibold">Best for:</span> Export shipments, light loads, cost savings
+                      <span className="font-semibold">Best for:</span> Light loads, one-way shipments
                     </div>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -1260,7 +1131,7 @@ export default function SizesPage() {
                       No gaps between deck boards, creating a continuous surface. Better for small items and prevents product from falling through.
                     </p>
                     <div className="text-xs text-gray-500">
-                      <span className="font-semibold">Best for:</span> Small products, loose items, clean rooms
+                      <span className="font-semibold">Best for:</span> Small products, loose items
                     </div>
                   </div>
                 </div>
@@ -1280,7 +1151,7 @@ export default function SizesPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-800"
             >
-              Expert Size Selection Tips
+              Size Selection Tips
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1288,12 +1159,12 @@ export default function SizesPage() {
                 {
                   icon: '📏',
                   title: 'Measure Your Products',
-                  tip: 'Choose pallet size based on your product dimensions and stacking patterns. Allow 1-2 inches clearance on all sides.',
+                  tip: 'Choose pallet size based on your product dimensions and stacking patterns. Keep the load inside the pallet edges.',
                 },
                 {
                   icon: '🚚',
                   title: 'Consider Transport',
-                  tip: 'Standard sizes maximize trailer space and reduce shipping costs. Calculate pallets per load before deciding.',
+                  tip: 'Standard sizes make better use of trailer space. Calculate pallets per load before deciding.',
                 },
                 {
                   icon: '🏭',
@@ -1303,12 +1174,12 @@ export default function SizesPage() {
                 {
                   icon: '⚖️',
                   title: 'Weight Capacity',
-                  tip: 'Calculate total load weight including product and packaging. Add 20-30% safety margin to capacity requirements.',
+                  tip: 'Calculate total load weight including product and packaging, and stay under the capacity your supplier gives you.',
                 },
                 {
                   icon: '🌍',
                   title: 'Export Requirements',
-                  tip: 'International shipments may require specific pallet sizes and ISPM 15 heat treatment certification.',
+                  tip: 'International shipments may call for specific pallet sizes and ISPM 15 treated wood. Check current requirements.',
                 },
                 {
                   icon: '♻️',
@@ -1318,7 +1189,7 @@ export default function SizesPage() {
                 {
                   icon: '👥',
                   title: 'Customer Requirements',
-                  tip: 'Check with major customers about pallet requirements. Many retailers mandate specific sizes.',
+                  tip: 'Check with major customers about pallet requirements. Some retailers specify sizes.',
                 },
                 {
                   icon: '💰',
@@ -1369,7 +1240,7 @@ export default function SizesPage() {
               {[
                 {
                   question: 'What is the most common pallet size in North America?',
-                  answer: 'The 48" × 40" GMA pallet is the most common in North America, representing approximately 35% of all pallets in use. It\'s the standard for grocery and retail industries and is required by most major retailers including Walmart, Target, and Costco.',
+                  answer: 'The 48" × 40" pallet, often called the GMA size after the Grocery Manufacturers Association, is the most common in North America. It is the norm in grocery distribution and widely used across retail and consumer goods.',
                 },
                 {
                   question: 'Can I use different sized pallets in the same shipment?',
@@ -1377,39 +1248,39 @@ export default function SizesPage() {
                 },
                 {
                   question: 'How many 48" × 40" pallets fit in a standard trailer?',
-                  answer: 'A standard 48-foot trailer can hold 24 pallets (12 per row, 2 rows) when loaded with 48" × 40" pallets. This assumes single-stacked pallets; you can double-stack if height and weight allow.',
+                  answer: 'Loaded straight, a 48-foot trailer typically holds 24 on the floor (12 rows of 2) and a 53-foot trailer typically holds 26. Double-stacking may be possible if height, weight and the load allow it. Your carrier can confirm the plan.',
                 },
                 {
                   question: 'What\'s the difference between 48" × 40" and 40" × 48"?',
-                  answer: 'The dimensions are reversed - one is 8 inches longer than wide, the other is 8 inches wider than long. The choice depends on your product dimensions and how you want to arrange items on the pallet. Both have similar load capacities.',
+                  answer: 'They share a footprint, but the first number is the stringer length. A 48" × 40" pallet has 48" stringers and 40" deck boards, while a 40" × 48" pallet has 40" stringers and 48" deck boards. That changes which sides take the forks, so check against your racking and equipment.',
                 },
                 {
-                  question: 'Do I need ISPM 15 certified pallets for export?',
-                  answer: 'Yes, most countries require ISPM 15 treatment and certification for wooden pallets to prevent pest introduction. This involves heat treatment or methyl bromide fumigation. Plastic pallets don\'t require ISPM 15 certification.',
+                  question: 'Do I need ISPM 15 pallets for export?',
+                  answer: 'Many countries require solid wood packaging to be treated and marked under ISPM 15. The usual treatment is heating to a core temperature of 56 °C for 30 minutes, shown by the IPPC mark. Plastic and metal pallets are outside its scope. Check current requirements for your destination.',
                 },
                 {
                   question: 'Are plastic pallets available in the same sizes as wood pallets?',
-                  answer: 'Yes, plastic pallets are manufactured in all standard sizes (48" × 40", 48" × 48", etc.) and can also be custom molded to any size needed. They often have higher load capacities than equivalent wooden pallets.',
+                  answer: 'Plastic pallets are widely made in common sizes such as 48" × 40". The range is narrower than wood because each size needs its own mold, so ask partner suppliers what they can quote.',
                 },
                 {
                   question: 'How do I know if my warehouse racks fit standard pallets?',
-                  answer: 'Measure the inside width and depth of your rack bays. For 48" × 40" pallets, you need at least 50" × 42" bay openings to allow for clearance. Consult your rack manufacturer specifications for exact requirements.',
+                  answer: 'Measure the inside width and depth of your rack bays, and compare them with the pallet and load dimensions, allowing for handling clearance. Consult your rack manufacturer specifications for exact requirements.',
                 },
                 {
                   question: 'What happens if my products overhang the pallet?',
-                  answer: 'Overhanging loads are dangerous and often rejected. They can catch on equipment, fall during handling, and create liability issues. Products should stay within pallet edges or use appropriate extensions.',
+                  answer: 'Overhanging loads are dangerous and often rejected. They can catch on equipment, fall during handling, and leave product edges unprotected. Products should stay within pallet edges.',
                 },
                 {
                   question: 'Can pallet size affect my shipping costs?',
-                  answer: 'Absolutely. Non-standard sizes can waste trailer space, requiring more shipments. For example, using 42" × 42" pallets instead of 48" × 40" can reduce trailer capacity by 20%, significantly increasing per-unit shipping costs.',
+                  answer: 'Yes. Freight is often planned around floor positions, so a footprint that fits poorly can leave unused trailer space and raise the shipping cost per unit. Work out pallets per load for each size you are considering.',
                 },
                 {
                   question: 'How long does it take to get custom-sized pallets?',
-                  answer: 'Custom pallets typically take 2-3 weeks for production after design approval. Rush orders can be accommodated in 7-10 days with premium pricing. Standard sizes are usually available for immediate or next-day delivery.',
+                  answer: 'Lead times vary by partner supplier, specification and quantity. Include your timeline in your quote request and a partner supplier follows up.',
                 },
                 {
-                  question: 'What\'s the smallest pallet size you offer?',
-                  answer: 'We can manufacture pallets as small as 18" × 18", though the most common small size is the quarter pallet at 24" × 20". Smaller pallets are popular for retail displays and small product shipments.',
+                  question: 'What\'s the smallest pallet size available?',
+                  answer: 'The most common small size is the quarter pallet at 24" × 20", used for retail displays and small product shipments. Smaller custom sizes can be requested through a quote.',
                 },
                 {
                   question: 'Do pallet sizes need to match for stacking?',
@@ -1444,11 +1315,11 @@ export default function SizesPage() {
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">Still Not Sure Which Size is Right?</h2>
               <p className="text-xl md:text-2xl mb-8 opacity-90">
-                Our pallet experts are ready to help you select the perfect size for your specific needs. Get a free consultation and custom recommendation today.
+                Send a free, no-obligation quote request with your dimensions and load details, and a partner supplier in our network follows up.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/contact" className="px-10 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover">
-                  Get Expert Advice
+                  Request a Quote
                 </Link>
                 <Link href="/products" className="px-10 py-4 bg-transparent text-white rounded-xl font-bold text-lg border-2 border-white transition-all hover:bg-white/10">
                   Browse All Products
