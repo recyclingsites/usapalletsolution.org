@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact USA Pallet Solution | Request Pallet Quotes or Support Nationwide Today',
-  description: 'Call or message our team for pallet sales, recycling, transport, repair, or emergency support anywhere in the US.',
+  title: 'Contact USA Pallet Solution | Free Pallet Quote Request',
+  description: 'Send a free, no-obligation pallet quote request. It goes to partner suppliers in our network; availability depends on partner suppliers.',
   alternates: { canonical: '/contact/' },
 }
 

@@ -80,15 +80,15 @@ function validate(payload: Payload): Record<string, string> {
 
   if (!firstName || firstName.length > 80) fields.firstName = 'Enter a first name (up to 80 characters)'
   if (!lastName || lastName.length > 80) fields.lastName = 'Enter a last name (up to 80 characters)'
-  if (!email || !EMAIL_RE.test(email)) fields.email = 'Please enter a valid email address (e.g., name@company.com)'
+  if (!email || !EMAIL_RE.test(email)) fields.email = 'Enter a valid email address'
 
   // 10 digits, or 11 starting with 1, with an area code that can't start with 0 or 1.
   const digits = text(payload, 'phone').replace(/\D/g, '')
   const national = digits.length === 11 && digits.startsWith('1') ? digits.slice(1) : digits
-  if (!/^[2-9]\d{9}$/.test(national)) fields.phone = 'Please enter a valid phone number (e.g., (555) 123-4567)'
+  if (!/^[2-9]\d{9}$/.test(national)) fields.phone = 'Enter a valid phone number'
 
   if (!US_ZIP.test(postalCode) && !CA_POSTAL.test(postalCode)) {
-    fields.postalCode = 'Please enter a valid ZIP code (e.g., 12345 or 12345-6789) or Canadian postal code (e.g., A1A 1A1)'
+    fields.postalCode = 'Enter a valid ZIP or postal code'
   }
   if (!productOptions.some((option) => option.value === text(payload, 'productType'))) {
     fields.productType = 'Please select a product type'

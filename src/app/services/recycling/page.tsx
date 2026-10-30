@@ -7,24 +7,24 @@ import Link from 'next/link'
 export default function RecyclingPage() {
   const faqItems = [
     {
-      question: 'What happens to pallets you collect for recycling?',
-      answer: 'We repair reusable pallets, remanufacture components, and grind irreparable wood into mulch or biomass, diverting waste from landfills.',
+      question: 'What happens to pallets sent for recycling?',
+      answer: 'It depends on the partner supplier. Reusable pallets are commonly repaired, components are salvaged, and wood that cannot be reused is commonly ground into mulch or biomass fuel.',
     },
     {
-      question: 'Do you provide certificates of recycling?',
-      answer: 'Yes, we can supply recycling certificates and diversion reporting for your sustainability and compliance requirements.',
+      question: 'What should I include in a recycling request?',
+      answer: 'Include the pallet type, approximate quantity, condition and location, plus whether this is a one-off clearance or a repeat need.',
     },
     {
-      question: 'Can you set up recurring pallet recovery?',
-      answer: 'We design recurring pickup schedules, trailer drops, and on-site consolidation to streamline ongoing pallet recovery.',
+      question: 'Can I arrange repeat pallet pickups?',
+      answer: 'Mention it in your request. A partner supplier can tell you whether repeat pickups are possible at your location.',
     },
     {
-      question: 'Do you handle mixed pallet sizes and conditions?',
-      answer: 'Absolutely. We sort, grade, and process mixed pallets, maximizing reuse value and recycling material responsibly.',
+      question: 'Can I send a request for mixed sizes and conditions?',
+      answer: 'Yes. Describe the mix in your request. Whether a partner supplier can take the whole lot depends on the supplier.',
     },
     {
-      question: 'Is heat treatment available for recycled pallets?',
-      answer: 'Yes, recycled pallets can be heat-treated and stamped to meet ISPM 15 for export shipments.',
+      question: 'Can I buy heat-treated pallets for export?',
+      answer: 'You can request pallets with the ISPM 15 IPPC mark on the pallet selling page. Check current regulations for your destination and confirm the marking with the partner supplier.',
     },
   ]
 
@@ -53,8 +53,8 @@ export default function RecyclingPage() {
               <span className="mx-2 text-gray-400">/</span>
               <span className="text-gray-700">Pallet Recycling</span>
             </nav>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Sustainable Pallet Recycling</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Leading the industry in eco-friendly pallet recycling and refurbishment. Diverting millions of pallets from landfills annually.</p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Pallet Recycling and Reuse</h1>
+            <p className="text-xl text-gray-700 max-w-3xl">Send a recycling request and we pass it to partner suppliers. Requests are welcome from across the US; availability depends on partner suppliers.</p>
           </motion.div>
         </div>
       </section>
@@ -62,19 +62,19 @@ export default function RecyclingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-primary-600">Our Environmental Commitment</h2>
+            <h2 className="text-4xl font-bold mb-8 text-primary-600">Why Recycle Pallets</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                At USA Pallet Solution, environmental responsibility isn't just a buzzword - it's a core value that drives everything we do. Our state-of-the-art recycling facility processes over 2 million pallets annually, implementing sustainable practices that minimize waste, reduce carbon emissions, and maximize resource utilization. We're proud to be industry leaders in pallet recycling, setting standards that others aspire to achieve.
+                USA Pallet Solution is a referral service and does not run a recycling plant. If your business has pallets it no longer needs, send a free, no-obligation quote request. We pass it to partner suppliers in our network, and a partner supplier follows up about what it can do with them.
               </p>
               <p className="mb-6 leading-relaxed">
-                The environmental impact of pallet waste is staggering. Without proper recycling, millions of pallets end up in landfills each year, contributing to deforestation and greenhouse gas emissions. A single wooden pallet takes decades to decompose naturally, and during that time, it releases methane - a potent greenhouse gas. By recycling and refurbishing pallets, we prevent this waste, conserve forest resources, and reduce the carbon footprint of the logistics industry.
+                Most pallets are made of wood, a material that can often be used again. Reusing a pallet avoids building a new one, and a pallet that is repaired can stay in service rather than becoming waste. Pallets stacked behind a building also take up space and can create a safety hazard, so clearing them has practical benefits too.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our comprehensive recycling program handles pallets at every stage of their lifecycle. Grade A pallets that still have years of service life are inspected, cleaned, and resold. Grade B pallets with minor damage undergo professional repair and refurbishment, extending their useful life by 5-10 years. Pallets beyond economical repair are carefully dismantled, with usable components salvaged for other repairs. Finally, wood that cannot be reused is ground into mulch, animal bedding, or biomass fuel - ensuring zero waste goes to landfills.
+                What happens to a pallet depends on its condition. Pallets in good condition can be inspected and resold. Pallets with minor damage can be repaired. Those beyond economical repair can be dismantled so usable boards and blocks go into other repairs. Wood that cannot be reused can be ground into products such as mulch, animal bedding or biomass fuel.
               </p>
               <p className="mb-6 leading-relaxed">
-                Through our recycling initiatives, we've prevented over 10,000 tons of wood from entering landfills in the past year alone. This represents savings of thousands of trees and significant reductions in CO2 emissions. Many of our corporate clients choose our recycling services specifically to meet their own sustainability goals and ESG (Environmental, Social, and Governance) requirements. We provide detailed recycling reports that quantify environmental impact, helping businesses demonstrate their commitment to sustainability.
+                Many businesses look at pallet recycling as part of their wider waste plans. If you have particular goals or need particular paperwork, say so in your request and ask the partner supplier what it can provide.
               </p>
             </div>
           </motion.div>
@@ -90,7 +90,7 @@ export default function RecyclingPage() {
               viewport={{ once: true }}
               className="text-3xl font-bold text-center mb-8 text-primary-600"
             >
-              Start Your Recycling Program Today
+              Request Pallet Recycling
             </motion.h2>
             <ContactForm productType="Recycling Services" />
           </div>
@@ -100,59 +100,53 @@ export default function RecyclingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Our Recycling Process</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">How Pallet Recycling Typically Works</h2>
             <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              Our advanced 7-step recycling process ensures maximum material recovery and minimal environmental impact. Every pallet is handled with care and processed sustainably.
+              These are the usual stages at a pallet recycler. The exact process depends on the partner supplier that handles your request.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   step: 'Collection & Transport',
-                  description: 'We collect pallets from your facility using our efficient logistics network. Scheduled or on-demand pickups available.',
+                  description: 'Partner suppliers can arrange pickup from your site where it is available.',
                   icon: '🚚',
-                  details: ['Free pickup service', 'Flexible scheduling', 'Nationwide coverage', 'Bulk collection']
+                  details: ['Timing agreed with the supplier', 'One-off or repeat', 'Depends on location', 'Stacked pallets load more easily']
                 },
                 {
                   step: 'Inspection & Grading',
-                  description: 'Every pallet is carefully inspected and graded based on condition, structural integrity, and potential for reuse.',
+                  description: 'Pallets are checked and graded based on condition, structure and potential for reuse.',
                   icon: '🔍',
-                  details: ['Professional assessment', 'Detailed classification', 'Quality control', 'Digital tracking']
+                  details: ['Condition assessed', 'Structure checked', 'Grade assigned', 'Reuse potential judged']
                 },
                 {
                   step: 'Sorting & Categorization',
-                  description: 'Pallets are sorted by size, material type, and condition. This ensures optimal processing and maximum recovery.',
+                  description: 'Pallets are sorted by size, material and condition so each can go to the right next step.',
                   icon: '📋',
-                  details: ['Material separation', 'Size categorization', 'Condition grouping', 'Inventory management']
+                  details: ['Material separation', 'Size sorting', 'Condition grouping', 'Damaged units set aside']
                 },
                 {
                   step: 'Repair & Refurbishment',
-                  description: 'Repairable pallets undergo professional restoration. Damaged boards replaced, structural issues fixed.',
+                  description: 'Repairable pallets have damaged boards replaced and structural issues fixed.',
                   icon: '🔧',
-                  details: ['Skilled craftsmen', 'Quality materials', 'Structural repairs', 'Extended lifecycle']
+                  details: ['Broken boards replaced', 'Loose fasteners fixed', 'Blocks or stringers repaired', 'Pallet returns to use']
                 },
                 {
                   step: 'Dismantling & Salvage',
-                  description: 'Pallets beyond repair are carefully dismantled. Usable components saved for future repairs.',
+                  description: 'Pallets beyond repair can be taken apart, with usable components saved for future repairs.',
                   icon: '⚙️',
-                  details: ['Component recovery', 'Material salvage', 'Hardware extraction', 'Part inventory']
+                  details: ['Board recovery', 'Block recovery', 'Fastener removal', 'Parts kept for repairs']
                 },
                 {
                   step: 'Wood Grinding & Processing',
-                  description: 'Non-reusable wood is ground into valuable secondary products like mulch, animal bedding, or biomass fuel.',
+                  description: 'Wood that cannot be reused can be ground into products like mulch, animal bedding or biomass fuel.',
                   icon: '♻️',
-                  details: ['Industrial grinders', 'Multiple product streams', 'Zero landfill waste', 'Value recovery']
+                  details: ['Wood ground down', 'Metal fasteners removed', 'Mulch or bedding', 'Biomass fuel']
                 },
                 {
                   step: 'Resale & Distribution',
-                  description: 'Refurbished pallets are cleaned, marked, and made available for resale at discounted prices.',
+                  description: 'Refurbished pallets are made available for resale, often as a lower cost option than new.',
                   icon: '🏪',
-                  details: ['Quality assurance', 'Competitive pricing', 'Fast delivery', 'Warranty included']
-                },
-                {
-                  step: 'Reporting & Documentation',
-                  description: 'Detailed reports provided showing environmental impact, weight diverted from landfills, and carbon savings.',
-                  icon: '📊',
-                  details: ['Impact metrics', 'Compliance docs', 'ESG reporting', 'Certification']
+                  details: ['Graded for resale', 'Sold by the supplier', 'Available by quote', 'Pallet stays in use']
                 },
               ].map((step, index) => (
                 <motion.div
@@ -191,34 +185,8 @@ export default function RecyclingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Environmental Impact & Statistics
+            Why Pallet Reuse Matters
           </motion.h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            {[
-              { stat: '2M+', label: 'Pallets Recycled Annually', icon: '📊' },
-              { stat: '95%', label: 'Landfill Diversion Rate', icon: '♻️' },
-              { stat: '10,000+', label: 'Tons of Wood Saved', icon: '🌲' },
-              { stat: '500', label: 'Tons CO2 Prevented', icon: '🌍' },
-              { stat: '100%', label: 'Material Utilization', icon: '✓' },
-              { stat: '50,000+', label: 'Trees Saved Equivalent', icon: '🌳' },
-              { stat: '15+', label: 'Years of Operation', icon: '📅' },
-              { stat: '1,000+', label: 'Recycling Partners', icon: '🤝' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 border-2 border-primary-200 soft-shadow text-center"
-              >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <div className="text-4xl font-bold text-primary-600 mb-2">{item.stat}</div>
-                <p className="text-gray-600 text-sm font-semibold">{item.label}</p>
-              </motion.div>
-            ))}
-          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -226,37 +194,37 @@ export default function RecyclingPage() {
             viewport={{ once: true }}
             className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
           >
-            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">What Your Recycling Achieves</h3>
+            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">What Recycling Can Achieve</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  benefit: 'Forest Conservation',
-                  description: 'Every 1,000 pallets recycled saves approximately 25 mature trees from being harvested.',
+                  benefit: 'Fewer New Pallets',
+                  description: 'Reusing a pallet avoids building a new one.',
                   icon: '🌲'
                 },
                 {
-                  benefit: 'Carbon Reduction',
-                  description: 'Recycling pallets prevents methane release and reduces CO2 emissions by up to 75% vs. landfilling.',
-                  icon: '🌍'
+                  benefit: 'Longer Pallet Life',
+                  description: 'Repairing a damaged pallet can keep it in service for longer.',
+                  icon: '🔧'
                 },
                 {
-                  benefit: 'Energy Savings',
-                  description: 'Manufacturing pallets from recycled wood uses 65% less energy than creating new pallets.',
-                  icon: '⚡'
+                  benefit: 'Recovered Components',
+                  description: 'Boards and blocks salvaged from broken pallets can go into repairs.',
+                  icon: '⚙️'
                 },
                 {
-                  benefit: 'Landfill Space',
-                  description: 'Diverts valuable landfill space for non-recyclable waste, extending landfill lifespans.',
+                  benefit: 'Less Wood Waste',
+                  description: 'Wood that is reused or ground into other products is not sent to landfill.',
                   icon: '🗑️'
                 },
                 {
-                  benefit: 'Economic Value',
-                  description: 'Creates jobs in recycling sector and generates value from materials that would be waste.',
-                  icon: '💰'
+                  benefit: 'Clearer Sites',
+                  description: 'Removing unwanted pallets frees up floor space and yard space.',
+                  icon: '📦'
                 },
                 {
-                  benefit: 'Circular Economy',
-                  description: 'Supports sustainable business practices and reduces reliance on virgin materials.',
+                  benefit: 'Material Reuse',
+                  description: 'Keeping pallets in use can reduce the demand for new lumber.',
                   icon: '♻️'
                 },
               ].map((item, index) => (
@@ -281,52 +249,43 @@ export default function RecyclingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Recycling Program Options
+            Recycling Request Options
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: 'One-Time Recycling',
-                price: 'Free Pickup',
-                description: 'Perfect for facility cleanouts or one-time pallet disposal needs',
+                title: 'One-Time Cleanout',
+                description: 'For facility cleanouts or a single batch of unwanted pallets',
                 features: [
-                  'No minimum quantity',
-                  'Free collection service',
-                  'Same or next-day pickup',
-                  'Immediate service',
-                  'No contracts required',
-                  'Environmental report'
-                ],
-                popular: false
+                  'Send a single request',
+                  'Describe the pallets and quantity',
+                  'Pickup agreed with the supplier',
+                  'Pricing by quote',
+                  'No obligation to proceed'
+                ]
               },
               {
-                title: 'Monthly Recycling Program',
-                price: 'Custom Pricing',
-                description: 'Scheduled monthly pickups for businesses with ongoing recycling needs',
+                title: 'Repeat Pickups',
+                description: 'For sites where pallets build up regularly',
                 features: [
-                  'Scheduled collections',
-                  'Dedicated account manager',
-                  'Volume-based pricing',
-                  'Quarterly impact reports',
-                  'Priority service',
-                  'Flexible scheduling'
-                ],
-                popular: true
+                  'Mention it in your request',
+                  'Share your expected quantities',
+                  'Schedule agreed with the supplier',
+                  'Pricing by quote',
+                  'Depends on your location'
+                ]
               },
               {
-                title: 'Enterprise Program',
-                price: 'Contact Us',
-                description: 'Comprehensive solution for large corporations with multiple locations',
+                title: 'Multiple Locations',
+                description: 'For businesses with pallets at more than one site',
                 features: [
-                  'Multi-location service',
-                  'Custom logistics planning',
-                  'Advanced analytics',
-                  'ESG compliance reporting',
-                  'Dedicated support team',
-                  'Preferred pricing'
-                ],
-                popular: false
+                  'List each location in your request',
+                  'Availability varies by site',
+                  'May involve more than one supplier',
+                  'Pricing by quote',
+                  'Depends on partner suppliers'
+                ]
               },
             ].map((program, index) => (
               <motion.div
@@ -335,17 +294,9 @@ export default function RecyclingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-white rounded-xl p-8 border-2 soft-shadow hover:shadow-lg transition-shadow ${
-                  program.popular ? 'border-secondary-500 relative' : 'border-primary-200'
-                }`}
+                className="bg-white rounded-xl p-8 border-2 soft-shadow hover:shadow-lg transition-shadow border-primary-200"
               >
-                {program.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-secondary-500 text-white text-sm font-bold rounded-full">
-                    Most Popular
-                  </div>
-                )}
                 <h3 className="text-2xl font-bold text-primary-600 mb-2">{program.title}</h3>
-                <div className="text-3xl font-bold text-secondary-500 mb-4">{program.price}</div>
                 <p className="text-gray-600 mb-6">{program.description}</p>
                 <ul className="space-y-3 mb-8">
                   {program.features.map((feature, idx) => (
@@ -359,17 +310,13 @@ export default function RecyclingPage() {
                 </ul>
                 <Link
                   href="#contact-form"
-                  className={`block text-center px-6 py-3 rounded-lg font-bold transition-all ${
-                    program.popular
-                      ? 'bg-gradient-to-r from-primary-600 to-secondary-500 text-white hover:from-primary-700 hover:to-secondary-600'
-                      : 'bg-primary-100 text-primary-600 hover:bg-primary-200'
-                  }`}
+                  className="block text-center px-6 py-3 rounded-lg font-bold transition-all bg-primary-100 text-primary-600 hover:bg-primary-200"
                   onClick={(e) => {
                     e.preventDefault()
                     document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
                   }}
                 >
-                  Get Started
+                  Request a Quote
                 </Link>
               </motion.div>
             ))}
@@ -385,19 +332,19 @@ export default function RecyclingPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Industries We Serve
+            Businesses With Pallets to Recycle
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'Manufacturing', icon: '🏭', description: 'High-volume recycling for production facilities' },
-              { name: 'Retail', icon: '🏬', description: 'Distribution center pallet management' },
-              { name: 'Logistics', icon: '🚛', description: 'Reverse logistics and pallet recovery' },
-              { name: 'Warehousing', icon: '📦', description: 'Regular collection and recycling services' },
-              { name: 'Food & Beverage', icon: '🍎', description: 'Food-grade pallet recycling programs' },
-              { name: 'Pharmaceutical', icon: '💊', description: 'Compliant disposal and recycling' },
-              { name: 'Automotive', icon: '🚗', description: 'Industrial pallet recycling solutions' },
-              { name: 'Construction', icon: '🏗️', description: 'Job site pallet removal and recycling' },
+              { name: 'Manufacturing', icon: '🏭', description: 'Production facilities with incoming pallets' },
+              { name: 'Retail', icon: '🏬', description: 'Stores and distribution centers' },
+              { name: 'Logistics', icon: '🚛', description: 'Carriers and freight terminals' },
+              { name: 'Warehousing', icon: '📦', description: 'Sites where surplus pallets build up' },
+              { name: 'Food & Beverage', icon: '🍎', description: 'Distribution and warehouse sites' },
+              { name: 'Wholesale', icon: '🏪', description: 'Wholesale distribution centers' },
+              { name: 'Automotive', icon: '🚗', description: 'Parts and assembly sites' },
+              { name: 'Construction', icon: '🏗️', description: 'Pallets left from materials deliveries' },
             ].map((industry, index) => (
               <motion.div
                 key={index}
@@ -430,36 +377,36 @@ export default function RecyclingPage() {
           <div className="space-y-6">
             {[
               {
-                question: 'What types of pallets do you recycle?',
-                answer: 'We recycle all types of pallets including wooden pallets (hardwood and softwood), plastic pallets, metal pallets, and mixed materials. We handle standard sizes like GMA 48x40 as well as custom sizes. Pallets can be in any condition - we even recycle severely damaged pallets that other facilities might reject.'
+                question: 'What types of pallets can be recycled?',
+                answer: 'You can send a request for wooden pallets (hardwood and softwood), plastic pallets, metal pallets and mixed lots, in standard sizes like GMA 48x40 or custom sizes. What a partner supplier can accept depends on the supplier.'
               },
               {
                 question: 'Is there a minimum quantity for recycling pickup?',
-                answer: 'No minimum! We pick up anywhere from a single pallet to truckloads. However, for very small quantities (under 10 pallets), we may schedule pickup when our truck is already in your area to maximize efficiency. Large quantities (100+) can be scheduled at your convenience.'
+                answer: 'USA Pallet Solution sets no minimum for a request. Partner suppliers may have their own minimums, and small quantities can be harder to arrange because of transport costs.'
               },
               {
-                question: 'Do you charge for recycling pickup?',
-                answer: 'Our recycling pickup service is FREE for most situations. In some cases, depending on pallet condition and market value, we may even pay you for your pallets. We only charge fees for contaminated pallets requiring special handling or for remote locations with significant transportation costs.'
+                question: 'Is there a charge for recycling pickup?',
+                answer: 'It depends on the pallets and the location. Pricing is by quote from partner suppliers, and the quote request itself is free.'
               },
               {
                 question: 'How do I prepare pallets for recycling pickup?',
-                answer: 'Simply stack pallets in an accessible location where our truck can safely load them. Stack similar sizes together, up to 5-6 feet high. Ensure the pickup area is clear of obstacles. No special preparation needed - we handle everything else including loading and transportation.'
+                answer: 'Stack pallets safely in an accessible location where a truck can load them, with similar sizes together, and keep the area clear of obstacles. A partner supplier can tell you about anything else it needs.'
               },
               {
-                question: 'What happens to pallets after you pick them up?',
-                answer: 'Pallets go through our 7-step recycling process. Good condition pallets are inspected and resold. Repairable pallets are refurbished. Damaged pallets are dismantled for parts. Remaining wood is ground into secondary products like mulch or biomass fuel. Nothing goes to landfills - we achieve 95%+ diversion rate.'
+                question: 'What happens to pallets after pickup?',
+                answer: 'It depends on the partner supplier. Pallets in good condition are commonly resold, repairable pallets refurbished and damaged pallets dismantled for parts. Remaining wood is commonly ground into products such as mulch or biomass fuel.'
               },
               {
-                question: 'Do you provide environmental impact reports?',
-                answer: 'Yes! We provide detailed reports showing the environmental impact of your recycling program. Reports include total weight diverted from landfills, estimated CO2 emissions prevented, trees saved equivalent, and more. These reports help meet sustainability goals and ESG reporting requirements.'
+                question: 'Can I get documentation for my records?',
+                answer: 'Ask the partner supplier that follows up. Any paperwork is provided by that supplier, so check what it can offer before you proceed.'
               },
               {
-                question: 'Can I purchase recycled pallets from you?',
-                answer: 'Absolutely! Our refurbished Grade A pallets are available for purchase at 40-50% less than new pallets. These pallets have been professionally inspected, repaired, and tested to ensure quality. They provide excellent value while supporting sustainability goals.'
+                question: 'Can I purchase recycled pallets?',
+                answer: 'Yes, you can request refurbished pallets through the pallet selling page. They are often a lower cost option than new pallets. Pricing is by quote from partner suppliers.'
               },
               {
-                question: 'How quickly can you schedule a recycling pickup?',
-                answer: 'For urgent needs, same-day or next-day pickup is often available. Standard scheduling is typically within 3-5 business days. For ongoing programs, we establish regular pickup schedules (weekly, monthly, quarterly) that work with your operations.'
+                question: 'When can a recycling pickup happen?',
+                answer: 'Pickup timing is agreed with the partner supplier and depends on your location, the quantity and its schedule.'
               },
             ].map((faq, index) => (
               <motion.div
@@ -516,7 +463,7 @@ export default function RecyclingPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-white">Ready to Start Recycling?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Join our recycling program today and make a positive environmental impact. Free pickup, detailed reporting, and expert service.
+              Send a free, no-obligation quote request and we will pass it to partner suppliers in our network.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -527,14 +474,14 @@ export default function RecyclingPage() {
                   document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                Schedule Pickup
+                Request Pickup
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                Call: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

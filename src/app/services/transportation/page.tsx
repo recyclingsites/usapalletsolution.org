@@ -5,33 +5,64 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function TransportationPage() {
+  const detailFaqs = [
+    {
+      question: 'What information helps with a transportation quote?',
+      answer: 'Include the pickup location (city and ZIP), the delivery location (city and ZIP), the number of pallets, pallet sizes and approximate weight, and your preferred timing. Complete details help a partner supplier give you an accurate quote.',
+    },
+    {
+      question: 'Can pallets be delivered to residential addresses?',
+      answer: 'Sometimes. Most freight trucks are set up for commercial loading docks, so a residential stop may need a smaller truck or a liftgate. Mention it in your request and a partner supplier can tell you what is possible and how it affects the quote.',
+    },
+    {
+      question: 'What happens if pallets are damaged during transport?',
+      answer: 'Inspect pallets on delivery, note any damage on the delivery receipt, take photos, and raise it with the supplier handling your order. Claims follow that supplier or carrier\'s terms, so ask about them before you book.',
+    },
+    {
+      question: 'Can pallets be delivered to locations without loading docks?',
+      answer: 'Often, yes. Liftgates allow ground-level loading and unloading, and some sites use a forklift or pallet jack. Tell us what equipment you have on site so a partner supplier can plan for it.',
+    },
+    {
+      question: 'Can I ask for a specific delivery date?',
+      answer: 'Yes. Put your target date in the request. A partner supplier follows up and tells you whether it can be met.',
+    },
+    {
+      question: 'What are the delivery hours?',
+      answer: 'Hours are set by the supplier or carrier handling your order. Include your receiving hours and any site restrictions so they can be taken into account.',
+    },
+    {
+      question: 'Can I schedule recurring deliveries?',
+      answer: 'You can ask. Describe the quantity and how often you need pallets moved, and a partner supplier will say whether a repeating schedule is something it can offer.',
+    },
+  ]
+
   const faqItems = [
     {
       question: 'Do you offer nationwide pallet pickup and delivery?',
-      answer: 'Yes. We coordinate nationwide pallet pickups, backhauls, and deliveries with vetted carrier partners and our own fleet.',
+      answer: 'We take requests from across the US and pass them to partner suppliers in our network. Pickup and delivery are available where partner suppliers offer them, so availability depends on your area.',
     },
     {
       question: 'Can you handle time-sensitive shipments?',
-      answer: 'We arrange same-day and next-day moves when capacity allows, with GPS-tracked carriers and proactive updates.',
+      answer: 'USA Pallet Solution does not move freight itself. Note your deadline in the request and a partner supplier follows up to tell you what is possible.',
     },
     {
-      question: 'Do you provide loading equipment or trailers?',
-      answer: 'We can spot dry vans or flatbeds, arrange liftgate service, and schedule live loads depending on site requirements.',
+      question: 'Are loading equipment or trailers available?',
+      answer: 'That depends on the partner supplier. Some may be able to arrange a liftgate or a particular trailer type, so list what your site needs in your request.',
     },
     {
-      question: 'What freight modes do you support?',
-      answer: 'We manage LTL, FTL, and intermodal pallet movements, matching mode to your budget and delivery timeline.',
+      question: 'What freight modes are common for pallets?',
+      answer: 'Smaller loads usually move as less-than-truckload (LTL), and larger loads as full truckload (FTL). A partner supplier can suggest what suits your quantity and destination.',
     },
     {
-      question: 'Is cargo insured during transport?',
-      answer: 'All shipments include standard carrier liability, with options to add higher coverage based on load value.',
+      question: 'Who handles the shipment after I send a request?',
+      answer: 'We pass your request to partner suppliers in our network. The partner supplier that takes it on quotes the job and arranges the move with you directly.',
     },
   ]
 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: [...detailFaqs, ...faqItems].map((item) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
@@ -54,7 +85,7 @@ export default function TransportationPage() {
               <span className="text-gray-700">Transportation</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Pallet Transportation Services</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Reliable nationwide pallet delivery and logistics solutions. Fast, efficient, and fully insured transportation across all 50 states.</p>
+            <p className="text-xl text-gray-700 max-w-3xl">Request pallet pickup or delivery through partner suppliers, where offered. We take requests from across the US; availability depends on partner suppliers.</p>
           </motion.div>
         </div>
       </section>
@@ -65,16 +96,16 @@ export default function TransportationPage() {
             <h2 className="text-4xl font-bold mb-8 text-primary-600">Professional Pallet Transportation</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                USA Pallet Solution operates one of the most comprehensive pallet transportation networks in the United States. With a modern fleet of trucks, trailers, and specialized equipment, we deliver pallets safely and efficiently to any location across all 50 states. Whether you need a single pallet delivered locally or full truckloads shipped cross-country, we have the capacity, experience, and resources to meet your needs.
+                USA Pallet Solution is a referral service. We do not own trucks or employ drivers. When you need pallets moved, you send one quote request and we pass it to partner suppliers in our network. Transportation is available through those partner suppliers where offered, whether you need a small quantity moved locally or a larger load moved further.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our transportation services are built on three pillars: reliability, safety, and efficiency. We understand that timely pallet delivery is critical to your operations. Delayed shipments can disrupt production lines, leave warehouses understocked, and impact your ability to serve customers. That's why we maintain a 99.8% on-time delivery rate and offer multiple service tiers including same-day, next-day, and scheduled delivery options.
+                Good pallet transport starts with planning. Running out of pallets can hold up a production line or leave a warehouse short, so it helps to send your request with some lead time and to say when the pallets are needed. A partner supplier follows up to discuss what is possible for your route and dates.
               </p>
               <p className="mb-6 leading-relaxed">
-                Safety is paramount in everything we do. Our fleet undergoes rigorous maintenance schedules exceeding DOT requirements. Drivers are carefully vetted, professionally trained, and hold all necessary licenses and certifications. Every shipment is fully insured, providing peace of mind that your pallets are protected throughout transit. We use GPS tracking and real-time monitoring to ensure shipments stay on schedule and secure.
+                Site details matter as much as distance. A dock-high facility, a ground-level yard, and a residential address each call for a different truck and unloading plan. Telling the partner supplier what you have on site, such as a dock, forklift, or pallet jack, makes for a more accurate quote and fewer surprises on the day.
               </p>
               <p className="mb-6 leading-relaxed">
-                Efficiency means competitive pricing without compromising service quality. Through optimized routing, strategic warehouse locations, and economies of scale, we offer some of the industry's most competitive transportation rates. Our logistics team works to consolidate shipments, utilize backhauls, and minimize empty miles - savings we pass directly to our customers. Large volume shippers benefit from contract rates and preferred service levels.
+                Pricing is by quote from partner suppliers, because it depends on distance, quantity, weight, and site requirements. Combining pallets with a purchase or a pickup can sometimes make a move more practical, so mention everything you need in one request.
               </p>
             </div>
           </motion.div>
@@ -111,46 +142,37 @@ export default function TransportationPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: 'Same-Day Express',
-                icon: '⚡',
-                description: 'Emergency delivery service for urgent pallet needs within local and regional areas',
+                title: 'Pallet Delivery',
+                icon: '📦',
+                description: 'Pallets you buy through a partner supplier brought to your site, where offered',
                 features: [
-                  'Order by 10 AM delivery by 5 PM',
-                  'Available in major metro areas',
-                  'Priority scheduling',
-                  'Real-time tracking',
-                  'Direct routing'
+                  'New or used pallets',
+                  'Local or longer-distance requests',
+                  'Dock or liftgate unloading',
+                  'Timing agreed with the supplier',
                 ],
-                timeframe: '4-8 hours',
-                coverage: 'Local (100 mile radius)'
               },
               {
-                title: 'Next-Day Delivery',
-                icon: '📅',
-                description: 'Fast delivery service for time-sensitive shipments across most regions',
+                title: 'Pallet Pickup',
+                icon: '🚚',
+                description: 'Used, surplus, or unwanted pallets collected from your site, where offered',
                 features: [
-                  'Order by 3 PM ships same day',
-                  'Delivery next business day',
-                  'Available in 80% of USA',
-                  'GPS tracking included',
-                  'Signature required'
+                  'Used or surplus pallets',
+                  'Damaged pallets for repair',
+                  'Pallets for recycling or disposal',
+                  'Loading plan agreed in advance',
                 ],
-                timeframe: '24 hours',
-                coverage: 'Regional (300 mile radius)'
               },
               {
-                title: 'Scheduled Transport',
+                title: 'Planned Moves',
                 icon: '📆',
-                description: 'Cost-effective option for planned deliveries with flexible timing',
+                description: 'Moves with a known date or a repeating need, arranged ahead of time',
                 features: [
-                  'Choose your delivery date',
-                  '3-7 business day window',
-                  'Lowest cost option',
-                  'Nationwide coverage',
-                  'Consolidation available'
+                  'Choose a target date',
+                  'Larger planned loads',
+                  'Ask about repeat schedules',
+                  'Quoted by a partner supplier',
                 ],
-                timeframe: '3-7 days',
-                coverage: 'Nationwide'
               },
             ].map((service, index) => (
               <motion.div
@@ -164,16 +186,6 @@ export default function TransportationPage() {
                 <div className="text-6xl mb-4 text-center">{service.icon}</div>
                 <h3 className="text-2xl font-bold text-primary-600 mb-3 text-center">{service.title}</h3>
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">{service.description}</p>
-                <div className="space-y-2 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Timeframe:</span>
-                    <span className="font-semibold text-secondary-500">{service.timeframe}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Coverage:</span>
-                    <span className="font-semibold text-secondary-500">{service.coverage}</span>
-                  </div>
-                </div>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
@@ -198,54 +210,30 @@ export default function TransportationPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Our Fleet & Equipment
+            Common Truck Types for Pallets
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 vehicle: 'Box Trucks',
-                description: 'Local and regional deliveries',
-                capacity: 'Up to 200 pallets',
+                description: 'Often used for smaller loads and shorter trips',
                 icon: '🚚',
-                specs: ['20-26 foot capacity', 'Liftgate equipped', 'GPS tracked', 'Climate controlled available']
-              },
-              {
-                vehicle: 'Flatbed Trailers',
-                description: 'Open-deck transport for easy loading',
-                capacity: 'Up to 400 pallets',
-                icon: '🚛',
-                specs: ['48-53 foot trailers', 'Side and rear loading', 'Tarping available', 'Oversized load capable']
+                notes: ['Suits smaller quantities', 'May have a liftgate', 'Easier on tighter sites'],
               },
               {
                 vehicle: 'Dry Van Trailers',
-                description: 'Enclosed protection for all weather',
-                capacity: 'Up to 500 pallets',
-                icon: '🚚',
-                specs: ['48-53 foot trailers', 'Weather protected', 'Security seals', 'Temperature controlled option']
+                description: 'Enclosed trailers that keep loads out of the weather',
+                icon: '🚛',
+                notes: ['Suits larger quantities', 'Usually needs a loading dock', 'Rear loading'],
               },
               {
-                vehicle: 'Sprinter Vans',
-                description: 'Small quantity fast delivery',
-                capacity: 'Up to 50 pallets',
-                icon: '🚐',
-                specs: ['Urban delivery optimized', 'Quick loading/unloading', 'Same-day service', 'Low emissions']
-              },
-              {
-                vehicle: 'Specialized Equipment',
-                description: 'Custom solutions for unique needs',
-                capacity: 'Variable',
+                vehicle: 'Flatbed Trailers',
+                description: 'Open-deck trailers that can be loaded from the side or rear',
                 icon: '🏗️',
-                specs: ['Crane trucks', 'Conestoga trailers', 'Double-drop trailers', 'Custom configurations']
+                notes: ['Useful without a dock', 'Forklift access helps', 'Load is open to the weather'],
               },
-              {
-                vehicle: 'Refrigerated Units',
-                description: 'Temperature-controlled transport',
-                capacity: 'Up to 400 pallets',
-                icon: '❄️',
-                specs: ['Multi-temp zones', 'Pharmaceutical grade', 'Continuous monitoring', 'Backup systems']
-              },
-            ].map((fleet, index) => (
+            ].map((truck, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -254,17 +242,16 @@ export default function TransportationPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl p-8 border-2 border-primary-200 soft-shadow hover:shadow-lg transition-shadow"
               >
-                <div className="text-6xl mb-4 text-center">{fleet.icon}</div>
-                <h3 className="text-xl font-bold text-primary-600 mb-2">{fleet.vehicle}</h3>
-                <p className="text-gray-600 text-sm mb-3">{fleet.description}</p>
-                <div className="text-secondary-500 font-bold mb-4">{fleet.capacity}</div>
+                <div className="text-6xl mb-4 text-center">{truck.icon}</div>
+                <h3 className="text-xl font-bold text-primary-600 mb-2">{truck.vehicle}</h3>
+                <p className="text-gray-600 text-sm mb-3">{truck.description}</p>
                 <ul className="space-y-2">
-                  {fleet.specs.map((spec, idx) => (
+                  {truck.notes.map((note, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
                       <svg className="w-4 h-4 text-secondary-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      {spec}
+                      {note}
                     </li>
                   ))}
                 </ul>
@@ -282,50 +269,30 @@ export default function TransportationPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Why Choose Our Transportation Services
+            Why Request Transportation Here
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: '🎯',
-                title: '99.8% On-Time Rate',
-                description: 'Industry-leading delivery reliability with real-time tracking and proactive communication'
+                icon: '📝',
+                title: 'One Request',
+                description: 'Describe the move once and we pass it to partner suppliers in our network',
               },
               {
-                icon: '🔒',
-                title: 'Fully Insured',
-                description: '$2M liability coverage on all shipments. Your pallets are protected from pickup to delivery'
+                icon: '🤝',
+                title: 'Free, No Obligation',
+                description: 'A quote request is free and does not commit you to anything',
               },
               {
-                icon: '📱',
-                title: 'Real-Time Tracking',
-                description: 'GPS tracking with customer portal access. Know exactly where your shipment is at all times'
-              },
-              {
-                icon: '💰',
-                title: 'Competitive Rates',
-                description: 'Transparent pricing with no hidden fees. Volume discounts and contract rates available'
-              },
-              {
-                icon: '👨‍✈️',
-                title: 'Professional Drivers',
-                description: 'DOT certified, background checked, and trained in proper pallet handling procedures'
-              },
-              {
-                icon: '🔧',
-                title: 'Well-Maintained Fleet',
-                description: 'Regular maintenance exceeding DOT standards. Modern vehicles with safety features'
+                icon: '💬',
+                title: 'Direct Follow-Up',
+                description: 'A partner supplier follows up with you to discuss the job and the quote',
               },
               {
                 icon: '🌍',
-                title: 'Nationwide Coverage',
-                description: 'Service to all 50 states through our network of facilities and partner carriers'
-              },
-              {
-                icon: '📞',
-                title: '24/7 Dispatch',
-                description: 'Round-the-clock support for urgent needs, tracking updates, and emergency services'
+                title: 'Requests From Across the US',
+                description: 'Send a request from anywhere in the US; availability depends on partner suppliers',
               },
             ].map((benefit, index) => (
               <motion.div
@@ -353,7 +320,7 @@ export default function TransportationPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Transportation Pricing Guide
+            How Transportation Pricing Works
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -363,20 +330,17 @@ export default function TransportationPage() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Local Delivery (0-100 miles)</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">What Shapes a Quote</h3>
               <div className="space-y-4">
                 {[
-                  { service: 'Same-Day Express', price: '$150-$300', time: '4-8 hours' },
-                  { service: 'Next-Day Standard', price: '$100-$200', time: '24 hours' },
-                  { service: 'Scheduled (3-5 days)', price: '$75-$150', time: '3-5 days' },
-                  { service: 'Full Truckload (FTL)', price: '$300-$500', time: 'Flexible' },
+                  { factor: 'Distance', detail: 'How far the pallets need to travel' },
+                  { factor: 'Quantity', detail: 'How many pallets are moving' },
+                  { factor: 'Size and Weight', detail: 'Pallet dimensions and how heavy the load is' },
+                  { factor: 'Timing', detail: 'How much notice the supplier has' },
                 ].map((item, index) => (
-                  <div key={index} className="flex justify-between items-center p-4 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
-                    <div>
-                      <div className="font-bold text-primary-600">{item.service}</div>
-                      <div className="text-sm text-gray-600">{item.time}</div>
-                    </div>
-                    <div className="text-secondary-500 font-bold">{item.price}</div>
+                  <div key={index} className="p-4 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
+                    <div className="font-bold text-primary-600">{item.factor}</div>
+                    <div className="text-sm text-gray-600">{item.detail}</div>
                   </div>
                 ))}
               </div>
@@ -388,20 +352,16 @@ export default function TransportationPage() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Long Distance (100+ miles)</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">LTL or FTL</h3>
               <div className="space-y-4">
                 {[
-                  { distance: '100-300 miles', ftl: '$500-$1,000', ltl: '$200-$400 per pallet' },
-                  { distance: '300-600 miles', ftl: '$1,000-$1,800', ltl: '$300-$600 per pallet' },
-                  { distance: '600-1,000 miles', ftl: '$1,800-$2,800', ltl: '$400-$800 per pallet' },
-                  { distance: '1,000+ miles', ftl: 'Custom Quote', ltl: 'Custom Quote' },
+                  { mode: 'Less Than Truckload (LTL)', detail: 'Your pallets share trailer space with other freight, which can suit smaller loads' },
+                  { mode: 'Full Truckload (FTL)', detail: 'The trailer carries only your load, which can suit larger quantities' },
+                  { mode: 'Not Sure Which Fits', detail: 'Give your quantity and destination and a partner supplier can advise' },
                 ].map((item, index) => (
                   <div key={index} className="p-4 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
-                    <div className="font-bold text-primary-600 mb-2">{item.distance}</div>
-                    <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="text-gray-600">FTL: <span className="font-semibold text-secondary-500">{item.ftl}</span></div>
-                      <div className="text-gray-600">LTL: <span className="font-semibold text-secondary-500">{item.ltl}</span></div>
-                    </div>
+                    <div className="font-bold text-primary-600 mb-2">{item.mode}</div>
+                    <div className="text-sm text-gray-600">{item.detail}</div>
                   </div>
                 ))}
               </div>
@@ -414,24 +374,23 @@ export default function TransportationPage() {
             viewport={{ once: true }}
             className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
           >
-            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Additional Services & Fees</h3>
+            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Details to Mention in Your Request</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { service: 'Liftgate Service', price: '$50-$100' },
-                { service: 'Inside Delivery', price: '$75-$150' },
-                { service: 'Residential Delivery', price: '$50-$100' },
-                { service: 'Appointment Scheduling', price: '$25-$50' },
-                { service: 'Weekend/Holiday', price: '+25-50%' },
-                { service: 'After-Hours Delivery', price: '+$100' },
+                'Liftgate needed',
+                'Inside delivery',
+                'Residential address',
+                'Delivery appointment',
+                'Weekend or holiday timing',
+                'After-hours receiving',
               ].map((item, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-gray-600">{item.service}</span>
-                  <span className="font-semibold text-secondary-500">{item.price}</span>
+                  <span className="text-gray-600">{item}</span>
                 </div>
               ))}
             </div>
             <p className="text-sm text-gray-600 mt-6 text-center">
-              Prices are estimates and vary based on exact distance, pallet quantity, weight, and special requirements. Contact us for exact quotes.
+              Pricing is by quote from partner suppliers and depends on your route, quantity, weight, and site requirements.
             </p>
           </motion.div>
         </div>
@@ -449,40 +408,7 @@ export default function TransportationPage() {
           </motion.h2>
 
           <div className="space-y-6">
-            {[
-              {
-                question: 'How do I track my pallet shipment?',
-                answer: 'All shipments include GPS tracking. You\'ll receive a tracking number and portal access after booking. Our system provides real-time location updates, estimated arrival times, and delivery confirmations. You can also call our 24/7 dispatch center for immediate status updates.'
-              },
-              {
-                question: 'What information do you need for a transportation quote?',
-                answer: 'We need: (1) Pickup location (city/zip), (2) Delivery location (city/zip), (3) Number of pallets, (4) Pallet sizes and weight, (5) Desired delivery timeframe. Providing complete information helps us give accurate quotes and avoid surprises.'
-              },
-              {
-                question: 'Do you deliver to residential addresses?',
-                answer: 'Yes, though residential delivery has additional considerations. Most of our equipment is designed for commercial loading docks. For residential delivery, we typically use smaller trucks with liftgates. There may be additional fees ($50-$100) and extended delivery timeframes.'
-              },
-              {
-                question: 'What happens if pallets are damaged during transport?',
-                answer: 'All shipments are fully insured. Inspect pallets upon delivery and note any damage on the delivery receipt. Take photos and contact us immediately. We file claims with our insurance carrier and replace damaged pallets at no cost to you. Most claims are resolved within 7-10 business days.'
-              },
-              {
-                question: 'Can you deliver to locations without loading docks?',
-                answer: 'Yes! We have liftgate-equipped trucks for locations without loading docks. Liftgates allow safe ground-level loading and unloading. There\'s typically a $50-$100 surcharge for liftgate service. Some locations may also require pallet jacks or hand unloading.'
-              },
-              {
-                question: 'Do you offer expedited or emergency shipping?',
-                answer: 'Absolutely. Our same-day express service handles emergency needs in major metro areas. For other locations, we can often arrange next-day delivery by expediting routing and using dedicated trucks. Contact our dispatch center 24/7 for emergency service requests.'
-              },
-              {
-                question: 'What are your delivery hour restrictions?',
-                answer: 'Standard delivery is Monday-Friday, 8 AM-5 PM. We offer after-hours delivery (5 PM-8 PM) and weekend delivery for additional fees. Some locations have specific requirements or restrictions - we coordinate directly with your receiving department to ensure smooth delivery.'
-              },
-              {
-                question: 'Can I schedule recurring deliveries?',
-                answer: 'Yes! Many customers establish scheduled delivery programs (weekly, bi-weekly, or monthly). Recurring deliveries benefit from preferred pricing, guaranteed capacity, and streamlined logistics. Contact our account management team to set up a customized delivery schedule.'
-              },
-            ].map((faq, index) => (
+            {detailFaqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -537,7 +463,7 @@ export default function TransportationPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-white">Need Pallet Transportation?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Get instant quotes, schedule pickups, and track shipments. Fast, reliable service across all 50 states.
+              Send a free, no-obligation quote request and a partner supplier follows up. Availability depends on partner suppliers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -548,14 +474,14 @@ export default function TransportationPage() {
                   document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                Get Quote Now
+                Use the Quote Form
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                24/7 Dispatch: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

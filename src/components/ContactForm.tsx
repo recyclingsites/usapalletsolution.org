@@ -115,17 +115,17 @@ export function ContactForm({ productType = '', className = '', compact = false 
 
       case 'email':
         if (!value.trim()) return 'Email is required'
-        if (!validateEmail(value)) return 'Please enter a valid email address (e.g., name@company.com)'
+        if (!validateEmail(value)) return 'Enter a valid email address'
         return ''
 
       case 'phone':
         if (!value.trim()) return 'Phone number is required'
-        if (!validatePhone(value)) return 'Please enter a valid phone number (e.g., (555) 123-4567)'
+        if (!validatePhone(value)) return 'Enter a valid phone number'
         return ''
 
       case 'postalCode':
         if (!value.trim()) return 'Postal/ZIP code is required'
-        if (!validatePostalCode(value)) return 'Please enter a valid ZIP code (e.g., 12345 or 12345-6789) or Canadian postal code (e.g., A1A 1A1)'
+        if (!validatePostalCode(value)) return 'Enter a valid ZIP or postal code'
         return ''
 
       case 'streetAddress':
@@ -355,7 +355,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
         </div>
         <h3 className="text-2xl font-bold text-primary-600 mb-2">Thank You!</h3>
         <p className="text-gray-700">
-          Your inquiry has been received. Our team will contact you within 2 hours during business hours.
+          Your request has been received. A partner supplier will follow up about it.
         </p>
       </motion.div>
     )
@@ -409,7 +409,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-green-500 focus:border-green-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="John"
+            placeholder="First name"
           />
           {touched.firstName && validationErrors.firstName && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.firstName}</p>
@@ -435,7 +435,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-green-500 focus:border-green-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="Smith"
+            placeholder="Last name"
           />
           {touched.lastName && validationErrors.lastName && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.lastName}</p>
@@ -461,13 +461,13 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-green-500 focus:border-green-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="john.smith@company.com"
+            placeholder="Email address"
           />
           {touched.email && validationErrors.email && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
           )}
           {!compact && !validationErrors.email && (
-            <p className="mt-1 text-xs text-gray-500">Enter a valid business email address</p>
+            <p className="mt-1 text-xs text-gray-500">We use this to send your request details</p>
           )}
         </div>
 
@@ -490,14 +490,14 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-green-500 focus:border-green-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="(555) 123-4567"
+            placeholder="Phone number"
             maxLength={14}
           />
           {touched.phone && validationErrors.phone && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
           )}
           {!compact && !validationErrors.phone && (
-            <p className="mt-1 text-xs text-gray-500">US/Canada format: (555) 123-4567</p>
+            <p className="mt-1 text-xs text-gray-500">US or Canadian phone number</p>
           )}
         </div>
 
@@ -519,7 +519,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="123 Main St"
+            placeholder="Street address"
           />
           {touched.streetAddress && validationErrors.streetAddress && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.streetAddress}</p>
@@ -543,7 +543,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="Los Angeles"
+            placeholder="City"
           />
           {touched.city && validationErrors.city && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.city}</p>
@@ -567,7 +567,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="CA or California"
+            placeholder="State"
           />
           {touched.stateProvince && validationErrors.stateProvince && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.stateProvince}</p>
@@ -593,14 +593,14 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-green-500 focus:border-green-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="12345 or A1A 1A1"
+            placeholder="ZIP or postal code"
             maxLength={10}
           />
           {touched.postalCode && validationErrors.postalCode && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.postalCode}</p>
           )}
           {!compact && !validationErrors.postalCode && (
-            <p className="mt-1 text-xs text-gray-500">US: 12345 or 12345-6789 | Canada: A1A 1A1</p>
+            <p className="mt-1 text-xs text-gray-500">US ZIP code or Canadian postal code</p>
           )}
         </div>
 
@@ -621,7 +621,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="Company Name"
+            placeholder="Company name"
           />
           {touched.company && validationErrors.company && (
             <p className="mt-1 text-sm text-red-600">{validationErrors.company}</p>
@@ -782,12 +782,12 @@ export function ContactForm({ productType = '', className = '', compact = false 
                 ? 'border-red-500 focus:border-red-600'
                 : 'border-gray-300 focus:border-primary-500'
             }`}
-            placeholder="Tell us more about your pallet requirements, delivery location, timeline, or any special needs..."
+            placeholder="Tell us about your pallet requirements, delivery location, and timeline"
           ></textarea>
           {touched.message && validationErrors.message ? (
             <p className="mt-1 text-sm text-red-600">{validationErrors.message}</p>
           ) : (
-            <p className="mt-1 text-xs text-gray-500">Optional: Provide any additional information that helps us serve you better</p>
+            <p className="mt-1 text-xs text-gray-500">Optional: anything that helps a partner supplier prepare your quote</p>
           )}
         </div>
 
@@ -816,8 +816,8 @@ export function ContactForm({ productType = '', className = '', compact = false 
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
           <div className="text-sm text-blue-800">
-            <p className="font-semibold mb-1">Quick Response Guarantee</p>
-            <p>Our team will respond within 2 hours during business hours (Monday-Friday, 8 AM - 6 PM EST)</p>
+            <p className="font-semibold mb-1">Free, no-obligation quote request</p>
+            <p>A partner supplier in our network follows up about your request. Pricing is by quote.</p>
           </div>
         </div>
       </div>
@@ -846,7 +846,7 @@ export function ContactForm({ productType = '', className = '', compact = false 
 
       {!compact && (
         <p className="mt-4 text-center text-xs text-gray-500">
-          Fields marked with <span className="text-red-500">*</span> are required. We respect your privacy and will never share your information.
+          Fields marked with <span className="text-red-500">*</span> are required. Your request is shared with partner suppliers to prepare a quote. See our <a href="/privacy-policy/" className="underline">Privacy Policy</a>.
         </p>
       )}
     </form>

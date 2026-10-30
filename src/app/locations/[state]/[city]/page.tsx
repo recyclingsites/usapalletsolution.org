@@ -18,11 +18,12 @@ export async function generateStaticParams() {
 }
 
 interface Props {
-  params: { state: string; city: string }
+  params: Promise<{ state: string; city: string }>
 }
 
-export default function CityPage({ params }: Props) {
-  const result = getCityBySlug(params.state, params.city)
+export default async function CityPage({ params }: Props) {
+  const { state: stateSlug, city: citySlug } = await params
+  const result = getCityBySlug(stateSlug, citySlug)
 
   if (!result) {
     return (
@@ -70,12 +71,6 @@ export default function CityPage({ params }: Props) {
                 </svg>
                 <span>{city.name}, {state.name}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                </svg>
-                <span>Population: {city.population}</span>
-              </div>
             </div>
           </div>
         </div>
@@ -88,7 +83,7 @@ export default function CityPage({ params }: Props) {
               Request a Quote in {city.name}
             </h2>
             <p className="text-center text-gray-600 mb-8">
-              Get customized pallet solutions for your {city.name} business
+              A free, no-obligation quote request for your {city.name} business
             </p>
             <ContactForm productType={`${city.name}, ${state.abbreviation} Service Inquiry`} />
           </div>
@@ -104,8 +99,8 @@ export default function CityPage({ params }: Props) {
               </h2>
               <div className="bg-white p-8 rounded-2xl soft-shadow">
                 <p className="text-gray-700 mb-6">
-                  We provide comprehensive pallet services throughout {city.name} and surrounding areas. Our local
-                  presence ensures fast delivery times and responsive customer service tailored to your specific needs.
+                  Requests are welcome from {city.name} and nearby communities, including the areas below. Each request
+                  goes to partner suppliers in our network, and availability depends on partner suppliers.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {city.serviceAreas.map((area, index) => (
@@ -125,7 +120,7 @@ export default function CityPage({ params }: Props) {
 
             <div className="mb-16">
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
-                Industries We Serve in {city.name}
+                Key Industries in {city.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {city.industries.map((industry, index) => (
@@ -149,28 +144,28 @@ export default function CityPage({ params }: Props) {
 
             <div className="mb-16">
               <h2 className="text-4xl font-bold mb-6 text-gray-800">
-                Why Choose USA Pallet Solution in {city.name}
+                How Requests From {city.name} Work
               </h2>
               <div className="bg-white p-8 rounded-2xl soft-shadow">
                 <div className="space-y-6 text-gray-700 leading-relaxed">
                   <p>
-                    As the leading pallet supplier serving {city.name}, we understand the unique logistical challenges
-                    and opportunities in the {state.name} market. Our local expertise combined with national resources
-                    enables us to provide superior service tailored to {city.name} businesses.
+                    USA Pallet Solution is a referral service. We do not stock or deliver pallets ourselves. When you
+                    send a request from {city.name}, we pass it to partner suppliers in our network, who quote and
+                    fulfill the work directly.
                   </p>
                   <p>
-                    We maintain substantial inventory in the region, ensuring rapid fulfillment of your pallet needs.
-                    Whether you need standard pallets for everyday operations or specialized solutions for unique
-                    requirements, our team is ready to support your business with fast, reliable service.
+                    Whether you need standard pallets for everyday operations or something built to a specific size,
+                    the more detail you give, the easier it is for a partner supplier to follow up. Availability in
+                    {' '}{state.name} depends on partner suppliers.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                     {[
-                      { title: 'Local Expertise', desc: `Deep understanding of ${city.name} market dynamics` },
-                      { title: 'Fast Delivery', desc: 'Same-day and next-day delivery options available' },
-                      { title: 'Quality Products', desc: 'Premium pallets meeting industry standards' },
-                      { title: 'Competitive Pricing', desc: 'Volume discounts and flexible payment terms' },
-                      { title: 'Custom Solutions', desc: 'Tailored pallet solutions for unique needs' },
-                      { title: '24/7 Support', desc: 'Always available for emergency orders' }
+                      { title: 'Free to Ask', desc: 'Sending a quote request is free and carries no obligation' },
+                      { title: 'One Request', desc: `Describe your ${city.name} need once and we pass it on` },
+                      { title: 'Pallet Details', desc: 'Include size, quantity, material and condition' },
+                      { title: 'Load Details', desc: 'Include load weight and how pallets will be handled' },
+                      { title: 'Location Details', desc: `Tell us where in the ${city.name} area you are` },
+                      { title: 'Pricing by Quote', desc: 'Pricing comes from partner suppliers by quote' }
                     ].map((feature, index) => (
                       <div key={index} className="flex gap-3 p-4 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
                         <svg className="w-6 h-6 text-secondary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -189,16 +184,16 @@ export default function CityPage({ params }: Props) {
 
             <div>
               <h2 className="text-4xl font-bold mb-8 text-gray-800">
-                Our Services in {city.name}
+                Services Through Partner Suppliers in {city.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  { title: 'Pallet Sales', desc: 'New and refurbished pallets in all standard sizes', icon: '📦' },
-                  { title: 'Custom Manufacturing', desc: 'Custom-sized pallets built to your specifications', icon: '🔧' },
-                  { title: 'Pallet Recycling', desc: 'Eco-friendly recycling and buyback programs', icon: '♻️' },
-                  { title: 'Delivery Service', desc: `Fast, reliable delivery throughout ${city.name}`, icon: '🚚' },
-                  { title: 'Heat Treatment', desc: 'ISPM 15 certified heat treatment for exports', icon: '🔥' },
-                  { title: 'Repair Services', desc: 'Professional pallet repair to extend lifespan', icon: '🔨' }
+                  { title: 'Pallet Sales', desc: 'New and recycled pallets in standard sizes, through partner suppliers', icon: '📦' },
+                  { title: 'Custom Pallets', desc: 'Custom-sized pallets built to your specifications by partner suppliers', icon: '🔧' },
+                  { title: 'Pallet Recycling', desc: 'Partner suppliers can buy or recycle used pallets; reusing a pallet avoids building a new one', icon: '♻️' },
+                  { title: 'Pickup and Delivery', desc: `Partner suppliers can arrange pickup or delivery in the ${city.name} area`, icon: '🚚' },
+                  { title: 'Heat-Treated Pallets', desc: 'ISPM 15 heat-treated pallets for export, from partner suppliers', icon: '🔥' },
+                  { title: 'Pallet Repair', desc: 'Partner suppliers can repair damaged pallets so they stay in use', icon: '🔨' }
                 ].map((service, index) => (
                   <div
                     key={index}
@@ -223,15 +218,15 @@ export default function CityPage({ params }: Props) {
                 Ready to Get Started in {city.name}?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Contact our {city.name} team today for a free quote and discover how we can help
-                optimize your pallet operations.
+                Send a free, no-obligation quote request from {city.name} and a partner supplier follows up.
+                Availability depends on partner suppliers.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
                   href="/contact"
                   className="px-10 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover"
                 >
-                  Get Free Quote
+                  Request a Quote
                 </Link>
                 <Link
                   href={`/locations/${state.slug}`}
