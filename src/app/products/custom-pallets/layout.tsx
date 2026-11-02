@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Custom Pallets | Engineered Dimensions, Materials and Printing for Unique Loads Nationwide',
-  description: 'Design custom-sized pallets with tailored materials, branding, and compliance to match specialized loads.',
+  title: 'Custom Pallets | Non-Standard Sizes, Materials and Features by Quote',
+  description: 'Send your dimensions, load, and material needs in a free quote request. Partner suppliers that build to order can review your specifications.',
   alternates: { canonical: '/products/custom-pallets/' },
 }
 

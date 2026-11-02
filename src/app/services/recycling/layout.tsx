@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Recycling | Sustainable Recovery, Grinding and Reuse Programs Nationwide For Businesses',
-  description: 'Divert pallet waste from landfills with repair, recycling, grinding, and sustainable reuse programs nationwide.',
+  title: 'Pallet Recycling | Request Recycling Through Partner Suppliers',
+  description: 'Send a free, no-obligation request for pallet recycling and reuse. We pass it to partner suppliers. Availability depends on partner suppliers.',
   alternates: { canonical: '/services/recycling/' },
 }
 

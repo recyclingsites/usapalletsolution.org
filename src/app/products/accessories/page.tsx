@@ -16,7 +16,7 @@ export default function AccessoriesPage() {
               <span className="text-gray-300">Accessories</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">Pallet Accessories</h1>
-            <p className="text-xl text-gray-300 max-w-3xl">Complete your pallet solution with our range of accessories</p>
+            <p className="text-xl text-gray-300 max-w-3xl">Common accessories for securing and protecting palletized loads, available through partner suppliers in our network. Availability depends on partner suppliers, and pricing is by quote.</p>
           </motion.div>
         </div>
       </section>
@@ -45,20 +45,20 @@ export default function AccessoriesPage() {
               },
               {
                 title: 'Strapping & Bands',
-                description: 'Secure loads with high-quality strapping materials',
-                features: ['Steel strapping', 'Polyester strapping', 'Tools & seals', 'All grades'],
+                description: 'Secure loads with steel or polyester strapping',
+                features: ['Steel strapping', 'Polyester strapping', 'Tools & seals', 'Multiple grades'],
                 icon: '🔗',
               },
               {
                 title: 'Pallet Covers',
                 description: 'Weather-resistant covers and shrink wrap',
-                features: ['UV protection', 'Waterproof', 'Custom sizes', 'Disposable/reusable'],
+                features: ['UV-resistant options', 'Water resistant', 'Custom sizes', 'Disposable/reusable'],
                 icon: '🎪',
               },
               {
                 title: 'Slip Sheets',
                 description: 'Alternative to pallets for push-pull operations',
-                features: ['Plastic or paperboard', 'Space saving', 'Lightweight', 'Eco-friendly'],
+                features: ['Plastic or paperboard', 'Space saving', 'Lightweight', 'Takes up less trailer height'],
                 icon: '📄',
               },
               {
@@ -81,7 +81,7 @@ export default function AccessoriesPage() {
               },
               {
                 title: 'Pallet Labels',
-                description: 'Identification and tracking labels',
+                description: 'Identification labels for pallets and loads',
                 features: ['Barcode labels', 'Custom printing', 'Weather resistant', 'Strong adhesive'],
                 icon: '🏷️',
               },

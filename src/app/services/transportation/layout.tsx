@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Transportation | Nationwide Pickup, Backhaul and Delivery Logistics You Trust Services',
-  description: 'Schedule reliable pallet transport, backhauls, and LTL or FTL deliveries with tracking across the US.',
+  title: 'Pallet Transportation | Pickup and Delivery Through Partner Suppliers',
+  description: 'Need pallets moved? Send a free, no-obligation quote request for pickup or delivery and we pass it to partner suppliers. Availability depends on partner suppliers.',
   alternates: { canonical: '/services/transportation/' },
 }
 

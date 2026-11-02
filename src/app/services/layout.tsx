@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Services | Buying, Selling, Recycling, Repair and Nationwide Transportation Solutions Today',
-  description: 'Full-service pallet partner for sourcing, recovery, repair, and logistics across all 50 states.',
+  title: 'Pallet Services | Buying, Selling, Recycling and Repair Through Partner Suppliers',
+  description: 'Request pallet buying, selling, recycling, repair, delivery or disposal through partner suppliers. Requests from across the US; availability depends on partner suppliers.',
   alternates: { canonical: '/services/' },
 }
 

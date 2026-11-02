@@ -12,8 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://usapalletsolution.org'),
-  title: 'USA Pallet Solution | Nationwide Pallet Supply, Recycling, Repair and Logistics Services',
-  description: 'Comprehensive pallet buying, selling, recycling, repair, and transportation services for businesses across all 50 states.',
+  title: 'USA Pallet Solution | Pallet Quotes from Partner Suppliers Nationwide',
+  description: 'Request free, no-obligation quotes to buy, sell, recycle, repair, or move pallets. Requests from across the US go to partner suppliers; availability depends on your area.',
   manifest: '/site.webmanifest',
   alternates: {
     canonical: '/',
@@ -53,7 +53,7 @@ posthog.register({ site: location.hostname.replace(/^www[.]/, '') })`,
         />
         <Navigation />
         <div className="fixed inset-0 z-0">
-          <img src="/images/back.jpg" alt="Background" className="w-full h-full object-cover opacity-30" />
+          <img src="/images/back.jpg" alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-br from-warm-50/80 via-light-50/70 to-primary-50/80"></div>
         </div>
         <main className="min-h-screen relative z-10">
@@ -66,8 +66,8 @@ posthog.register({ site: location.hostname.replace(/^www[.]/, '') })`,
               <div>
                 <h3 className="text-xl font-bold text-primary-600 mb-4">USA Pallet Solution</h3>
                 <p className="text-gray-600 text-sm">
-                  Your trusted partner for all pallet needs. We specialize in buying, selling,
-                  recycling, and transporting pallets across the United States.
+                  A referral service for pallet buyers and sellers across the United States.
+                  Requests go to partner suppliers in our network; availability depends on your area.
                 </p>
               </div>
               <div>
@@ -77,19 +77,21 @@ posthog.register({ site: location.hostname.replace(/^www[.]/, '') })`,
                   <li><a href="/products/" className="text-gray-600 hover:text-primary-500 transition-colors">Products</a></li>
                   <li><a href="/services/" className="text-gray-600 hover:text-primary-500 transition-colors">Services</a></li>
                   <li><a href="/contact/" className="text-gray-600 hover:text-primary-500 transition-colors">Contact Us</a></li>
+                  <li><a href="/privacy-policy/" className="text-gray-600 hover:text-primary-500 transition-colors">Privacy Policy</a></li>
+                  <li><a href="/terms/" className="text-gray-600 hover:text-primary-500 transition-colors">Terms of Use</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-secondary-600 mb-4">Contact Info</h4>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>Email: {process.env.NEXT_PUBLIC_COMPANY_EMAIL}</li>
-                  <li>Address: {process.env.NEXT_PUBLIC_COMPANY_ADDRESS}</li>
-                  <li>Hours: {process.env.NEXT_PUBLIC_BUSINESS_HOURS}</li>
+                  <li><a href="/contact/" className="hover:text-primary-500 transition-colors">Request a quote</a></li>
+                  <li>Email: <a href="mailto:info@usapalletsolution.org" className="hover:text-primary-500 transition-colors">info@usapalletsolution.org</a></li>
                 </ul>
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-primary-100 text-center text-gray-500 text-sm">
               <p>&copy; {new Date().getFullYear()} USA Pallet Solution. All rights reserved.</p>
+              <p className="mt-2">USA Pallet Solution is a referral service. Quotes are fulfilled by partner suppliers in our network.</p>
             </div>
           </div>
         </footer>

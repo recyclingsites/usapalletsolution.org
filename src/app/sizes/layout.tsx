@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Size Guide | Standard and Custom Pallet Dimensions, Weights and Clearances',
-  description: 'Compare common pallet dimensions and choose the right footprint, height, and clearance for your loads.',
+  title: 'Pallet Size Guide | Standard North American and International Pallet Dimensions',
+  description: 'Compare common pallet dimensions by industry and region, learn how load capacity works, and send a free quote request to partner suppliers.',
   alternates: { canonical: '/sizes/' },
 }
 

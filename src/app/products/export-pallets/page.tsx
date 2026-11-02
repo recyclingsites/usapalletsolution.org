@@ -6,24 +6,24 @@ import Link from 'next/link'
 
 const faqItems = [
   {
-    question: 'Do your export pallets meet ISPM 15 heat-treatment requirements?',
-    answer: 'Yes, every export pallet can be heat-treated and stamped to meet ISPM 15 so shipments clear international customs without delays.',
+    question: 'What does ISPM 15 heat treatment require?',
+    answer: 'Under ISPM 15, solid wood packaging can be heat-treated so that the wood reaches a core temperature of 56 °C for 30 minutes, and the pallet then carries the IPPC mark. Ask the partner supplier to confirm treatment and marking on your quote, and check current regulations for your destination.',
   },
   {
     question: 'What sizes of export pallets are available?',
-    answer: 'We stock 48x40 GMA, Euro 1200x800, 1200x1000, and custom-built dimensions tailored to your container load plans.',
+    answer: 'Common sizes include 48x40 GMA, Euro 1200x800, and 1200x1000 mm. Partner suppliers that build to order can review custom dimensions for your container load plan. Availability depends on partner suppliers.',
   },
   {
-    question: 'Can you provide documentation for overseas shipments?',
-    answer: 'We include heat-treatment certificates, load specs, and optional moisture content reports to simplify your export paperwork.',
+    question: 'What documentation is available for overseas shipments?',
+    answer: 'It depends on the supplier, so ask when a partner supplier follows up. Your freight forwarder can tell you what your shipment needs, and you should check current regulations for your destination.',
   },
   {
-    question: 'Do you offer plastic or presswood options for exports?',
-    answer: 'Yes, alongside kiln-dried lumber pallets we supply plastic and molded presswood pallets that are pest-free and export ready.',
+    question: 'Are plastic or presswood pallets an option for exports?',
+    answer: 'They can be. ISPM 15 applies to solid wood packaging, so plastic pallets and manufactured wood pallets such as presswood generally fall outside it. Check current regulations for your destination, and ask partner suppliers what they can offer.',
   },
   {
-    question: 'How fast can export pallets be delivered?',
-    answer: 'Standard sizes ship within 48 hours nationwide; custom builds typically ship in 3–5 business days depending on volume.',
+    question: 'How long do export pallets take to arrive?',
+    answer: 'Timing depends on the size, quantity, treatment, and supplier. Include your schedule in your quote request, and confirm it with the partner supplier who follows up.',
   },
 ]
 
@@ -59,7 +59,7 @@ export default function ExportPalletsPage() {
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-glow">Export-Ready Pallets</h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Heat-treated, compliant export pallets engineered for smooth international shipping and optimized container loading.
+              Heat-treated wood, plastic, and presswood pallets for international shipping, available through partner suppliers in our network.
             </p>
           </motion.div>
         </div>
@@ -82,17 +82,17 @@ export default function ExportPalletsPage() {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <h2 className="text-4xl font-bold mb-6 text-primary-400">Built For International Compliance</h2>
+              <h2 className="text-4xl font-bold mb-6 text-primary-400">Built For International Shipping</h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Our export pallets are manufactured from kiln-dried lumber and heat-treated to satisfy ISPM 15 standards.
-                Each pallet receives a visible certification stamp and comes with documentation to expedite customs clearance.
-                We also offer plastic and presswood export options for industries that require pest-free, moisture-resistant
-                solutions without additional treatment.
+                ISPM 15 is the international standard for wood packaging. Heat treatment under ISPM 15 brings the wood to a
+                core temperature of 56 °C for 30 minutes, and treated pallets carry the IPPC mark, which identifies the treatment
+                and the producer. Plastic and presswood pallets are alternatives because the standard applies to solid wood
+                packaging. Import rules vary and change, so check current regulations for your destination.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Whether you are loading containers for ocean freight or air cargo, we design export pallets that maximize
-                cube utilization and prevent product damage. Talk with our engineers to align pallet dimensions with your
-                packaging and routing requirements.
+                Whether you are loading containers for ocean freight or air cargo, pallet size affects how well your load
+                fits. Include your packaging dimensions and route in your quote request, and a partner supplier follows up.
+                Requests come from across the US; availability depends on partner suppliers, and pricing is by quote.
               </p>
             </motion.div>
 
@@ -107,23 +107,23 @@ export default function ExportPalletsPage() {
                 {[
                   {
                     title: '48x40 HT GMA',
-                    description: 'North American standard pallet heat-treated and certified for export.',
-                    features: ['ISPM 15 stamp', 'Kiln-dried lumber', '3,000 lb static capacity', 'Available new or recycled'],
+                    description: 'North American standard size, heat-treated under ISPM 15 for export.',
+                    features: ['IPPC mark', '56 °C for 30 minutes core temperature', 'Common North American size', 'Ask about new or recycled'],
                   },
                   {
-                    title: '1200x1000 Euro Block',
-                    description: 'Heavy-duty block pallet sized for European distribution networks.',
-                    features: ['Four-way entry', 'Heat-treated blocks', 'Top and bottom deck boards', 'Smooth forklift handling'],
+                    title: '1200x1000 Block',
+                    description: 'Block pallet in a metric size used in many international markets.',
+                    features: ['Four-way entry', 'Heat-treated wood', 'Top and bottom deck boards', 'Forklift and pallet jack access'],
                   },
                   {
                     title: 'Presswood Nestable',
-                    description: 'Lightweight molded pallets ideal for one-way export shipments.',
-                    features: ['Pest-free by design', 'Stackable to save space', 'Moisture resistant', 'Consistent dimensions'],
+                    description: 'Light molded pallets often used for one-way export shipments.',
+                    features: ['Manufactured wood, not solid lumber', 'Nests to save space', 'Light weight', 'Consistent dimensions'],
                   },
                   {
                     title: 'HDPE Export Pallets',
-                    description: 'Durable plastic pallets for high-hygiene or closed-loop export applications.',
-                    features: ['Non-porous surface', 'Easy sanitation', 'Long service life', 'Rackable options available'],
+                    description: 'Durable plastic pallets for reusable or closed-loop export applications.',
+                    features: ['Non-porous surface', 'Easy to clean', 'Long service life', 'Rackable options'],
                   },
                 ].map((type, index) => (
                   <motion.div
@@ -155,15 +155,15 @@ export default function ExportPalletsPage() {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <h2 className="text-4xl font-bold mb-6 text-primary-400">Value-Added Export Services</h2>
+              <h2 className="text-4xl font-bold mb-6 text-primary-400">Export Options to Ask About</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  'Container load design to increase cubic efficiency',
-                  'Heat-treatment certification and paperwork management',
-                  'Just-in-time deliveries to port or consolidation centers',
+                  'Pallet sizes matched to your container',
+                  'ISPM 15 heat treatment with the IPPC mark',
+                  'Delivery to a port or consolidation site, where available',
                   'Moisture barrier wraps, edge protection, and strapping',
-                  'Nationwide supply with staging near major ports',
-                  'Custom branding or stenciling on request',
+                  'Custom sizes for your packaging',
+                  'Stenciling or branding, where a supplier offers it',
                 ].map((item) => (
                   <div key={item} className="bg-dark-800 p-5 rounded-xl border border-secondary-500/20 text-gray-300">
                     {item}

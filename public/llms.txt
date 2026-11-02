@@ -1,0 +1,37 @@
+# USA Pallet Solution
+
+> USA Pallet Solution is a referral service. Visitors send a free, no-obligation quote request to buy, sell, recycle, repair, move, or dispose of pallets, and the request goes to partner suppliers in our network. Requests come from across the United States; availability depends on partner suppliers. Pricing is by quote from partner suppliers.
+
+## Main pages
+
+- [Home](https://usapalletsolution.org/): Overview of the service
+- [About](https://usapalletsolution.org/about/): How the referral service and quotes work
+- [Request a quote](https://usapalletsolution.org/contact/): Quote form and contact details
+- [Size guide](https://usapalletsolution.org/sizes/): Common pallet sizes
+- [Resources](https://usapalletsolution.org/resources/): Pallet buying and handling guidance
+- [Locations](https://usapalletsolution.org/locations/): State and city pages
+
+## Products
+
+- [Products](https://usapalletsolution.org/products/): Overview of pallet types
+- [Wooden pallets](https://usapalletsolution.org/products/wooden-pallets/)
+- [Plastic pallets](https://usapalletsolution.org/products/plastic-pallets/)
+- [Metal pallets](https://usapalletsolution.org/products/metal-pallets/)
+- [Custom pallets](https://usapalletsolution.org/products/custom-pallets/)
+- [Export pallets](https://usapalletsolution.org/products/export-pallets/)
+- [Accessories](https://usapalletsolution.org/products/accessories/)
+
+## Services
+
+- [Services](https://usapalletsolution.org/services/): Overview of services through partner suppliers
+- [Pallet buying](https://usapalletsolution.org/services/buying/): Selling your used pallets to partner suppliers
+- [Pallet selling](https://usapalletsolution.org/services/selling/): Buying pallets from partner suppliers
+- [Recycling](https://usapalletsolution.org/services/recycling/)
+- [Transportation](https://usapalletsolution.org/services/transportation/)
+- [Repair](https://usapalletsolution.org/services/repair/)
+- [Disposal](https://usapalletsolution.org/services/disposal/)
+
+## Legal
+
+- [Privacy policy](https://usapalletsolution.org/privacy-policy/)
+- [Terms of use](https://usapalletsolution.org/terms/)

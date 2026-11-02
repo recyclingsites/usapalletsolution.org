@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getStateBySlug } from '@/data/locations'
 
 const toTitleCase = (value: string) =>
   value
@@ -10,11 +11,11 @@ export async function generateMetadata(
   { params }: { params: Promise<{ state: string }> }
 ): Promise<Metadata> {
   const { state } = await params
-  const stateName = toTitleCase(state)
+  const stateName = getStateBySlug(state)?.name ?? toTitleCase(state)
 
   return {
-    title: `Pallet Services in ${stateName} | Supply, Recycling, Repair and Transport Experts`,
-    description: `Order pallets, recycling, and transport services anywhere in ${stateName} with rapid response.`,
+    title: `Pallet Services in ${stateName} | Supply, Recycling and Repair Through Partner Suppliers`,
+    description: `Request pallets, recycling, repair or pickup from ${stateName}. Your free, no-obligation request goes to partner suppliers; availability depends on partner suppliers.`,
     alternates: { canonical: `/locations/${state}/` },
   }
 }

@@ -85,7 +85,7 @@ export function FloatingContactButton() {
               <div className="bg-white rounded-2xl shadow-2xl max-w-[95vw] w-full max-h-[92vh] overflow-hidden border border-primary-200 flex flex-col">
                 {/* Header - Very Compact */}
                 <div className="bg-gradient-to-r from-primary-600 to-secondary-600 px-4 py-2 flex items-center justify-between flex-shrink-0">
-                  <h2 className="text-lg md:text-xl font-bold">Get Quote - 2 Hour Response</h2>
+                  <h2 className="text-lg md:text-xl font-bold">Request a Free Quote</h2>
                   <button
                     onClick={() => setIsOpen(false)}
                     className="w-7 h-7 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex-shrink-0"

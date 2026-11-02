@@ -7,26 +7,35 @@ import Link from 'next/link'
 export default function Home() {
   const faqItems = [
     {
-      question: 'Do you deliver pallets nationwide?',
-      answer: 'Yes, we serve all 50 states with regional yards and carrier partners to provide fast pallet delivery or pickup wherever you operate.',
+      question: 'Can I request pallets anywhere in the US?',
+      answer: 'We take requests from across the US. Availability depends on partner suppliers in our network and on your location, so a partner supplier will confirm what can be arranged for your area.',
     },
     {
-      question: 'Can you supply heat-treated pallets for export?',
-      answer: 'We provide ISPM 15 heat-treated pallets, proper stamping, and documentation so your international shipments clear customs smoothly.',
+      question: 'Can I request heat-treated pallets for export?',
+      answer: 'Yes. Partner suppliers can quote ISPM 15 pallets where available. ISPM 15 heat treatment means a core temperature of 56 °C for 30 minutes, and treated wood carries the IPPC mark. Rules vary by destination, so check current regulations for the country you ship to.',
     },
     {
-      question: 'Do you buy back used or surplus pallets?',
-      answer: 'Absolutely. We pay competitive rates for surplus pallets, schedule pickups, and recycle or repair them to extend their life cycle.',
+      question: 'Can I sell used or surplus pallets?',
+      answer: 'Yes. Send the quantity, condition and location, and we pass your request to partner suppliers. Whether they can buy or collect the pallets, and at what price, depends on the supplier and the pallets.',
     },
     {
-      question: 'What pallet sizes are available?',
-      answer: 'Standard 48x40 GMA, Euro sizes, 1200x1000, half pallets, and custom dimensions engineered to your load plan are available.',
+      question: 'What pallet sizes can I request?',
+      answer: 'Common requests include the standard 48x40 GMA pallet, Euro pallets, 1200x1000 mm pallets, half pallets and custom dimensions. Availability depends on partner suppliers.',
     },
     {
-      question: 'How quickly can I get a quote?',
-      answer: 'During business hours we respond within two hours with transparent pricing and timelines tailored to your volume and location.',
+      question: 'What happens after I send a request?',
+      answer: 'We pass your request to partner suppliers in our network, and a partner supplier follows up with you about pricing, availability and next steps. The quote request is free and carries no obligation.',
     },
   ]
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'USA Pallet Solution',
+    url: 'https://usapalletsolution.org',
+    description: 'A referral service that passes pallet quote requests to partner suppliers.',
+    areaServed: { '@type': 'Country', name: 'United States' },
+  }
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -45,7 +54,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
         <div className="absolute inset-0">
-          <img src="/images/back.jpg" alt="Warehouse" className="w-full h-full object-cover opacity-50" />
+          <img src="/images/back.jpg" alt="Pallets stacked in a warehouse" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-br from-warm-50/70 via-light-50/60 to-primary-50/70"></div>
         </div>
 
@@ -61,24 +70,22 @@ export default function Home() {
               <span className="block text-primary-600">Solution</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto">
-              America's Leading Provider of Comprehensive Pallet Solutions - Buying, Selling, Recycling, Manufacturing & Nationwide Transportation Services
+              Quotes for Buying, Selling, Recycling, Repair, Pickup and Delivery of Pallets Through Partner Suppliers
             </p>
             <p className="text-lg text-gray-500 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Since 2009, USA Pallet Solution has been the trusted partner for businesses across all 50 states,
-              providing exceptional pallet services backed by industry expertise, sustainable practices, and an
-              unwavering commitment to customer success. With 8 strategically located distribution centers,
-              over 150 dedicated team members, and an inventory exceeding 100,000 pallets, we have the capacity
-              and expertise to handle projects of any scale - from small local businesses to Fortune 500 corporations.
+              USA Pallet Solution is a referral service. Tell us what you need, whether that is pallets to buy,
+              pallets to sell or pallets to clear out, and we pass your request to partner suppliers in our network,
+              who quote and fulfil the work. We take requests from across the US; availability depends on partner suppliers.
             </p>
             <div className="flex flex-wrap gap-4 justify-center mb-8">
               <Link href="/products" className="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-semibold transition-all transform hover:scale-105 soft-shadow">
                 View Products
               </Link>
               <Link href="/services" className="px-8 py-4 bg-secondary-500 hover:bg-secondary-600 text-white rounded-xl font-semibold transition-all transform hover:scale-105 soft-shadow-secondary">
-                Our Services
+                Services
               </Link>
               <Link href="/contact" className="px-8 py-4 bg-white border-2 border-primary-300 hover:border-primary-500 text-primary-600 rounded-xl font-semibold transition-all transform hover:scale-105">
-                Get Free Quote
+                Request a Free Quote
               </Link>
             </div>
             <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-600">
@@ -86,42 +93,26 @@ export default function Home() {
                 <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Same-Day Delivery Available</span>
+                <span>Free, No-Obligation Quote Request</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>All 50 States Covered</span>
+                <span>Requests From Across the US</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>24/7 Emergency Service</span>
+                <span>Pricing by Quote From Partner Suppliers</span>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="py-12 bg-white border-y border-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-center text-gray-500 text-sm mb-8">Trusted by Leading Companies Across America</p>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-              {['Fortune 500 Companies', 'Small Businesses', 'Manufacturing', 'Distribution Centers', 'Retail Chains'].map((trust, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-gray-400 font-semibold text-sm">{trust}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section - Enhanced */}
+      {/* How It Works */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -130,23 +121,18 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800"
           >
-            Proven Excellence in Pallet Solutions
+            How a Quote Request Works
           </motion.h2>
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg">
-            Our track record speaks for itself. These numbers represent years of dedication to providing
-            exceptional pallet services, sustainable practices, and unwavering customer commitment across
-            the entire United States.
+            We do not stock pallets or run trucks ourselves. We connect your request with partner suppliers
+            in our network, and they handle the quote and the work.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
             {[
-              { number: '15+', label: 'Years in Business', description: 'Industry leadership since 2009', icon: '📅' },
-              { number: '100K+', label: 'Pallets Monthly', description: 'Processed through our facilities', icon: '📦' },
-              { number: '2,500+', label: 'Business Partners', description: 'Companies we serve nationwide', icon: '🤝' },
-              { number: '99.8%', label: 'Satisfaction Rate', description: 'Based on customer surveys', icon: '⭐' },
-              { number: '8', label: 'Distribution Centers', description: 'Coast-to-coast coverage', icon: '🏭' },
-              { number: '150+', label: 'Team Members', description: 'Dedicated professionals', icon: '👥' },
-              { number: '1.5M', label: 'Recycled Pallets', description: 'Diverted from landfills', icon: '♻️' },
-              { number: '95%', label: 'Waste Reduction', description: 'Through recycling programs', icon: '🌱' },
+              { number: '1', label: 'Send Your Request', description: 'Pallet type, quantity, condition and location', icon: '📝' },
+              { number: '2', label: 'We Pass It On', description: 'Your request goes to partner suppliers in our network', icon: '🤝' },
+              { number: '3', label: 'Get a Follow-Up', description: 'A partner supplier follows up with pricing and availability', icon: '💬' },
+              { number: '4', label: 'Decide', description: 'No obligation; go ahead only if the quote suits you', icon: '✅' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -176,11 +162,11 @@ export default function Home() {
               className="mb-16 text-center"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                See Our Operations in Action
+                Pallets at Every Stage
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Take a look at our state-of-the-art facilities, extensive inventory, and professional operations.
-                From warehouse to delivery, we maintain the highest standards at every step.
+                From storage to the back of a truck, here is what the main pallet types and handling
+                stages look like, and what to mention in your request.
               </p>
             </motion.div>
 
@@ -188,45 +174,52 @@ export default function Home() {
               {[
                 {
                   image: '/images/1.jpg',
-                  title: 'Extensive Warehouse Inventory',
-                  description: 'Our warehouses stock over 100,000 pallets in various sizes and materials, ensuring immediate availability for your needs.',
-                  badge: 'Facilities'
+                  title: 'Wood, Plastic and Metal Pallets',
+                  description: 'Wood suits most general use, plastic is easy to wash, and metal suits heavy repeat use. Say which you need.',
+                  badge: 'Materials',
+                  alt: 'Stacks of wood, plastic and metal pallets outside a warehouse'
                 },
                 {
                   image: '/images/2.jpg',
-                  title: 'Quality Inspection Process',
-                  description: 'Every pallet undergoes rigorous multi-point inspection to ensure it meets our strict quality standards and your specifications.',
-                  badge: 'Quality Control'
+                  title: 'Stacked Wood Pallets',
+                  description: 'Stacked new or used wood pallets. Mention the size and grade you want so partner suppliers can quote the right ones.',
+                  badge: 'Wood Pallets',
+                  alt: 'Tall stacks of wood pallets in a warehouse'
                 },
                 {
                   image: '/images/3.jpg',
-                  title: 'Custom Manufacturing',
-                  description: 'State-of-the-art manufacturing equipment allows us to produce custom pallets to your exact specifications with precision.',
-                  badge: 'Manufacturing'
+                  title: 'Pallets in Use',
+                  description: 'Pallets carry goods through racking, forklifts and shipping. Your load and handling method help decide the right type.',
+                  badge: 'Warehousing',
+                  alt: 'Goods on pallets in a warehouse with racking and a forklift'
                 },
                 {
                   image: '/images/4.jpg',
-                  title: 'Professional Team',
-                  description: 'Our experienced team of over 150 professionals brings decades of combined expertise to serve you better.',
-                  badge: 'Our Team'
+                  title: 'Mixed Used Pallets',
+                  description: 'Used and surplus pallets often come in mixed types and conditions. Photos and a rough count help with a quote.',
+                  badge: 'Used Pallets',
+                  alt: 'Mixed wood, plastic and metal pallets in a yard'
                 },
                 {
                   image: '/images/5.jpg',
-                  title: 'Recycling Operations',
-                  description: 'Advanced recycling facility where we process and refurbish thousands of pallets, keeping them out of landfills.',
-                  badge: 'Sustainability'
+                  title: 'Loading for Delivery',
+                  description: 'Pallets are often moved by the truckload. Partner suppliers can arrange pickup or delivery where available.',
+                  badge: 'Transportation',
+                  alt: 'Worker loading wood pallets into a truck'
                 },
                 {
                   image: '/images/6.jpg',
-                  title: 'Nationwide Delivery Fleet',
-                  description: 'Modern fleet and logistics network ensure fast, reliable delivery to any location across all 50 states.',
-                  badge: 'Transportation'
+                  title: 'Large-Volume Storage',
+                  description: 'High-volume orders are usually planned ahead. Share your quantity and timing in your request.',
+                  badge: 'Volume',
+                  alt: 'Large warehouse filled with stacks of pallets'
                 },
                 {
                   image: '/images/7.jpg',
-                  title: 'Ready for Shipment',
-                  description: 'Pallets organized and ready for immediate dispatch. We pride ourselves on fast turnaround times and on-time delivery.',
-                  badge: 'Distribution'
+                  title: 'Sorting and Reuse',
+                  description: 'Reusable pallets can be repaired and put back into service. Reusing a pallet avoids building a new one.',
+                  badge: 'Reuse',
+                  alt: 'Used wood pallets stacked indoors near forklifts'
                 }
               ].map((item, index) => (
                 <motion.div
@@ -240,7 +233,7 @@ export default function Home() {
                   <div className="relative h-80 overflow-hidden bg-gray-200">
                     <img
                       src={item.image}
-                      alt={item.title}
+                      alt={item.alt}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4">
@@ -276,12 +269,11 @@ export default function Home() {
               className="mb-16 text-center"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Complete Pallet Lifecycle Solutions
+                Pallet Services Through Partner Suppliers
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                From sourcing and manufacturing to delivery, recycling, and disposal, we handle every aspect
-                of your pallet needs. Our comprehensive approach saves you time, reduces costs, and simplifies
-                your supply chain operations.
+                From sourcing and delivery to recycling and disposal, one free request covers it. We pass
+                what you need to partner suppliers in our network, who quote and carry out the work.
               </p>
             </motion.div>
 
@@ -289,45 +281,45 @@ export default function Home() {
               {[
                 {
                   title: 'Pallet Buying & Selling',
-                  description: 'We purchase used pallets in any condition and sell a vast inventory of new and refurbished pallets. Our competitive pricing and flexible terms make us the preferred choice for businesses of all sizes.',
-                  features: ['Fair market pricing', 'Immediate payment', 'No minimum quantities', 'Free pickup service'],
+                  description: 'Request new or used pallets, or offer surplus pallets for sale. Partner suppliers quote on the type, quantity, condition and location.',
+                  features: ['New and used pallets', 'Surplus pallets for sale', 'Standard and custom sizes', 'Pricing by quote'],
                   icon: '💰',
                   link: '/services/buying'
                 },
                 {
-                  title: 'Custom Manufacturing',
-                  description: 'Our state-of-the-art manufacturing facilities produce custom pallets to your exact specifications. From standard sizes with special features to completely unique designs, we bring your vision to life.',
-                  features: ['Any size or configuration', 'Multiple materials', 'Engineering support', 'Prototyping available'],
+                  title: 'Custom Pallets',
+                  description: 'Need a size or build that is not standard? Send your dimensions and load details and partner suppliers can quote where they are able to build it.',
+                  features: ['Non-standard sizes', 'Wood, plastic or metal', 'Load details help', 'Availability varies'],
                   icon: '🏭',
                   link: '/products/custom-pallets'
                 },
                 {
                   title: 'Pallet Recycling',
-                  description: 'Our comprehensive recycling program has diverted over 1.5 million pallets from landfills. We assess, sort, repair, and refurbish pallets to maximize their useful life and minimize environmental impact.',
-                  features: ['Eco-friendly disposal', 'Repair & refurbishment', 'Material recovery', 'Sustainability reporting'],
+                  description: 'Have pallets you no longer need? Partner suppliers can assess them for reuse, repair or recycling. Reusing a pallet avoids building a new one.',
+                  features: ['Reuse where possible', 'Repair and refurbishment', 'Material recycling', 'Pickup where available'],
                   icon: '♻️',
                   link: '/services/recycling'
                 },
                 {
-                  title: 'Heat Treatment & Certification',
-                  description: 'ISPM-15 compliant heat treatment for international shipping. Our certified facilities ensure your pallets meet all regulatory requirements for export to over 100 countries worldwide.',
-                  features: ['ISPM-15 certified', 'Fast turnaround', 'Proper documentation', 'Global compliance'],
+                  title: 'Export & Heat-Treated Pallets',
+                  description: 'Shipping abroad? Ask for ISPM 15 heat-treated pallets, which carry the IPPC mark. Check current regulations for your destination country.',
+                  features: ['ISPM 15 heat treatment', 'IPPC mark', 'Wood packaging rules vary', 'Confirm with your supplier'],
                   icon: '🌍',
-                  link: '/services'
+                  link: '/products/export-pallets'
                 },
                 {
-                  title: 'Transportation & Logistics',
-                  description: 'Our extensive carrier network and 8 regional distribution centers enable fast, reliable delivery anywhere in the United States. Same-day service available in major metro areas.',
-                  features: ['Nationwide coverage', 'Same-day delivery', 'GPS tracking', 'Scheduled deliveries'],
+                  title: 'Transportation & Pickup',
+                  description: 'Partner suppliers can arrange delivery or pickup. We take requests from across the US; availability depends on partner suppliers.',
+                  features: ['Delivery where available', 'Pickup where available', 'Truckload or smaller lots', 'Timing set with your supplier'],
                   icon: '🚚',
                   link: '/services/transportation'
                 },
                 {
-                  title: 'Pallet Management Programs',
-                  description: 'Comprehensive pallet management solutions including inventory tracking, automated reordering, on-site storage, and regular maintenance schedules tailored to your operational needs.',
-                  features: ['Inventory management', 'Automated ordering', 'Cost tracking', 'Performance analytics'],
-                  icon: '📊',
-                  link: '/services'
+                  title: 'Pallet Repair & Disposal',
+                  description: 'Damaged or unwanted pallets can be quoted for repair or disposal through partner suppliers, depending on condition and location.',
+                  features: ['Repair of damaged pallets', 'Removal of unwanted pallets', 'Mixed lots considered', 'Pricing by quote'],
+                  icon: '🔧',
+                  link: '/services/repair'
                 }
               ].map((service, index) => (
                 <motion.div
@@ -375,11 +367,11 @@ export default function Home() {
               className="mb-16 text-center"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Industry-Specific Expertise
+                Pallet Options by Industry
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                We understand that different industries have unique pallet requirements. Our specialized
-                solutions are tailored to meet the specific needs, regulations, and standards of your sector.
+                Different industries ask for different pallets. Here is what buyers in each sector commonly
+                ask about, so you can include the right details in your request.
               </p>
             </motion.div>
 
@@ -387,50 +379,38 @@ export default function Home() {
               {[
                 {
                   industry: 'Food & Beverage',
-                  description: 'FDA-approved materials, heat-treated options, and food-grade pallets meeting all safety standards for the food industry.',
-                  solutions: ['Food-grade materials', 'Heat treatment (ISPM-15)', 'Plastic pallets for hygiene', 'Custom sizing for products', 'Fast turnaround times'],
+                  description: 'Many food and drink operations look at hygiene, moisture and fit. Tell partner suppliers your requirements and confirm any standards with them.',
+                  solutions: ['Plastic pallets for easy washing', 'Heat-treated wood options', 'Custom sizing for products', 'Check your own food-safety rules'],
                   icon: '🍎'
                 },
                 {
-                  industry: 'Pharmaceutical & Healthcare',
-                  description: 'Clean room compatible pallets, sanitizable materials, and compliance with strict pharmaceutical industry regulations.',
-                  solutions: ['Clean room certified', 'Plastic & metal options', 'Sterilization capable', 'Lot tracking available', 'GMP compliant facilities'],
-                  icon: '💊'
-                },
-                {
                   industry: 'Automotive Manufacturing',
-                  description: 'Heavy-duty pallets rated for multi-ton loads, custom designs for parts and assemblies, and just-in-time delivery.',
-                  solutions: ['Heavy load capacity', 'Custom configurations', 'Steel pallet options', 'JIT delivery', 'Durable construction'],
+                  description: 'Parts and assemblies can be heavy or awkward, so durable builds and custom sizes are common requests.',
+                  solutions: ['Heavier-duty builds', 'Custom configurations', 'Metal pallet options', 'Repeat-use designs'],
                   icon: '🚗'
                 },
                 {
                   industry: 'Retail & E-commerce',
-                  description: 'Display-ready pallets, standard GMA sizes for retail distribution, and high-volume fulfillment center solutions.',
-                  solutions: ['Standard GMA pallets', 'Display-ready options', 'High volume capacity', 'Fast delivery', 'Buyback programs'],
+                  description: 'Retail distribution often calls for standard GMA sizes and consistent quality in volume.',
+                  solutions: ['Standard 48x40 GMA pallets', 'Consistent grades', 'Volume requests', 'Surplus pallet sales'],
                   icon: '🛒'
                 },
                 {
                   industry: 'Export & International',
-                  description: 'ISPM-15 certified heat-treated pallets for international shipping, documentation support, and global compliance expertise.',
-                  solutions: ['ISPM-15 certified', 'Heat treatment', 'Proper documentation', 'Global compliance', 'Multiple countries served'],
+                  description: 'Wood pallets shipped abroad generally need ISPM 15 treatment. Rules vary, so check current regulations for your destination.',
+                  solutions: ['ISPM 15 heat treatment', 'IPPC mark', 'Plastic or metal alternatives', 'Destination rules vary'],
                   icon: '🌍'
                 },
                 {
-                  industry: 'Chemical & Petrochemical',
-                  description: 'Chemical-resistant materials, spill containment options, and pallets designed for hazardous material transport.',
-                  solutions: ['Chemical resistance', 'Spill containment', 'Heavy-duty construction', 'Safety compliance', 'Specialty materials'],
-                  icon: '⚗️'
-                },
-                {
                   industry: 'Agriculture & Produce',
-                  description: 'Ventilated designs for fresh produce, moisture-resistant materials, and sizes optimized for agricultural products.',
-                  solutions: ['Ventilated designs', 'Moisture resistant', 'Standard produce sizes', 'Fast turnaround', 'Volume discounts'],
+                  description: 'Farm and produce loads often face moisture and outdoor handling, so airflow and durability matter.',
+                  solutions: ['Open deck designs', 'Moisture-resistant materials', 'Common produce sizes', 'Seasonal requests'],
                   icon: '🌾'
                 },
                 {
                   industry: 'Construction & Building Materials',
-                  description: 'Extra-heavy duty pallets for building materials, weather-resistant options, and custom sizes for irregular loads.',
-                  solutions: ['Maximum durability', 'Weather resistant', 'Custom dimensions', 'High load capacity', 'Rough handling rated'],
+                  description: 'Building materials are heavy and often stored outdoors, so sturdy builds and custom sizes are common requests.',
+                  solutions: ['Heavier-duty builds', 'Outdoor handling', 'Custom dimensions', 'Irregular loads'],
                   icon: '🏗️'
                 }
               ].map((item, index) => (
@@ -450,7 +430,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-100">
-                    <p className="text-sm font-semibold text-gray-700 mb-3">Specialized Solutions:</p>
+                    <p className="text-sm font-semibold text-gray-700 mb-3">Common Requests:</p>
                     <ul className="space-y-2">
                       {item.solutions.map((solution, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
@@ -480,15 +460,14 @@ export default function Home() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-800">
-              Get Your Free Quote Today
+              Send a Free, No-Obligation Quote Request
             </h2>
             <p className="text-center text-gray-600 mb-4 text-lg">
-              Fill out the form below and our team will contact you within 2 hours during business hours
+              Fill out the form below and we will pass your request to partner suppliers in our network
             </p>
             <p className="text-center text-gray-500 mb-12">
-              Whether you need 10 pallets or 10,000, have questions about our services, or want to discuss
-              a custom solution, we're here to help. Our experienced team will work with you to find the
-              perfect pallet solution for your specific needs and budget.
+              Whether you need a few pallets or a truckload, or have pallets to sell or clear out, include
+              the type, quantity and location. A partner supplier follows up with pricing and availability.
             </p>
             <ContactForm productType="General Inquiry" />
           </motion.div>
@@ -505,49 +484,49 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-800"
             >
-              Extensive Product Selection
+              Pallet Types You Can Request
             </motion.h2>
             <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto text-lg">
-              From standard wooden pallets to specialized custom solutions, we maintain one of the
-              largest and most diverse pallet inventories in the United States.
+              From standard wood pallets to custom builds, these are the main types partner suppliers
+              can quote. Availability depends on your location and the supplier.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   title: 'Wooden Pallets',
-                  description: 'Traditional wooden pallets in all standard sizes. Available new or refurbished, heat-treated for export, and built to withstand rigorous handling.',
-                  specs: ['GMA standard sizes', '2-way & 4-way entry', 'Load capacity: up to 4,600 lbs', 'Heat treatment available'],
+                  description: 'Standard wood pallets, new or used. The usual choice for general shipping and storage, and they can be heat treated for export.',
+                  specs: ['48x40 GMA and other sizes', '2-way and 4-way entry', 'New or used', 'Heat treatment on request'],
                   icon: '🪵'
                 },
                 {
                   title: 'Plastic Pallets',
-                  description: 'Lightweight, moisture-resistant plastic pallets perfect for clean environments. Ideal for food, pharmaceutical, and chemical industries.',
-                  specs: ['Rackable designs', 'Nestable options', 'Easy to sanitize', 'Long service life'],
+                  description: 'Lighter handling and easy washing, with no moisture absorption. Often cost more up front than wood.',
+                  specs: ['Rackable designs', 'Nestable options', 'Easy to clean', 'Good for closed-loop use'],
                   icon: '🔷'
                 },
                 {
                   title: 'Metal Pallets',
-                  description: 'Industrial-strength steel and aluminum pallets for heavy-duty applications. Fire-resistant, pest-proof, and built for extreme conditions.',
-                  specs: ['Load capacity: 10,000+ lbs', 'Fire resistant', 'Weather proof', '10+ year lifespan'],
+                  description: 'Steel and aluminum pallets for heavy loads and repeated use. Usually the most expensive option.',
+                  specs: ['Heavier loads (confirm with supplier)', 'Does not absorb moisture', 'Suits repeated use', 'Steel or aluminum'],
                   icon: '⚙️'
                 },
                 {
                   title: 'Custom Pallets',
-                  description: 'Pallets designed and manufactured to your exact specifications. Any size, material, or feature combination to meet unique requirements.',
-                  specs: ['Any dimensions', 'Multiple materials', 'Special features', 'Engineering support'],
+                  description: 'Pallets built to your dimensions where a partner supplier can make them. Share your load and handling details.',
+                  specs: ['Non-standard dimensions', 'Choice of materials', 'Load details help', 'Availability varies'],
                   icon: '🎨'
                 },
                 {
                   title: 'Export Pallets',
-                  description: 'ISPM-15 compliant heat-treated pallets for international shipping. Properly stamped, documented, and ready for global distribution.',
-                  specs: ['ISPM-15 certified', 'Proper stamping', 'Documentation included', '100+ countries'],
+                  description: 'ISPM 15 heat-treated wood pallets for international shipping, marked with the IPPC mark. Check current regulations for your destination.',
+                  specs: ['ISPM 15 heat treatment', '56 °C core for 30 minutes', 'IPPC mark', 'Destination rules vary'],
                   icon: '📦'
                 },
                 {
                   title: 'Pallet Accessories',
-                  description: 'Complete range of pallet-related products including collars, corner protectors, strapping, covers, and slip sheets.',
-                  specs: ['Pallet collars', 'Protection materials', 'Securing supplies', 'Custom solutions'],
+                  description: 'Related items such as collars, corner protectors, strapping, covers and slip sheets, where partner suppliers carry them.',
+                  specs: ['Pallet collars', 'Protection materials', 'Securing supplies', 'Availability varies'],
                   icon: '🔧'
                 }
               ].map((product, index) => (
@@ -598,84 +577,84 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-800"
             >
-              Why Businesses Choose USA Pallet Solution
+              Why Use USA Pallet Solution
             </motion.h2>
             <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto text-lg">
-              Our combination of extensive inventory, nationwide reach, local expertise, and customer-first
-              approach makes us the preferred pallet partner for thousands of businesses across America.
+              A single request saves you hunting for a pallet supplier yourself. Here is what you
+              get, and what to expect.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               {[
                 {
-                  title: 'Unmatched Inventory & Availability',
-                  description: 'With over 100,000 pallets in stock across 8 distribution centers, we can fulfill orders of any size immediately. Our sophisticated inventory management system ensures product availability when you need it.',
+                  title: 'One Request, Partner Suppliers',
+                  description: 'Instead of searching for suppliers one by one, send one request. We pass it to partner suppliers in our network who may be able to help.',
                   benefits: [
-                    '100,000+ pallets always in stock',
-                    'All standard sizes readily available',
-                    'Custom orders - fast turnaround',
-                    'Emergency rush service available',
-                    'No minimum order quantities'
+                    'One form to fill out',
+                    'Buying or selling',
+                    'New, used or custom',
+                    'Partner suppliers follow up',
+                    'Free to ask'
                   ],
                   icon: '📦'
                 },
                 {
-                  title: 'Nationwide Delivery Network',
-                  description: 'Our strategically located distribution centers and partnerships with regional carriers enable fast, reliable delivery to all 50 states. Same-day service in major metros, next-day for most locations.',
+                  title: 'Requests From Across the US',
+                  description: 'We take requests from across the US. Availability depends on partner suppliers and on your location.',
                   benefits: [
-                    'Same-day delivery in major cities',
-                    'Next-day service in most areas',
-                    '2-5 day shipping nationwide',
-                    'GPS tracking on all shipments',
-                    'Flexible delivery scheduling'
+                    'Requests from any US state',
+                    'Delivery where available',
+                    'Pickup where available',
+                    'Timing set with your supplier',
+                    'Your location helps matching'
                   ],
                   icon: '🚚'
                 },
                 {
-                  title: 'Competitive Pricing & Value',
-                  description: 'Our high-volume operations and efficient processes allow us to offer competitive pricing without compromising on quality. Volume discounts, flexible payment terms, and transparent pricing.',
+                  title: 'Pricing by Quote',
+                  description: 'Pallet prices depend on type, grade, quantity, location and the market, so there is no price list here. Partner suppliers quote your actual request.',
                   benefits: [
-                    'Competitive market pricing',
-                    'Volume discount programs',
-                    'No hidden fees',
-                    'Flexible payment terms',
-                    'Price matching available'
+                    'Quote from partner suppliers',
+                    'Based on your request',
+                    'Free, no-obligation request',
+                    'Compare before you commit',
+                    'Terms set by the supplier'
                   ],
                   icon: '💰'
                 },
                 {
-                  title: 'Quality Assurance & Standards',
-                  description: 'Every pallet undergoes rigorous inspection and quality control. We stand behind our products with warranties and ensure all items meet or exceed industry standards.',
+                  title: 'Clear Pallet Information',
+                  description: 'Our guides explain sizes, grades and materials in plain language, so you can ask for what you need. Confirm the details with your supplier.',
                   benefits: [
-                    'Multi-point inspection process',
-                    'Load testing & certification',
-                    'Quality grading system',
-                    'Warranty coverage',
-                    'Compliance guaranteed'
+                    'Size guide',
+                    'Common grade descriptions',
+                    'Wood, plastic and metal compared',
+                    'ISPM 15 basics',
+                    'Plain language'
                   ],
                   icon: '✓'
                 },
                 {
-                  title: 'Sustainability Leadership',
-                  description: 'Environmental responsibility is core to our operations. We\'ve recycled over 1.5 million pallets, maintaining a 95% landfill diversion rate through repair and refurbishment.',
+                  title: 'Reuse and Recycling',
+                  description: 'Reusing a pallet avoids building a new one, and a damaged pallet can often be repaired. Partner suppliers can advise on what can be reused.',
                   benefits: [
-                    '1.5M+ pallets recycled',
-                    '95% landfill diversion rate',
-                    'Comprehensive buyback programs',
-                    'Repair & refurbishment services',
-                    'Sustainability reporting'
+                    'Used pallets to reuse',
+                    'Repair where practical',
+                    'Recycling of worn pallets',
+                    'Surplus pallet sales',
+                    'Disposal when needed'
                   ],
                   icon: '♻️'
                 },
                 {
-                  title: 'Expert Customer Support',
-                  description: 'Our experienced team averages 8+ years in the pallet industry. Dedicated account managers, 24/7 emergency service, and personalized solutions for your unique needs.',
+                  title: 'Simple to Reach',
+                  description: 'The form is the main way to reach us. For anything else, email info@usapalletsolution.org.',
                   benefits: [
-                    'Dedicated account managers',
-                    '24/7 emergency service',
-                    'Industry expertise',
-                    'Personalized solutions',
-                    'Fast response times (2-4 hours)'
+                    'Quote request form',
+                    'Email for general questions',
+                    'No account needed',
+                    'No obligation',
+                    'Partner suppliers follow up'
                   ],
                   icon: '👥'
                 }
@@ -751,29 +730,28 @@ export default function Home() {
             className="text-center max-w-4xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Ready to Experience the USA Pallet Solution Difference?
+              Ready to Send Your Request?
             </h2>
             <p className="text-xl mb-4 text-white/90">
-              Contact us today for a free, no-obligation quote on your pallet needs
+              Send a free, no-obligation quote request for your pallet needs
             </p>
             <p className="text-lg mb-8 text-white/80 leading-relaxed">
-              Join thousands of satisfied customers who trust USA Pallet Solution for their material handling needs.
-              Whether you're a small business just starting out or a Fortune 500 company with complex requirements,
-              we have the expertise, inventory, and dedication to help you succeed. Let's discuss how we can
-              optimize your pallet operations, reduce costs, and improve efficiency.
+              Whether you run a small business or a large operation, the process is the same: tell us what
+              you need, and we pass your request to partner suppliers in our network. A partner supplier
+              follows up with pricing and availability.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
                 className="px-10 py-4 bg-white text-primary-600 hover:text-primary-700 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover"
               >
-                Get Free Quote
+                Request a Free Quote
               </Link>
               <Link
                 href="/about"
                 className="px-10 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-xl font-bold text-lg transition-all"
               >
-                Learn More About Us
+                How the Service Works
               </Link>
             </div>
           </motion.div>
@@ -783,6 +761,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
     </div>
   )

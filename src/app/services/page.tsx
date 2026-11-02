@@ -7,37 +7,37 @@ import Link from 'next/link'
 const services = [
   {
     title: 'Pallet Buying',
-    description: 'We purchase used pallets in any quantity and condition',
+    description: 'Have used pallets to sell? Partner suppliers may buy them, depending on type, condition and location',
     href: '/services/buying',
     icon: '💰',
   },
   {
     title: 'Pallet Selling',
-    description: 'Wide selection of new and used pallets ready for delivery',
+    description: 'Need pallets? Request new or used pallets from partner suppliers in our network',
     href: '/services/selling',
     icon: '🏪',
   },
   {
     title: 'Pallet Recycling',
-    description: 'Eco-friendly recycling and refurbishment services',
+    description: 'Request recycling and refurbishment through partner suppliers',
     href: '/services/recycling',
     icon: '♻️',
   },
   {
     title: 'Transportation',
-    description: 'Reliable pallet delivery across the United States',
+    description: 'Request pallet delivery or pickup through partner suppliers',
     href: '/services/transportation',
     icon: '🚚',
   },
   {
     title: 'Pallet Repair',
-    description: 'Professional repair services to extend pallet lifespan',
+    description: 'Request repair of damaged pallets through partner suppliers',
     href: '/services/repair',
     icon: '🔧',
   },
   {
     title: 'Disposal Services',
-    description: 'Safe and compliant pallet disposal and waste management',
+    description: 'Request removal and disposal of unwanted pallets through partner suppliers',
     href: '/services/disposal',
     icon: '🗑️',
   },
@@ -46,24 +46,24 @@ const services = [
 export default function ServicesPage() {
   const faqItems = [
     {
-      question: 'What types of pallets do you work with?',
-      answer: 'We handle wooden, plastic, metal, block, and custom pallets in all grades, including heat-treated options for export.',
+      question: 'What types of pallets can I request?',
+      answer: 'You can send a request for wooden, plastic, metal, block and custom pallets, in new or used grades, including heat-treated pallets for export. Availability depends on partner suppliers.',
     },
     {
-      question: 'What is your service area?',
-      answer: 'We provide pallet supply, recycling, repair, and transport across all 50 states with strategically located yards.',
+      question: 'What areas do you cover?',
+      answer: 'We take requests from across the US. Availability depends on partner suppliers near your location.',
     },
     {
-      question: 'How quickly can you respond to service requests?',
-      answer: 'During business hours we respond within two hours and can schedule same-day or next-day service when capacity allows.',
+      question: 'What happens after I send a request?',
+      answer: 'We pass your request to partner suppliers in our network. A partner supplier follows up with you about your request.',
     },
     {
-      question: 'Do you offer volume discounts?',
-      answer: 'Yes, pricing scales with volume. We provide contract pricing and dedicated capacity for recurring, high-volume partners.',
+      question: 'How does pricing work?',
+      answer: 'Pricing is by quote from partner suppliers. It depends on factors such as pallet type, condition, quantity and location. The quote request itself is free and carries no obligation.',
     },
     {
-      question: 'Are your services environmentally friendly?',
-      answer: 'We prioritize reuse and recycling to divert pallets from landfills, offering repair-first programs and residual grinding.',
+      question: 'Are recycling and reuse options available?',
+      answer: 'Yes, through partner suppliers. Reusing or repairing a pallet avoids building a new one, and wood that cannot be reused can often be ground into other products.',
     },
   ]
 
@@ -89,9 +89,9 @@ export default function ServicesPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Comprehensive Pallet Services</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Pallet Services Through Our Network</h1>
             <p className="text-xl text-gray-700 max-w-3xl mb-8">
-              Complete pallet lifecycle management solutions from procurement to disposal, serving businesses nationwide with reliability, sustainability, and exceptional service quality.
+              USA Pallet Solution is a referral service. Tell us what you need, from buying pallets to disposing of old ones, and we pass your request to partner suppliers. Requests are welcome from across the US; availability depends on partner suppliers.
             </p>
           </motion.div>
         </div>
@@ -121,19 +121,19 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl font-bold mb-8 text-primary-600">Your Complete Pallet Partner</h2>
+            <h2 className="text-4xl font-bold mb-8 text-primary-600">One Request for Your Pallet Needs</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                USA Pallet Solution is your trusted partner for all pallet-related services across the United States. With decades of combined experience in the pallet industry, we understand the critical role that pallets play in supply chain operations, warehouse management, and logistics efficiency. Our comprehensive service offerings are designed to meet every need of modern businesses, from small local operations to large-scale national distribution centers.
+                USA Pallet Solution connects businesses with partner suppliers for pallet services across the United States. We do not own a yard, trucks or a plant. You send a free, no-obligation quote request, we pass it to partner suppliers in our network, and a partner supplier follows up to quote and fulfil the work.
               </p>
               <p className="mb-6 leading-relaxed">
-                The pallet industry is a cornerstone of global commerce, facilitating the movement of billions of dollars worth of goods every day. In the United States alone, over 2 billion pallets are in circulation, supporting industries ranging from manufacturing and retail to agriculture and pharmaceuticals. Understanding this critical infrastructure, we have built our services to ensure your operations never experience disruption due to pallet availability, quality, or disposal challenges.
+                Pallets are a basic part of manufacturing, warehousing and distribution, and most operations need several things from them over time: a supply of pallets that fit the load, somewhere for surplus pallets to go, repairs for the damaged ones and removal for those at the end of their life. Finding a separate supplier for each of those takes time, so a single request form covers all of them.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our service philosophy is built on three core pillars: reliability, sustainability, and customer-centricity. We recognize that businesses need partners they can depend on for consistent quality and timely service delivery. Our state-of-the-art facilities, modern fleet of transportation vehicles, and experienced team members ensure that we meet and exceed expectations on every engagement. Whether you need to purchase thousands of pallets for a new warehouse, sell surplus inventory, repair damaged units, or responsibly dispose of end-of-life pallets, we provide seamless, professional service.
+                A good request makes for a useful quote. Say what you need, the pallet type and size, the approximate quantity, the condition if you are selling or recycling, and where the pallets are or need to go. Whether you need pallets for a new warehouse, want to sell surplus stock, have damaged units to repair or need old pallets removed, the same details help a partner supplier respond to your request.
               </p>
               <p className="mb-6 leading-relaxed">
-                Environmental responsibility is at the heart of everything we do. The pallet industry has made tremendous strides in sustainability, and we are proud to be leaders in this movement. Through our recycling and refurbishment programs, we divert millions of pounds of wood from landfills annually, reducing environmental impact while providing cost-effective solutions for our clients. Our circular economy approach ensures that pallets are kept in service as long as possible, maximizing resource utilization and minimizing waste.
+                Reuse is often a practical option. Reusing a pallet avoids building a new one, repairing a damaged pallet can keep it in service, and wood that cannot be reused can often be ground into products such as mulch. If reuse or recycling matters to you, say so in your request and a partner supplier can tell you what is available.
               </p>
             </div>
           </motion.div>
@@ -148,7 +148,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-4 text-primary-600"
           >
-            Our Service Offerings
+            Services You Can Request
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center text-gray-600 mb-16 max-w-3xl mx-auto"
           >
-            From buying and selling to recycling and transportation, we provide end-to-end pallet solutions tailored to your business needs.
+            From buying and selling to recycling and transportation, send one request and we pass it to partner suppliers in our network.
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -199,19 +199,19 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Why Choose USA Pallet Solution
+            How USA Pallet Solution Works for You
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {[
-              { icon: '⚡', title: 'Lightning Fast Response', description: 'Same-day quotes and rapid service deployment. Our team responds to inquiries within 2 hours during business hours.' },
-              { icon: '✓', title: 'Proven Reliability', description: 'Over 15 years serving businesses nationwide with 99.8% on-time delivery rate and consistent quality standards.' },
-              { icon: '🌍', title: 'Nationwide Coverage', description: 'Complete service coverage across all 50 states with strategically located facilities and partner networks.' },
-              { icon: '💯', title: '100% Satisfaction Guarantee', description: 'We stand behind our services with a complete satisfaction guarantee or your money back.' },
-              { icon: '📊', title: 'Industry Expertise', description: 'Our team brings decades of pallet industry experience, understanding your unique needs and challenges.' },
-              { icon: '🔒', title: 'Fully Licensed & Insured', description: 'Complete compliance with all regulations, fully insured operations for your peace of mind.' },
-              { icon: '💰', title: 'Competitive Pricing', description: 'Best value in the industry with transparent pricing, volume discounts, and flexible payment terms.' },
-              { icon: '🌱', title: 'Sustainability Focus', description: 'Committed to environmental responsibility with industry-leading recycling and waste reduction programs.' },
+              { icon: '📋', title: 'One Simple Request', description: 'Describe what you need once using the quote request form, instead of contacting suppliers one at a time.' },
+              { icon: '🤝', title: 'Partner Suppliers', description: 'We pass your request to partner suppliers in our network, who quote and fulfil the work.' },
+              { icon: '🌍', title: 'Requests From Across the US', description: 'We take requests from across the US. Availability depends on partner suppliers.' },
+              { icon: '✓', title: 'Free, No Obligation', description: 'Sending a quote request is free, and you are not committed to anything until you agree terms with a partner supplier.' },
+              { icon: '📦', title: 'Wood, Plastic and Metal', description: 'Requests can cover common pallet materials and sizes, plus custom builds where a partner supplier offers them.' },
+              { icon: '💬', title: 'Pricing by Quote', description: 'Pricing comes from partner suppliers as a quote based on your request, so you can review it before deciding.' },
+              { icon: '🔄', title: 'Buy, Sell or Clear Out', description: 'The same form works whether you need pallets, have pallets to sell or want old pallets taken away.' },
+              { icon: '🌱', title: 'Reuse Options', description: 'Ask about used, repaired or recycled options. Reusing a pallet avoids building a new one.' },
             ].map((benefit, index) => (
               <motion.div
                 key={index}
@@ -238,7 +238,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Industries We Serve
+            Industries That Rely on Pallets
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -246,9 +246,9 @@ export default function ServicesPage() {
               { icon: '🏭', name: 'Manufacturing', description: 'Production facilities and assembly plants' },
               { icon: '🏬', name: 'Retail & E-commerce', description: 'Distribution centers and fulfillment' },
               { icon: '🚛', name: 'Logistics & Freight', description: 'Transportation and warehousing' },
-              { icon: '🌾', name: 'Agriculture & Food', description: 'Food processing and distribution' },
+              { icon: '🌾', name: 'Agriculture & Food', description: 'Crops and packaged goods distribution' },
               { icon: '🏗️', name: 'Construction', description: 'Building materials and supplies' },
-              { icon: '💊', name: 'Pharmaceutical', description: 'Medical supplies and equipment' },
+              { icon: '🚗', name: 'Automotive', description: 'Parts and components' },
               { icon: '📦', name: '3PL Providers', description: 'Third-party logistics operations' },
               { icon: '🏪', name: 'Wholesale', description: 'Wholesale distribution centers' },
             ].map((industry, index) => (
@@ -269,45 +269,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16 text-primary-600"
-          >
-            By The Numbers
-          </motion.h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { stat: '15+', label: 'Years in Business', icon: '📅' },
-              { stat: '2M+', label: 'Pallets Processed Annually', icon: '📊' },
-              { stat: '50', label: 'States Served', icon: '🗺️' },
-              { stat: '5,000+', label: 'Satisfied Clients', icon: '😊' },
-              { stat: '99.8%', label: 'On-Time Delivery Rate', icon: '⏰' },
-              { stat: '24/7', label: 'Customer Support', icon: '📞' },
-              { stat: '95%', label: 'Waste Diverted from Landfills', icon: '♻️' },
-              { stat: '100%', label: 'Satisfaction Guarantee', icon: '✓' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-white rounded-xl border-2 border-primary-200 soft-shadow"
-              >
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <div className="text-4xl font-bold text-primary-600 mb-2">{item.stat}</div>
-                <p className="text-gray-600 text-sm font-semibold">{item.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.h2
@@ -321,10 +282,10 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { step: '1', title: 'Contact Us', description: 'Reach out via phone, email, or our online form with your requirements. We respond within 2 hours during business hours.' },
-              { step: '2', title: 'Get Your Quote', description: 'Receive a detailed, transparent quote based on your specific needs. No hidden fees, just honest pricing.' },
-              { step: '3', title: 'Schedule Service', description: 'Choose a convenient time for delivery, pickup, or service. We work around your schedule, not ours.' },
-              { step: '4', title: 'Quality Service', description: 'Experience professional service from our trained team. We ensure complete satisfaction on every job.' },
+              { step: '1', title: 'Send a Request', description: 'Use the online form to tell us what you need. It is a free, no-obligation quote request.' },
+              { step: '2', title: 'We Pass It On', description: 'We pass your request to partner suppliers in our network.' },
+              { step: '3', title: 'Get a Follow-Up', description: 'A partner supplier follows up with you about your request, including pricing by quote.' },
+              { step: '4', title: 'Decide and Arrange', description: 'If the quote suits you, you arrange delivery, pickup or service directly with the partner supplier.' },
             ].map((step, index) => (
               <motion.div
                 key={index}
@@ -393,21 +354,15 @@ export default function ServicesPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-primary-600">Ready to Get Started?</h2>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Join thousands of satisfied businesses who trust USA Pallet Solution for their pallet needs. Contact us today for a free consultation and quote.
+              Send a free, no-obligation quote request and we will pass it to partner suppliers in our network.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-500 text-white font-bold rounded-lg hover:from-primary-700 hover:to-secondary-600 transition-all soft-shadow hover:shadow-lg"
               >
-                Contact Us Today
+                Request a Quote
               </Link>
-              <a
-                href="tel:+1234567890"
-                className="inline-block px-8 py-4 bg-white text-primary-600 font-bold rounded-lg border-2 border-primary-600 hover:bg-primary-50 transition-all"
-              >
-                Call Now: (123) 456-7890
-              </a>
             </div>
           </motion.div>
         </div>

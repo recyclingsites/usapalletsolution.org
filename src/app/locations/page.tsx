@@ -18,24 +18,24 @@ export default function LocationsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Nationwide Pallet Solutions</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Pallet Quotes Across the United States</h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl">
-              Coast-to-coast coverage with local expertise. We serve businesses across all 50 states with comprehensive pallet solutions, rapid delivery, and personalized service. From major metropolitan areas to rural locations, we are your trusted pallet partner wherever you operate.
+              Send a free, no-obligation pallet quote request from wherever you operate. Requests from across the US go to partner suppliers in our network; availability depends on partner suppliers.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#state-selector" className="px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover">
                 Find Your State
               </a>
-              <a href="#coverage-stats" className="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow border border-primary-200">
-                View Coverage Map
+              <a href="#how-it-works" className="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow border border-primary-200">
+                How It Works
               </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Coverage Statistics */}
-      <section id="coverage-stats" className="py-20 bg-white">
+      {/* How It Works */}
+      <section id="how-it-works" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <motion.h2
@@ -44,19 +44,18 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-center mb-6 text-gray-800"
             >
-              Our National Network at a Glance
+              How Requests Work Across the US
             </motion.h2>
             <p className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
-              With strategic distribution centers and carrier partnerships across the country, we provide unmatched coverage and service reliability.
+              USA Pallet Solution is a referral service. We do not stock or deliver pallets ourselves; partner suppliers in our network quote and fulfill the work.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {[
-                { number: '50', label: 'States Served', icon: '🗺️' },
-                { number: '12', label: 'Distribution Centers', icon: '🏭' },
-                { number: '500+', label: 'Cities Covered', icon: '🌆' },
-                { number: '24-48hr', label: 'Average Delivery', icon: '🚚' },
-              ].map((stat, index) => (
+                { title: 'Send a Request', label: 'Tell us what you need and where you are', icon: '📝' },
+                { title: 'We Pass It On', label: 'Your request goes to partner suppliers in our network', icon: '📨' },
+                { title: 'A Supplier Follows Up', label: 'A partner supplier follows up with a quote if available', icon: '🤝' },
+              ].map((step, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -65,9 +64,9 @@ export default function LocationsPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-gradient-to-br from-warm-50 to-white p-6 rounded-xl soft-shadow text-center border border-gray-200"
                 >
-                  <div className="text-5xl mb-4">{stat.icon}</div>
-                  <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                  <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
+                  <div className="text-5xl mb-4">{step.icon}</div>
+                  <div className="text-2xl font-bold text-primary-600 mb-2">{step.title}</div>
+                  <div className="text-gray-600 text-sm font-medium">{step.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -78,9 +77,9 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-r from-primary-500 to-secondary-500 p-8 rounded-2xl text-white text-center"
             >
-              <h3 className="text-2xl font-bold mb-4">Same-Day Delivery Available in Major Metro Areas</h3>
+              <h3 className="text-2xl font-bold mb-4">Availability Depends on Partner Suppliers</h3>
               <p className="text-lg opacity-90">
-                Orders placed before noon can be delivered the same day in cities with local distribution centers. Next-day delivery available in most other locations.
+                What is possible varies by location, product and quantity. Pricing and delivery details come from partner suppliers by quote.
               </p>
             </motion.div>
           </div>
@@ -97,10 +96,10 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
             >
-              Regional Coverage & Distribution Centers
+              Pallet Needs by Region
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Our strategically located distribution centers ensure fast delivery and maintain large inventories to serve regional needs efficiently.
+              Each region&apos;s economy shapes what a pallet request might include. These are general notes, not a list of what is in stock.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -109,49 +108,43 @@ export default function LocationsPage() {
                   region: 'Northeast Region',
                   icon: '🏙️',
                   states: ['New York', 'New Jersey', 'Pennsylvania', 'Massachusetts', 'Connecticut', 'Rhode Island', 'Vermont', 'New Hampshire', 'Maine'],
-                  distributionCenters: ['Newark, NJ', 'Philadelphia, PA', 'Boston, MA'],
-                  coverage: 'Complete coverage across the Northeast corridor with same-day delivery in major cities',
-                  specialties: ['Export pallets for international shipping', 'High-volume retail distribution', 'ISPM 15 certified pallets'],
+                  overview: 'A dense corridor of ports, warehouses and urban delivery points, where dock access and tight streets are worth mentioning in a request',
+                  considerations: ['Export pallets for international shipping', 'Standard pallets for retail distribution', 'ISPM 15 heat-treated pallets'],
                 },
                 {
                   region: 'Southeast Region',
                   icon: '🌴',
                   states: ['Florida', 'Georgia', 'North Carolina', 'South Carolina', 'Virginia', 'Tennessee', 'Alabama', 'Mississippi', 'Louisiana'],
-                  distributionCenters: ['Atlanta, GA', 'Jacksonville, FL', 'Charlotte, NC'],
-                  coverage: 'Full Southeast coverage with emphasis on port cities and manufacturing hubs',
-                  specialties: ['Heat-treated export pallets', 'Food-grade pallets', 'Hurricane-ready emergency inventory'],
+                  overview: 'Port cities and manufacturing centers, with warm, humid weather that makes storage conditions worth considering',
+                  considerations: ['Heat-treated export pallets', 'Moisture and storage planning for wood', 'Pallets for manufacturing plants'],
                 },
                 {
                   region: 'Midwest Region',
                   icon: '🌾',
                   states: ['Illinois', 'Indiana', 'Ohio', 'Michigan', 'Wisconsin', 'Minnesota', 'Iowa', 'Missouri', 'Kansas', 'Nebraska'],
-                  distributionCenters: ['Chicago, IL', 'Columbus, OH', 'Minneapolis, MN'],
-                  coverage: 'Comprehensive Midwest coverage serving manufacturing and agricultural sectors',
-                  specialties: ['Automotive industry pallets', 'Heavy-duty industrial pallets', 'Agricultural product pallets'],
+                  overview: 'Manufacturing, freight rail and farm economies, with cold winters in the northern states',
+                  considerations: ['Pallets for automotive parts', 'Heavy-duty pallets for industrial loads', 'Pallets for agricultural products'],
                 },
                 {
                   region: 'Southwest Region',
                   icon: '🌵',
                   states: ['Texas', 'Oklahoma', 'Arkansas', 'New Mexico', 'Arizona'],
-                  distributionCenters: ['Dallas, TX', 'Houston, TX', 'Phoenix, AZ'],
-                  coverage: 'Southwest network optimized for oil & gas, manufacturing, and cross-border trade',
-                  specialties: ['Oil & gas industry pallets', 'Mexico export pallets', 'High-temperature resistant pallets'],
+                  overview: 'Energy, manufacturing and long-distance freight, with hot, dry conditions in much of the region',
+                  considerations: ['Heavy-duty pallets for energy equipment', 'Export pallets', 'Outdoor storage in high heat'],
                 },
                 {
                   region: 'West Coast Region',
                   icon: '🌊',
                   states: ['California', 'Oregon', 'Washington', 'Nevada'],
-                  distributionCenters: ['Los Angeles, CA', 'Oakland, CA', 'Seattle, WA'],
-                  coverage: 'Full West Coast coverage with major port access for international shipping',
-                  specialties: ['Asian export pallets', 'Tech industry specialized pallets', 'Wine & beverage pallets'],
+                  overview: 'Pacific ports, technology and agriculture, with trade moving through major container terminals',
+                  considerations: ['Export pallets for Pacific trade', 'Custom sizes for technology equipment', 'Pallets for wine and beverages'],
                 },
                 {
                   region: 'Mountain Region',
                   icon: '⛰️',
                   states: ['Colorado', 'Utah', 'Idaho', 'Montana', 'Wyoming'],
-                  distributionCenters: ['Denver, CO', 'Salt Lake City, UT'],
-                  coverage: 'Mountain states coverage with logistics solutions for challenging terrain',
-                  specialties: ['Heavy-duty pallets for mining', 'Cold-weather treated pallets', 'Recreational equipment pallets'],
+                  overview: 'Mining, energy and agriculture spread across long distances and mountain terrain',
+                  considerations: ['Heavy-duty pallets for mining loads', 'Cold-weather outdoor storage', 'Freight distance between towns'],
                 },
               ].map((region, index) => (
                 <motion.div
@@ -169,7 +162,7 @@ export default function LocationsPage() {
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-bold text-gray-800 mb-2">States Served:</h4>
+                      <h4 className="font-bold text-gray-800 mb-2">States:</h4>
                       <div className="flex flex-wrap gap-2">
                         {region.states.map((state, idx) => (
                           <span key={idx} className="px-3 py-1 bg-secondary-100 text-secondary-700 rounded-full text-xs font-medium">
@@ -180,29 +173,17 @@ export default function LocationsPage() {
                     </div>
 
                     <div>
-                      <h4 className="font-bold text-gray-800 mb-2">Distribution Centers:</h4>
-                      <ul className="space-y-1">
-                        {region.distributionCenters.map((center, idx) => (
-                          <li key={idx} className="flex items-center text-gray-700 text-sm">
-                            <span className="text-primary-500 mr-2">📍</span>
-                            {center}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold text-gray-800 mb-2">Coverage Details:</h4>
-                      <p className="text-gray-600 text-sm">{region.coverage}</p>
+                      <h4 className="font-bold text-gray-800 mb-2">Regional Overview:</h4>
+                      <p className="text-gray-600 text-sm">{region.overview}</p>
                     </div>
 
                     <div className="border-t border-gray-200 pt-4">
-                      <h4 className="font-bold text-gray-800 mb-2">Regional Specialties:</h4>
+                      <h4 className="font-bold text-gray-800 mb-2">Worth Considering:</h4>
                       <ul className="space-y-1">
-                        {region.specialties.map((specialty, idx) => (
+                        {region.considerations.map((item, idx) => (
                           <li key={idx} className="flex items-center text-gray-700 text-sm">
                             <span className="text-secondary-500 mr-2">✓</span>
-                            {specialty}
+                            {item}
                           </li>
                         ))}
                       </ul>
@@ -227,7 +208,7 @@ export default function LocationsPage() {
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Get a Quote for Your Location</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                No matter where you're located in the United States, we can serve you with quality pallets and exceptional service. Get your free quote today.
+                Send a free, no-obligation quote request and we pass it to partner suppliers. Availability depends on partner suppliers.
               </p>
             </motion.div>
             <ContactForm productType="Location Inquiry" />
@@ -245,9 +226,9 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Complete 50-State Coverage</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Find Your State</h2>
               <p className="text-gray-600 text-lg mb-8 max-w-3xl">
-                Click on your state to view detailed information about our services, coverage areas, key industries we serve, and specific locations within that state. Every state has access to our full product line and expert support.
+                Click on your state to see its key industries, listed cities and how to send a quote request from there.
               </p>
             </motion.div>
 
@@ -278,7 +259,7 @@ export default function LocationsPage() {
                       </svg>
                     </div>
                     <h3 className="text-sm font-semibold text-gray-800 mb-1">{state.name}</h3>
-                    <p className="text-xs text-gray-500">{state.cities.length} cities served</p>
+                    <p className="text-xs text-gray-500">{state.cities.length === 1 ? '1 city listed' : `${state.cities.length} cities listed`}</p>
                   </Link>
                 </motion.div>
               ))}
@@ -290,28 +271,21 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">What You'll Find on Each State Page:</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">What You&apos;ll Find on Each State Page:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-primary-500 mr-3 mt-1">✓</span>
                     <div>
-                      <div className="font-semibold text-gray-800">Major Cities Served</div>
-                      <div className="text-sm text-gray-600">Complete list of cities we service in your state</div>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Delivery Information</div>
-                      <div className="text-sm text-gray-600">Estimated delivery times and shipping options</div>
+                      <div className="font-semibold text-gray-800">Listed Cities</div>
+                      <div className="text-sm text-gray-600">Cities with their own page, including nearby areas</div>
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary-500 mr-3 mt-1">✓</span>
                     <div>
                       <div className="font-semibold text-gray-800">Industry Focus</div>
-                      <div className="text-sm text-gray-600">Key industries we serve in your region</div>
+                      <div className="text-sm text-gray-600">Key industries in the state</div>
                     </div>
                   </li>
                 </ul>
@@ -319,22 +293,15 @@ export default function LocationsPage() {
                   <li className="flex items-start">
                     <span className="text-primary-500 mr-3 mt-1">✓</span>
                     <div>
-                      <div className="font-semibold text-gray-800">Local Regulations</div>
-                      <div className="text-sm text-gray-600">State-specific pallet requirements and standards</div>
+                      <div className="font-semibold text-gray-800">Available Requests</div>
+                      <div className="text-sm text-gray-600">What you can ask partner suppliers for</div>
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary-500 mr-3 mt-1">✓</span>
                     <div>
-                      <div className="font-semibold text-gray-800">Success Stories</div>
-                      <div className="text-sm text-gray-600">Case studies from businesses in your state</div>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Local Contact</div>
-                      <div className="text-sm text-gray-600">Direct contact for your regional team</div>
+                      <div className="font-semibold text-gray-800">Quote Request Form</div>
+                      <div className="text-sm text-gray-600">Send your request from the page</div>
                     </div>
                   </li>
                 </ul>
@@ -344,7 +311,7 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Why Local Matters */}
+      {/* Why Location Matters */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -354,43 +321,43 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
             >
-              Why Local Expertise Matters
+              Why Location Matters for Pallets
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              While we're a national company, we pride ourselves on local knowledge and personalized service. Our regional teams understand the unique challenges and opportunities in your area.
+              Where you operate affects what you need and what is practical. These points are worth thinking through before you send a request.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Regional Industry Knowledge',
-                  description: 'Each region has dominant industries with specific pallet needs. Our local teams understand whether you are in automotive (Midwest), tech (West Coast), agriculture (Plains), or manufacturing (Southeast).',
+                  title: 'Regional Industries',
+                  description: 'Local industries shape pallet needs. Automotive parts, farm products and electronics each put different demands on a pallet, so describe your load in your request.',
                   icon: '🏭',
                 },
                 {
                   title: 'Climate Considerations',
-                  description: 'Pallet requirements vary by climate. We know that Florida needs mold-resistant treatments, while northern states require cold-weather tested materials.',
+                  description: 'Wood pallets kept in damp, humid conditions can pick up moisture and mold, and outdoor storage in hard winters brings its own issues. Mention how pallets will be stored.',
                   icon: '🌡️',
                 },
                 {
                   title: 'State Regulations',
-                  description: 'Different states have varying regulations for wood treatment, pest control, and recycling. Our regional experts ensure full compliance with local laws.',
+                  description: 'Rules on moving untreated wood, pest control and waste wood can differ by place. Check current regulations for your area and your destination.',
                   icon: '📋',
                 },
                 {
-                  title: 'Faster Response Times',
-                  description: 'Local inventory means faster delivery. Most orders ship same-day or next-day from our nearest distribution center to your location.',
-                  icon: '⚡',
-                },
-                {
-                  title: 'Regional Carrier Relationships',
-                  description: 'We partner with trusted local carriers who know the roads, traffic patterns, and best routes to get pallets to you efficiently.',
+                  title: 'Freight Distance',
+                  description: 'Pallets are bulky for what they weigh, so distance matters. Giving your exact location helps a partner supplier work out what is practical.',
                   icon: '🚚',
                 },
                 {
-                  title: 'Community Investment',
-                  description: 'We are invested in the communities we serve, supporting local jobs, sustainable practices, and economic development in every region.',
-                  icon: '🤝',
+                  title: 'Used Pallet Supply',
+                  description: 'Recycled pallets come from pallets already in circulation, so what is on hand varies by area. Reusing a pallet avoids building a new one.',
+                  icon: '♻️',
+                },
+                {
+                  title: 'Site Access',
+                  description: 'Dock height, forklift access and truck turning room all affect pickup and delivery. Include these details if your site has limits.',
+                  icon: '🏗️',
                 },
               ].map((benefit, index) => (
                 <motion.div
@@ -411,7 +378,7 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* Service Area Details */}
+      {/* What Affects Availability */}
       <section className="py-20 bg-gradient-to-br from-warm-50 to-light-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -421,271 +388,88 @@ export default function LocationsPage() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
             >
-              Detailed Service Area Coverage
+              What to Expect by Area Type
             </motion.h2>
             <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Understanding our service capabilities helps you plan better. Here's what you can expect based on your location.
+              Availability depends on partner suppliers, and it can vary with the kind of area you are in. Here is what to keep in mind.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
-              >
-                <h3 className="text-2xl font-bold text-primary-600 mb-6">Metro Area Service (Same/Next Day)</h3>
-                <p className="text-gray-600 mb-4">
-                  Major metropolitan areas receive priority service with local inventory and dedicated delivery routes.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Same-Day Delivery</div>
-                      <div className="text-sm text-gray-600">Orders before noon delivered same day</div>
-                    </div>
+              {[
+                {
+                  title: 'Metro Areas',
+                  color: 'primary',
+                  intro: 'Metro areas tend to have plenty of warehouse and distribution activity, and access can be the main constraint.',
+                  items: [
+                    { name: 'Delivery Access', detail: 'Note dock hours and truck limits' },
+                    { name: 'Standard Sizes', detail: 'Say if you need the common 48x40 GMA size' },
+                    { name: 'Used Pallets', detail: 'Ask about recycled pallets as well as new' },
+                    { name: 'Pickup of Surplus', detail: 'Mention used pallets you want removed' },
+                  ],
+                },
+                {
+                  title: 'Smaller Cities',
+                  color: 'secondary',
+                  intro: 'In smaller cities, a request may go to partner suppliers some distance away, so planning ahead helps.',
+                  items: [
+                    { name: 'Lead Time', detail: 'Tell us when you need pallets' },
+                    { name: 'Quantity', detail: 'Larger loads can change what is practical' },
+                    { name: 'Nearest Major City', detail: 'Name it in your request if it helps' },
+                    { name: 'Repeat Needs', detail: 'Mention whether this is one order or ongoing' },
+                  ],
+                },
+                {
+                  title: 'Rural Areas',
+                  color: 'primary',
+                  intro: 'Rural and remote sites are welcome to send a request, though options depend on partner suppliers and freight distance.',
+                  items: [
+                    { name: 'Exact Location', detail: 'Give the nearest town and highway' },
+                    { name: 'Site Access', detail: 'Note road conditions and unloading equipment' },
+                    { name: 'Flexible Timing', detail: 'Say if your dates can move' },
+                    { name: 'Full Truckloads', detail: 'Say if your order would fill a truck' },
+                  ],
+                },
+                {
+                  title: 'Alaska & Hawaii',
+                  color: 'secondary',
+                  intro: 'Requests from Alaska and Hawaii are welcome. Ocean or air freight usually plays a part, so availability depends on partner suppliers.',
+                  items: [
+                    { name: 'Freight Mode', detail: 'Goods usually move by ship or air' },
+                    { name: 'Climate', detail: 'Mention cold, humid or salty conditions' },
+                    { name: 'Island or Remote Sites', detail: 'Name the exact island or community' },
+                    { name: 'Container Loads', detail: 'Say if you are working with a container' },
+                  ],
+                },
+              ].map((area, index) => (
+                <motion.div
+                  key={area.title}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
+                >
+                  <h3 className={`text-2xl font-bold mb-6 ${area.color === 'primary' ? 'text-primary-600' : 'text-secondary-600'}`}>{area.title}</h3>
+                  <p className="text-gray-600 mb-4">{area.intro}</p>
+                  <div className="space-y-3">
+                    {area.items.map((item) => (
+                      <div key={item.name} className="flex items-start">
+                        <span className={`mr-3 mt-1 ${area.color === 'primary' ? 'text-primary-500' : 'text-secondary-500'}`}>✓</span>
+                        <div>
+                          <div className="font-semibold text-gray-800">{item.name}</div>
+                          <div className="text-sm text-gray-600">{item.detail}</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Local Inventory</div>
-                      <div className="text-sm text-gray-600">Full product line stocked locally</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">On-Site Consultations</div>
-                      <div className="text-sm text-gray-600">Free facility visits available</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Emergency Service</div>
-                      <div className="text-sm text-gray-600">24/7 urgent delivery available</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Includes:</span> New York, Los Angeles, Chicago, Houston, Phoenix, Philadelphia, San Antonio, San Diego, Dallas, and 40+ other major metros
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
-              >
-                <h3 className="text-2xl font-bold text-secondary-600 mb-6">Regional Service (2-3 Days)</h3>
-                <p className="text-gray-600 mb-4">
-                  Smaller cities and towns receive regular scheduled service with reliable delivery windows.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">2-3 Day Delivery</div>
-                      <div className="text-sm text-gray-600">Predictable delivery schedules</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Regional Inventory</div>
-                      <div className="text-sm text-gray-600">Stocked at nearby distribution center</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Phone Support</div>
-                      <div className="text-sm text-gray-600">Direct line to regional specialists</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Scheduled Routes</div>
-                      <div className="text-sm text-gray-600">Regular delivery routes for efficiency</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Includes:</span> All cities with 50,000+ population and surrounding areas within 50 miles of distribution centers
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
-              >
-                <h3 className="text-2xl font-bold text-primary-600 mb-6">Rural Service (3-5 Days)</h3>
-                <p className="text-gray-600 mb-4">
-                  Even rural and remote locations receive full service with slightly extended delivery times.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">3-5 Day Delivery</div>
-                      <div className="text-sm text-gray-600">Via trusted carrier network</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Full Product Access</div>
-                      <div className="text-sm text-gray-600">Same products as metro customers</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Flexible Scheduling</div>
-                      <div className="text-sm text-gray-600">Work with your receiving schedule</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-primary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Bulk Discounts</div>
-                      <div className="text-sm text-gray-600">Lower per-unit costs on larger orders</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Includes:</span> All locations not covered by metro or regional service, including agricultural and remote areas
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl soft-shadow border border-gray-200"
-              >
-                <h3 className="text-2xl font-bold text-secondary-600 mb-6">Alaska & Hawaii Service</h3>
-                <p className="text-gray-600 mb-4">
-                  We proudly serve our customers in Alaska and Hawaii with specialized shipping solutions.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Container Shipping</div>
-                      <div className="text-sm text-gray-600">Efficient ocean and air freight options</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">7-14 Day Delivery</div>
-                      <div className="text-sm text-gray-600">Depending on destination and method</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Specialized Products</div>
-                      <div className="text-sm text-gray-600">Climate-appropriate pallet options</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-secondary-500 mr-3 mt-1">✓</span>
-                    <div>
-                      <div className="font-semibold text-gray-800">Volume Discounts</div>
-                      <div className="text-sm text-gray-600">Significant savings on container loads</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Note:</span> Contact us for detailed shipping quotes to Alaska and Hawaii. We can help optimize container loads to reduce costs.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Response Times by Region */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-6 text-gray-800"
-            >
-              Average Response Times by Region
-            </motion.h2>
-            <p className="text-gray-600 text-lg mb-12 max-w-3xl">
-              Transparency in delivery expectations helps you plan better. Here are our average response and delivery times across different regions.
-            </p>
-
-            <div className="bg-white rounded-2xl soft-shadow overflow-hidden border border-gray-200">
-              <table className="w-full">
-                <thead className="bg-primary-600 text-white">
-                  <tr>
-                    <th className="px-6 py-4 text-left">Region</th>
-                    <th className="px-6 py-4 text-left">Quote Response</th>
-                    <th className="px-6 py-4 text-left">Order Processing</th>
-                    <th className="px-6 py-4 text-left">Delivery Time</th>
-                    <th className="px-6 py-4 text-left">Emergency Service</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {[
-                    { region: 'Major Metro Areas', quote: '< 1 hour', processing: 'Same day', delivery: 'Same/Next day', emergency: 'Available 24/7' },
-                    { region: 'Regional Cities', quote: '1-2 hours', processing: 'Same day', delivery: '1-2 days', emergency: 'Next day' },
-                    { region: 'Suburban Areas', quote: '2 hours', processing: 'Same day', delivery: '2-3 days', emergency: '2-3 days' },
-                    { region: 'Rural Locations', quote: '2-4 hours', processing: 'Next day', delivery: '3-5 days', emergency: '3-5 days' },
-                    { region: 'Alaska/Hawaii', quote: '4-6 hours', processing: '1-2 days', delivery: '7-14 days', emergency: '5-7 days (air)' },
-                  ].map((row, index) => (
-                    <motion.tr
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="hover:bg-primary-50 transition-colors"
-                    >
-                      <td className="px-6 py-4 font-semibold text-gray-800">{row.region}</td>
-                      <td className="px-6 py-4 text-gray-700">{row.quote}</td>
-                      <td className="px-6 py-4 text-gray-700">{row.processing}</td>
-                      <td className="px-6 py-4 text-primary-600 font-medium">{row.delivery}</td>
-                      <td className="px-6 py-4 text-secondary-600 font-medium">{row.emergency}</td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 bg-secondary-50 border border-secondary-200 p-6 rounded-xl">
-              <h3 className="font-bold text-secondary-700 mb-2">Response Time Guarantee:</h3>
-              <p className="text-gray-700 text-sm">
-                All quotes are guaranteed within the stated timeframes during business hours. After-hours quotes are processed by 9 AM the next business day. Emergency orders receive immediate attention 24/7.
-              </p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Can't Find Your Location */}
-      <section className="py-20 bg-gradient-to-br from-warm-50 to-light-100">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -695,24 +479,18 @@ export default function LocationsPage() {
               className="text-center"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-                Can't Find Your Specific Location?
+                Can&apos;t Find Your Specific Location?
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Even if your specific city or town isn't listed, we can still serve you! Our extensive carrier network reaches every zip code in the United States. Contact us to discuss delivery to your exact location.
+                If your city or town isn&apos;t listed, you can still send a request. Tell us where you are and we pass it to partner suppliers. Availability depends on partner suppliers.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/contact"
                   className="px-10 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover"
                 >
-                  Contact Us About Your Location
+                  Request a Quote
                 </Link>
-                <a
-                  href="tel:1-800-725-5381"
-                  className="px-10 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow border-2 border-primary-600"
-                >
-                  Call: 1-800-PALLET-1
-                </a>
               </div>
             </motion.div>
           </div>
@@ -728,9 +506,9 @@ export default function LocationsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Experience Local Service with National Strength?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Send Your Request?</h2>
               <p className="text-xl md:text-2xl mb-8 opacity-90">
-                Find your state, get a quote, and discover why businesses across America trust USA Pallet Solution for their pallet needs.
+                Find your state and send a free, no-obligation quote request. A partner supplier follows up.
               </p>
               <a href="#state-selector" className="inline-block px-10 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg transition-all transform hover:scale-105 soft-shadow-hover">
                 Select Your State

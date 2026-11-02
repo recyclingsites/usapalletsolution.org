@@ -5,33 +5,64 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function DisposalPage() {
+  const detailFaqs = [
+    {
+      question: 'Is pallet disposal free?',
+      answer: 'It depends on the pallets and the partner supplier. Pallets in good condition may have resale value, while broken or contaminated pallets usually cost more to deal with. Pricing is by quote from partner suppliers. The quote request itself is free and carries no obligation.',
+    },
+    {
+      question: 'What happens to pallets after disposal?',
+      answer: 'That varies by partner supplier and local outlets. Reusable pallets may go back into service, and clean wood is often ground into mulch or animal bedding or used as biomass fuel. Ask the partner supplier how it handles the material.',
+    },
+    {
+      question: 'What about pallets that held hazardous material?',
+      answer: 'Pallets exposed to hazardous material need specialist handling and are outside what this request form covers. Check current regulations and speak to a licensed hazardous waste handler.',
+    },
+    {
+      question: 'When can a disposal pickup be scheduled?',
+      answer: 'Timing depends on the partner supplier and on your location and quantity. Put your preferred dates in your request, and a partner supplier follows up to discuss what is possible.',
+    },
+    {
+      question: 'Is there a minimum quantity for disposal pickup?',
+      answer: 'Minimums are set by each partner supplier. Very small quantities can be harder to collect economically, so also check whether your local transfer station or recycling center accepts pallets.',
+    },
+    {
+      question: 'Can you help with entire warehouse clearouts?',
+      answer: 'You can send a request for a full clearout. Give the approximate quantity, the pallet condition, and your site access, and a partner supplier follows up to say whether it can take on the project.',
+    },
+    {
+      question: 'How are pallets with nails or metal parts handled?',
+      answer: 'Wood recycling commonly involves removing nails and other metal during grinding, and the metal can be recycled separately. Mention any banding, metal plates, or other attachments in your request.',
+    },
+  ]
+
   const faqItems = [
     {
-      question: 'What pallet disposal methods do you use?',
-      answer: 'We prioritize reuse and recycling. Usable pallets are repaired or resold; the rest are ground for mulch, biomass, or fuel.',
+      question: 'What pallet disposal methods are used?',
+      answer: 'Reuse and recycling are the usual first choices. Pallets that can be used again may be repaired or resold, and other clean wood may be ground for mulch, biomass, or fuel. Methods vary by partner supplier.',
     },
     {
-      question: 'Can you provide documentation for disposed pallets?',
-      answer: 'Yes. We issue destruction or recycling certificates and diversion reports for your compliance records.',
+      question: 'Can I get paperwork for disposed pallets?',
+      answer: 'Ask when you discuss your quote. If you need a receipt or a record of what was collected, say so in your request and the partner supplier can tell you what it provides.',
     },
     {
-      question: 'Do you handle contaminated or unsafe pallets?',
-      answer: 'We evaluate condition and contamination level. Safe-to-handle pallets are processed; hazardous materials follow specialized protocols.',
+      question: 'Can contaminated or unsafe pallets be taken?',
+      answer: 'Some partner suppliers may accept pallets with spills, mold, or other contamination, and others will not. Describe the condition honestly in your request so the partner supplier can decide.',
     },
     {
       question: 'Is on-site pallet removal available?',
-      answer: 'We schedule on-site pickups, drop trailers for loading, and clear dock space quickly to keep your operation moving.',
+      answer: 'Pickup from your site is available through partner suppliers where offered. Availability depends on your location and quantity.',
     },
     {
       question: 'What are the benefits of responsible pallet disposal?',
-      answer: 'Proper disposal frees space, reduces fire risk, supports sustainability goals, and often recovers value through recycling.',
+      answer: 'Clearing old pallets frees up space, removes a trip and fire hazard, and gives usable material a chance at reuse or recycling.',
     },
   ]
 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: [...detailFaqs, ...faqItems].map((item) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
@@ -54,7 +85,7 @@ export default function DisposalPage() {
               <span className="text-gray-700">Disposal Services</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Responsible Pallet Disposal</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Safe, compliant, and environmentally responsible pallet disposal and waste management services.</p>
+            <p className="text-xl text-gray-700 max-w-3xl">Request removal of broken or unwanted pallets through partner suppliers, where offered. We take requests from across the US; availability depends on partner suppliers.</p>
           </motion.div>
         </div>
       </section>
@@ -65,16 +96,16 @@ export default function DisposalPage() {
             <h2 className="text-4xl font-bold mb-8 text-primary-600">Professional Disposal Services</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                When pallets reach the end of their useful life and are no longer suitable for repair or reuse, proper disposal is critical. USA Pallet Solution provides comprehensive, environmentally responsible disposal services that ensure regulatory compliance while minimizing environmental impact. We handle everything from collection to final processing, giving you peace of mind that your pallet waste is managed responsibly.
+                When pallets can no longer be repaired or reused, they still need somewhere to go. USA Pallet Solution is a referral service: you send one request and we pass it to partner suppliers in our network, who quote and handle removal where offered. We do not collect or process pallets ourselves.
               </p>
               <p className="mb-6 leading-relaxed">
-                Improper pallet disposal can have serious consequences. Dumping pallets in landfills wastes valuable resources and contributes to methane emissions. Illegal dumping carries substantial fines and legal liability. Burning treated wood releases toxic chemicals. Stockpiling broken pallets creates fire hazards, pest habitats, and safety risks. Our professional disposal services eliminate these concerns while maximizing material recovery and environmental benefit.
+                Leaving broken pallets to pile up has real costs. Stacks of dry wood are a fire hazard, loose nails and boards are a safety risk, and pests can settle in. Rules on dumping and burning vary by location, and treated wood can need particular care, so check current regulations before disposing of pallets yourself.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our disposal process prioritizes sustainability. Even pallets deemed non-repairable have value. We employ a comprehensive assessment protocol that identifies salvageable components, recyclable materials, and appropriate end-use applications. Through partnerships with wood recycling facilities, biomass energy plants, and material recovery centers, we ensure that 95% of disposed pallets are diverted from landfills and converted into valuable secondary products.
+                Disposal does not have to mean landfill. Reusing a pallet avoids building a new one, and pallets beyond repair may still yield usable parts. Clean wood can often be ground into mulch or animal bedding or used as biomass fuel, depending on the outlets a partner supplier has available.
               </p>
               <p className="mb-6 leading-relaxed">
-                Documentation and compliance are integral to our service. We provide detailed disposal certificates showing quantities, materials, processing methods, and final disposition. These documents support your environmental reporting requirements, sustainability goals, and regulatory compliance. For businesses subject to environmental audits, waste management regulations, or ESG reporting standards, our comprehensive documentation provides the evidence needed to demonstrate responsible waste management practices.
+                A clear request helps. Tell the partner supplier how many pallets you have, what condition they are in, whether anything has been spilled on them, and how they can be reached and loaded. If you need a receipt or other paperwork for your records, ask when you discuss your quote.
               </p>
             </div>
           </motion.div>
@@ -105,7 +136,7 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-4 text-primary-600"
           >
-            Our Disposal Process
+            How Pallet Disposal Usually Works
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -113,34 +144,34 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
           >
-            A systematic approach ensuring maximum material recovery, regulatory compliance, and environmental responsibility.
+            A typical sequence once a partner supplier takes on the job. Exact steps vary by supplier.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               {
                 step: 'Collection',
-                description: 'Scheduled pickup or drop-off of pallets requiring disposal',
+                description: 'Pickup or drop-off of pallets, where offered',
                 icon: '🚚',
-                details: ['Free collection service', 'Flexible scheduling', 'Nationwide coverage', 'All quantities accepted']
+                details: ['Scheduling set with the supplier', 'Quantity confirmed in the quote', 'Loading plan agreed'],
               },
               {
                 step: 'Assessment',
-                description: 'Detailed evaluation of material composition and contamination',
+                description: 'A check of what the pallets are made of and what condition they are in',
                 icon: '🔍',
-                details: ['Material identification', 'Contamination check', 'Component assessment', 'Processing determination']
+                details: ['Material identification', 'Contamination check', 'Reusable parts noted'],
               },
               {
                 step: 'Sorting & Processing',
-                description: 'Separation by material type and appropriate disposal method',
+                description: 'Separation by material and the most suitable outlet',
                 icon: '♻️',
-                details: ['Material segregation', 'Component salvage', 'Contaminated handling', 'Processing routing']
+                details: ['Materials separated', 'Usable parts salvaged', 'Metal removed'],
               },
               {
                 step: 'Final Disposition',
-                description: 'Conversion to secondary products or responsible disposal',
+                description: 'Reuse, recycling, or disposal, depending on the material',
                 icon: '🌱',
-                details: ['Material recycling', 'Energy recovery', 'Landfill diversion', 'Impact tracking']
+                details: ['Reuse where possible', 'Recycling where available', 'Disposal for the remainder'],
               },
             ].map((step, index) => (
               <motion.div
@@ -179,34 +210,30 @@ export default function DisposalPage() {
               {[
                 {
                   method: 'Wood Recycling',
-                  percentage: '60-70%',
-                  description: 'Ground into mulch, animal bedding, or composite materials',
-                  icon: '🪵'
+                  description: 'Clean wood can be ground into mulch, animal bedding, or composite materials',
+                  icon: '🪵',
                 },
                 {
                   method: 'Energy Recovery',
-                  percentage: '20-25%',
-                  description: 'Converted to biomass fuel for energy generation facilities',
-                  icon: '⚡'
+                  description: 'Suitable wood can be used as biomass fuel where outlets exist',
+                  icon: '⚡',
                 },
                 {
                   method: 'Material Reuse',
-                  percentage: '5-10%',
-                  description: 'Components salvaged for pallet repairs or other applications',
-                  icon: '🔧'
+                  description: 'Sound boards and blocks can be salvaged for pallet repairs',
+                  icon: '🔧',
                 },
               ].map((method, index) => (
                 <div key={index} className="text-center p-6 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
                   <div className="text-5xl mb-3">{method.icon}</div>
                   <h4 className="font-bold text-primary-600 mb-2">{method.method}</h4>
-                  <div className="text-3xl font-bold text-secondary-500 mb-2">{method.percentage}</div>
                   <p className="text-sm text-gray-600">{method.description}</p>
                 </div>
               ))}
             </div>
             <div className="mt-6 p-4 bg-gradient-to-r from-secondary-100 to-primary-100 rounded-lg text-center">
-              <p className="text-primary-600 font-bold">95%+ Landfill Diversion Rate</p>
-              <p className="text-sm text-gray-600 mt-1">Only 5% goes to landfills (contaminated materials requiring special handling)</p>
+              <p className="text-primary-600 font-bold">Reuse Comes First</p>
+              <p className="text-sm text-gray-600 mt-1">Reusing a pallet avoids building a new one. Ask the partner supplier what outlets are available in your area.</p>
             </div>
           </motion.div>
         </div>
@@ -220,52 +247,52 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Types of Pallets We Dispose
+            Types of Pallets for Disposal
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 type: 'Broken/Damaged Pallets',
-                description: 'Structurally compromised beyond economical repair',
+                description: 'Too damaged to be worth repairing',
                 icon: '🔨',
                 examples: ['Cracked stringers', 'Multiple broken boards', 'Warped frames', 'Split blocks'],
-                handling: 'Dismantled for parts, then processed'
+                handling: 'Parts may be salvaged before recycling',
               },
               {
                 type: 'Contaminated Pallets',
-                description: 'Chemical, biological, or hazardous material exposure',
-                icon: '☣️',
-                examples: ['Oil/chemical spills', 'Mold/mildew growth', 'Pest infestation', 'Food contamination'],
-                handling: 'Specialized treatment, proper disposal'
+                description: 'Exposed to spills, mold, pests, or food residue',
+                icon: '⚠️',
+                examples: ['Oil spills', 'Mold or mildew growth', 'Pest damage', 'Food residue'],
+                handling: 'Describe the condition; acceptance varies by supplier',
               },
               {
                 type: 'Non-Standard Sizes',
                 description: 'Unusual dimensions with limited reuse potential',
                 icon: '📏',
                 examples: ['Custom one-off sizes', 'Oversized pallets', 'Odd configurations', 'Prototype designs'],
-                handling: 'Component salvage or recycling'
+                handling: 'Parts may be salvaged or recycled',
               },
               {
                 type: 'Treated Wood Pallets',
-                description: 'Chemically treated wood requiring special handling',
+                description: 'Painted, coated, or chemically treated wood',
                 icon: '🧪',
-                examples: ['CCA treated wood', 'Creosote treated', 'PCP treated', 'Unknown treatments'],
-                handling: 'EPA compliant disposal methods'
+                examples: ['Painted pallets', 'Stained or coated wood', 'Chemically treated wood', 'Unknown treatments'],
+                handling: 'Mention it in your request and check current regulations',
               },
               {
                 type: 'Mixed Material Pallets',
-                description: 'Combination materials complicating recycling',
+                description: 'Combinations of materials that complicate recycling',
                 icon: '🔀',
-                examples: ['Wood and plastic', 'Wood and metal', 'Composite materials', 'Multiple fasteners'],
-                handling: 'Material separation, appropriate processing'
+                examples: ['Wood and plastic', 'Wood and metal', 'Composite materials', 'Metal banding'],
+                handling: 'Materials may need separating first',
               },
               {
                 type: 'Bulk Clearance Lots',
-                description: 'Large quantities from facility closures or cleanouts',
+                description: 'Large quantities from closures or cleanouts',
                 icon: '📦',
-                examples: ['Warehouse closings', 'Business relocations', 'Inventory purges', 'Estate liquidations'],
-                handling: 'Volume pickup, efficient processing'
+                examples: ['Warehouse closings', 'Business relocations', 'Inventory purges', 'Site cleanups'],
+                handling: 'Give the approximate quantity and site access',
               },
             ].map((pallet, index) => (
               <motion.div
@@ -307,7 +334,7 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Compliance & Certifications
+            Rules and Paperwork to Check
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -317,21 +344,19 @@ export default function DisposalPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Regulatory Compliance</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">Rules Worth Checking</h3>
               <ul className="space-y-4">
                 {[
-                  { regulation: 'EPA Regulations', description: 'Full compliance with Environmental Protection Agency guidelines for wood waste disposal' },
-                  { regulation: 'State Waste Laws', description: 'Adherence to state-specific waste management and disposal regulations' },
-                  { regulation: 'DOT Requirements', description: 'Transportation of waste materials following Department of Transportation standards' },
-                  { regulation: 'OSHA Standards', description: 'Worker safety protocols for handling and processing waste materials' },
-                  { regulation: 'Local Ordinances', description: 'Compliance with municipal waste management ordinances and permits' },
+                  { topic: 'State Waste Rules', description: 'States differ on how wood waste is handled, so check current regulations' },
+                  { topic: 'Local Ordinances', description: 'Cities and counties may set their own rules on dumping and burning' },
+                  { topic: 'Landfill Acceptance', description: 'Some local sites restrict or refuse pallets, so ask before you haul them' },
                 ].map((item, index) => (
                   <li key={index} className="flex gap-3 items-start">
                     <svg className="w-6 h-6 text-secondary-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <h4 className="font-bold text-primary-600 mb-1">{item.regulation}</h4>
+                      <h4 className="font-bold text-primary-600 mb-1">{item.topic}</h4>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
                   </li>
@@ -345,14 +370,12 @@ export default function DisposalPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Documentation Provided</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">Paperwork to Ask About</h3>
               <ul className="space-y-4">
                 {[
-                  { document: 'Disposal Certificates', description: 'Official documentation of quantities and methods used for disposal' },
-                  { document: 'Weight Tickets', description: 'Certified scales showing exact weight of materials processed' },
-                  { document: 'Manifest Records', description: 'Complete chain of custody from collection to final disposition' },
-                  { document: 'Environmental Impact Reports', description: 'Detailed metrics on landfill diversion and carbon savings' },
-                  { document: 'Compliance Certifications', description: 'Proof of adherence to all applicable regulations and standards' },
+                  { document: 'Pickup Receipt', description: 'A record of when pallets were collected and by whom' },
+                  { document: 'Load Count or Weight', description: 'A record of how much material was removed' },
+                  { document: 'Your Own Requirements', description: 'Tell the partner supplier what your records need; what is provided varies' },
                 ].map((item, index) => (
                   <li key={index} className="flex gap-3 items-start">
                     <svg className="w-6 h-6 text-secondary-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
@@ -367,31 +390,6 @@ export default function DisposalPage() {
               </ul>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow text-center"
-          >
-            <h3 className="text-2xl font-bold text-primary-600 mb-4">Fully Licensed & Insured</h3>
-            <p className="text-gray-600 max-w-3xl mx-auto mb-6">
-              We maintain all necessary permits, licenses, and insurance coverage for waste handling and disposal operations. Our facilities undergo regular inspections and audits to ensure ongoing compliance with all regulatory requirements.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { label: 'Waste Handler License', icon: '📋' },
-                { label: '$5M Liability Coverage', icon: '🔒' },
-                { label: 'EPA Certified Facility', icon: '✓' },
-                { label: 'DOT Authorized', icon: '🚛' },
-              ].map((cert, index) => (
-                <div key={index} className="p-4 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
-                  <div className="text-3xl mb-2">{cert.icon}</div>
-                  <p className="text-sm font-semibold text-primary-600">{cert.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -403,43 +401,25 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Disposal Service Pricing
+            How Disposal Pricing Works
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
                 tier: 'Small Quantity',
-                quantity: '1-100 pallets',
-                description: 'Ideal for one-time cleanouts or small businesses',
-                pricing: [
-                  { service: 'Standard wooden pallets', cost: 'Free - $2/pallet' },
-                  { service: 'Contaminated pallets', cost: '$5-$10/pallet' },
-                  { service: 'Treated wood disposal', cost: '$8-$15/pallet' },
-                  { service: 'Pickup service', cost: '$50-$150' },
-                ]
+                description: 'One-time cleanouts or small businesses',
+                factors: ['Pallet condition', 'Distance to your site', 'Whether a trip is practical'],
               },
               {
-                tier: 'Medium Volume',
-                quantity: '100-500 pallets',
-                description: 'Regular disposal needs for warehouses',
-                pricing: [
-                  { service: 'Standard wooden pallets', cost: 'Free' },
-                  { service: 'Contaminated pallets', cost: '$3-$8/pallet' },
-                  { service: 'Treated wood disposal', cost: '$6-$12/pallet' },
-                  { service: 'Pickup service', cost: 'Free within 50 miles' },
-                ]
+                tier: 'Regular Volume',
+                description: 'Warehouses with a steady flow of unusable pallets',
+                factors: ['Quantity each pickup', 'How often pickups are needed', 'Loading setup'],
               },
               {
                 tier: 'Large Volume',
-                quantity: '500+ pallets',
-                description: 'Enterprise disposal programs',
-                pricing: [
-                  { service: 'Standard wooden pallets', cost: 'Free + possible credit' },
-                  { service: 'Contaminated pallets', cost: '$2-$6/pallet' },
-                  { service: 'Treated wood disposal', cost: '$5-$10/pallet' },
-                  { service: 'Pickup service', cost: 'Free nationwide' },
-                ]
+                description: 'Clearouts and larger one-off projects',
+                factors: ['Total quantity', 'Mix of materials', 'Site access and time available'],
               },
             ].map((tier, index) => (
               <motion.div
@@ -451,13 +431,11 @@ export default function DisposalPage() {
                 className="bg-white rounded-xl p-8 border-2 border-primary-200 soft-shadow hover:shadow-lg transition-shadow"
               >
                 <h3 className="text-2xl font-bold text-primary-600 mb-2">{tier.tier}</h3>
-                <div className="text-secondary-500 font-bold mb-4">{tier.quantity}</div>
                 <p className="text-gray-600 text-sm mb-6">{tier.description}</p>
                 <div className="space-y-3">
-                  {tier.pricing.map((item, idx) => (
+                  {tier.factors.map((factor, idx) => (
                     <div key={idx} className="flex justify-between items-start text-sm">
-                      <span className="text-gray-600">{item.service}</span>
-                      <span className="font-semibold text-secondary-500 text-right ml-2">{item.cost}</span>
+                      <span className="text-gray-600">{factor}</span>
                     </div>
                   ))}
                 </div>
@@ -471,24 +449,23 @@ export default function DisposalPage() {
             viewport={{ once: true }}
             className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
           >
-            <h3 className="text-xl font-bold text-primary-600 mb-4 text-center">Special Circumstances</h3>
+            <h3 className="text-xl font-bold text-primary-600 mb-4 text-center">Details to Mention in Your Request</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { situation: 'Emergency/Rush Service', pricing: '+$100-$300 depending on timeline' },
-                { situation: 'Weekend/Holiday Pickup', pricing: '+$50-$150 premium' },
-                { situation: 'Remote Locations (100+ miles)', pricing: 'Mileage fees may apply' },
-                { situation: 'Hazardous Material Handling', pricing: 'Custom quote based on material type' },
-                { situation: 'Inside Building Removal', pricing: '+$50-$200 depending on difficulty' },
-                { situation: 'Multi-Story Locations', pricing: '+$100-$300 for upper floor access' },
+                'Weekend or holiday pickup',
+                'Remote or hard-to-reach location',
+                'Contaminated or treated pallets',
+                'Removal from inside a building',
+                'Upper floors or limited access',
+                'A date you need the space cleared by',
               ].map((item, index) => (
                 <div key={index} className="flex justify-between items-start">
-                  <span className="text-gray-700 text-sm">{item.situation}</span>
-                  <span className="font-semibold text-secondary-500 text-sm text-right ml-4">{item.pricing}</span>
+                  <span className="text-gray-700 text-sm">{item}</span>
                 </div>
               ))}
             </div>
             <p className="text-sm text-gray-600 mt-6 text-center">
-              Prices vary based on location, quantity, pallet condition, and disposal requirements. Contact us for exact quotes.
+              Pricing is by quote from partner suppliers and depends on your location, quantity, and pallet condition.
             </p>
           </motion.div>
         </div>
@@ -506,40 +483,7 @@ export default function DisposalPage() {
           </motion.h2>
 
           <div className="space-y-6">
-            {[
-              {
-                question: 'Is pallet disposal free?',
-                answer: 'For standard wooden pallets in good to fair condition, disposal is typically free. We may even pay for higher quality pallets. Fees apply for contaminated pallets, treated wood requiring special handling, or small quantities requiring dedicated pickup trips. Contact us for a quote specific to your situation.'
-              },
-              {
-                question: 'What happens to pallets after disposal?',
-                answer: 'We maximize material recovery through our 95% landfill diversion program. Clean pallets are ground into mulch or animal bedding. Some become composite materials or fiberboard. Biomass-quality wood goes to energy facilities. Only contaminated materials requiring special treatment end up in approved disposal facilities.'
-              },
-              {
-                question: 'Can you dispose of contaminated or treated pallets?',
-                answer: 'Yes, we handle contaminated and chemically treated pallets following EPA regulations. These require special processing and typically incur disposal fees ($5-$15 per pallet depending on contamination type). We provide proper documentation and ensure compliant disposal at certified facilities.'
-              },
-              {
-                question: 'How quickly can you schedule disposal pickup?',
-                answer: 'Standard pickup is typically scheduled within 3-5 business days. For urgent situations, same-day or next-day service may be available for additional fees. Large volume pickups (500+ pallets) may require additional scheduling time to arrange appropriate equipment.'
-              },
-              {
-                question: 'Do you provide documentation for disposed pallets?',
-                answer: 'Absolutely. We provide comprehensive disposal documentation including certificates of disposal, weight tickets, environmental impact reports, and compliance certifications. This documentation supports your sustainability reporting, regulatory compliance, and audit requirements.'
-              },
-              {
-                question: 'What is your minimum quantity for disposal pickup?',
-                answer: 'We have no strict minimum, but pickups under 50 pallets may incur transportation fees ($50-$150) unless we can schedule collection during existing routes in your area. For very small quantities (under 10 pallets), we recommend drop-off at our facility when possible.'
-              },
-              {
-                question: 'Can you help with entire warehouse clearouts?',
-                answer: 'Yes! We handle complete facility clearances including thousands of pallets. We provide multiple trucks, crews, and coordination to complete large projects efficiently. Our team works around your schedule to minimize operational disruption. Contact us for custom clearance project quotes.'
-              },
-              {
-                question: 'How do you handle pallets with nails or metal parts?',
-                answer: 'Metal components like nails, bands, and fasteners are removed during our processing operation and recycled separately. This is standard procedure and included in our service. Metal recycling provides additional value recovery that helps offset disposal costs.'
-              },
-            ].map((faq, index) => (
+            {detailFaqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -594,7 +538,7 @@ export default function DisposalPage() {
           >
             <h2 className="text-4xl font-bold mb-6 text-white">Need Responsible Pallet Disposal?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Free pickup for most situations. Compliant, documented, and environmentally responsible disposal services.
+              Send a free, no-obligation quote request and a partner supplier follows up. Availability depends on partner suppliers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -605,14 +549,14 @@ export default function DisposalPage() {
                   document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                Schedule Disposal
+                Use the Quote Form
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                Call: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

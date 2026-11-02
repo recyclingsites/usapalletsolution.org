@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Resources and Articles | Pallet Best Practices, Compliance and Logistics Insights Nationwide',
-  description: 'Read guides on pallet sourcing, export compliance, sustainability, and logistics to optimize your supply chain.',
+  title: 'Pallet Resources and Glossary | Guides on Sizes, ISPM 15, Safety and Recycling',
+  description: 'Practical guidance on pallet materials, grades, export treatment, safe handling and recycling, plus a glossary of common pallet terms.',
   alternates: { canonical: '/resources/' },
 }
 

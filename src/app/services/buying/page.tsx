@@ -7,24 +7,24 @@ import Link from 'next/link'
 export default function BuyingPage() {
   const faqItems = [
     {
-      question: 'What pallet conditions do you purchase?',
-      answer: 'We buy Grade A and B pallets, broken pallets for parts, and mixed lots. Send photos for the fastest pricing.',
+      question: 'What pallet conditions can I offer for sale?',
+      answer: 'You can send a request for Grade A and B pallets, broken pallets for parts and mixed lots. Whether a partner supplier buys them depends on the pallets and your location.',
     },
     {
       question: 'How is pricing determined?',
-      answer: 'Rates depend on pallet size, grade, quantity, and location. We use current market data to provide transparent offers.',
+      answer: 'Pricing is by quote from partner suppliers. It usually depends on pallet size, grade, quantity, location and local demand.',
     },
     {
-      question: 'Do you pick up pallets on-site?',
-      answer: 'Yes. We schedule pickups nationwide, supply trailers when needed, and provide paperwork for your records.',
+      question: 'Can pallets be picked up on-site?',
+      answer: 'Partner suppliers can arrange pickup where it is available. Pickup details and any charges are agreed with the partner supplier.',
     },
     {
-      question: 'How soon do we get paid?',
-      answer: 'Payment is issued upon pickup or receipt, with options for ACH, check, or wire. Net terms are available for partners.',
+      question: 'How and when would I get paid?',
+      answer: 'USA Pallet Solution does not buy pallets or handle payment. If a partner supplier buys your pallets, payment is agreed directly with that supplier.',
     },
     {
-      question: 'Can you handle recurring sell-back programs?',
-      answer: 'Absolutely. We set recurring schedules, track volumes, and adjust pricing based on ongoing supply.',
+      question: 'Can I sell pallets on a recurring basis?',
+      answer: 'Mention it in your request. If you have a regular flow of surplus pallets, a partner supplier can tell you whether repeat pickups are possible.',
     },
   ]
 
@@ -53,8 +53,8 @@ export default function BuyingPage() {
               <span className="mx-2 text-gray-400">/</span>
               <span className="text-gray-700">Pallet Buying</span>
             </nav>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">We Buy Used Pallets</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Turn your surplus pallets into immediate cash. We purchase pallets in any quantity, any condition, anywhere in the United States.</p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Sell Your Used Pallets</h1>
+            <p className="text-xl text-gray-700 max-w-3xl">Have surplus pallets? Tell us what you have and we pass your request to partner suppliers, who may buy them. Requests are welcome from across the US; availability depends on partner suppliers.</p>
           </motion.div>
         </div>
       </section>
@@ -62,19 +62,19 @@ export default function BuyingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-8 text-primary-600">Your Trusted Pallet Buyer</h2>
+            <h2 className="text-4xl font-bold mb-8 text-primary-600">Find a Buyer for Surplus Pallets</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                USA Pallet Solution is one of the largest and most reliable pallet buyers in the United States. We understand that businesses often accumulate surplus pallets from incoming shipments, discontinued operations, or facility consolidations. Rather than letting these valuable assets take up warehouse space or become a disposal expense, we offer a simple solution: sell them to us for immediate cash.
+                USA Pallet Solution is a referral service, not a pallet buyer. Businesses often collect surplus pallets from incoming shipments, discontinued product lines or facility consolidations. Rather than let them take up floor space, you can send a free, no-obligation quote request. We pass it to partner suppliers in our network, and a partner supplier follows up if it may be able to buy them.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our pallet buying program is designed with your convenience in mind. We purchase pallets of all types, sizes, and conditions - from pristine Grade A pallets to damaged units suitable only for parts or recycling. Whether you have 50 pallets or 50,000, we have the capacity and resources to handle your volume. Our nationwide network of facilities and partners ensures we can service your location quickly and efficiently.
+                Requests can cover pallets of many types, sizes and conditions, from clean Grade A pallets to damaged units suited only to parts or recycling. Partner suppliers decide what they can take, so the more detail you give about type, size, quantity and condition, the more useful the response is likely to be.
               </p>
               <p className="mb-6 leading-relaxed">
-                The pallet market is dynamic, with prices fluctuating based on supply, demand, material costs, and regional factors. Our experienced team stays current with market conditions to offer you competitive, fair pricing that reflects the true value of your pallets. We provide transparent quotes with no hidden fees or surprise deductions. What we quote is what you receive.
+                Used pallet values change with supply, demand, material costs and region, so any price comes as a quote from a partner supplier. A standard size in good condition near a buyer is usually easier to place than a mixed lot of unusual sizes far from one.
               </p>
               <p className="mb-6 leading-relaxed">
-                When you choose USA Pallet Solution as your pallet buyer, you gain more than just a transaction - you gain a long-term partner. Many of our clients establish ongoing relationships, selling us pallets regularly as part of their reverse logistics strategy. We make the process seamless with scheduled pickups, dedicated account managers, and prompt payment processing.
+                If pallets build up regularly at your site, say so in your request. A partner supplier can tell you whether repeat pickups are possible in your area. Selling used pallets also keeps them in use, and reusing a pallet avoids building a new one.
               </p>
             </div>
           </motion.div>
@@ -100,21 +100,21 @@ export default function BuyingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Types of Pallets We Buy</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Types of Pallets You Can Offer</h2>
             <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              We purchase all types of pallets regardless of material, size, or condition. Our diverse buying program ensures you get paid for pallets other buyers might reject.
+              Partner suppliers may buy a range of pallets depending on material, size and condition. Pricing is by quote from partner suppliers.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: 'Wooden Pallets - GMA Standard', description: 'Standard 48x40 GMA pallets in any condition', price: '$5-$12 per pallet', icon: '🪵' },
-                { title: 'Wooden Pallets - Non-Standard', description: 'All custom sizes and configurations', price: '$3-$10 per pallet', icon: '📏' },
-                { title: 'Plastic Pallets - Premium', description: 'High-quality plastic pallets, any brand', price: '$15-$35 per pallet', icon: '♻️' },
-                { title: 'Plastic Pallets - Standard', description: 'Standard duty plastic pallets', price: '$10-$20 per pallet', icon: '🔷' },
-                { title: 'Metal Pallets', description: 'Steel and aluminum pallets', price: '$20-$50 per pallet', icon: '🔩' },
-                { title: 'Heat-Treated Pallets', description: 'ISPM 15 certified pallets', price: '$8-$15 per pallet', icon: '🔥' },
-                { title: 'Damaged Pallets', description: 'Broken pallets for parts/recycling', price: '$1-$5 per pallet', icon: '🔨' },
-                { title: 'Block Pallets', description: 'Four-way entry block pallets', price: '$6-$14 per pallet', icon: '⬛' },
-                { title: 'Euro Pallets (EPAL)', description: 'European standard pallets', price: '$10-$18 per pallet', icon: '🇪🇺' },
+                { title: 'Wooden Pallets - GMA Standard', description: 'Standard 48x40 GMA pallets, the size most often in demand', icon: '🪵' },
+                { title: 'Wooden Pallets - Non-Standard', description: 'Custom sizes and configurations, which can be harder to place', icon: '📏' },
+                { title: 'Plastic Pallets - Premium', description: 'Heavier-duty plastic pallets from various makers', icon: '♻️' },
+                { title: 'Plastic Pallets - Standard', description: 'Standard duty plastic pallets', icon: '🔷' },
+                { title: 'Metal Pallets', description: 'Steel and aluminum pallets', icon: '🔩' },
+                { title: 'Heat-Treated Pallets', description: 'Pallets carrying the ISPM 15 IPPC mark', icon: '🔥' },
+                { title: 'Damaged Pallets', description: 'Broken pallets for parts or recycling', icon: '🔨' },
+                { title: 'Block Pallets', description: 'Four-way entry block pallets', icon: '⬛' },
+                { title: 'Euro Pallets (EPAL)', description: 'European standard pallets', icon: '🇪🇺' },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -127,7 +127,6 @@ export default function BuyingPage() {
                   <div className="text-5xl mb-4">{item.icon}</div>
                   <h3 className="text-xl font-bold text-primary-600 mb-3">{item.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                  <div className="text-secondary-500 font-bold text-lg">{item.price}</div>
                 </motion.div>
               ))}
             </div>
@@ -138,7 +137,7 @@ export default function BuyingPage() {
               className="mt-12 bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200"
             >
               <p className="text-gray-700 leading-relaxed">
-                <strong className="text-primary-600">Note:</strong> Prices shown are general ranges and may vary based on condition, quantity, location, and current market rates. Contact us for an accurate quote specific to your pallets. Volume discounts available for large quantities.
+                <strong className="text-primary-600">Note:</strong> Whether a partner supplier buys a given lot, and at what price, depends on condition, quantity, location and local demand. Some lots may not have resale value. Send a request for a quote specific to your pallets.
               </p>
             </motion.div>
           </motion.div>
@@ -148,32 +147,28 @@ export default function BuyingPage() {
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <h2 className="text-4xl font-bold mb-12 text-center text-primary-600">How Our Buying Process Works</h2>
+            <h2 className="text-4xl font-bold mb-12 text-center text-primary-600">How Selling Your Pallets Works</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
                   step: '1',
-                  title: 'Contact Us With Details',
-                  description: 'Reach out via phone, email, or our online form. Provide information about your pallets including type, quantity, condition, and location. Photos are helpful but not required.',
-                  time: '2 hours response'
+                  title: 'Send Your Details',
+                  description: 'Use the online form to tell us about your pallets, including type, quantity, condition and location.',
                 },
                 {
                   step: '2',
-                  title: 'Receive Competitive Quote',
-                  description: 'Our team evaluates your pallets and provides a detailed quote. We consider type, condition, quantity, location, and current market rates. Quotes are valid for 7 days.',
-                  time: 'Same day'
+                  title: 'We Pass Your Request On',
+                  description: 'We pass your request to partner suppliers in our network, who decide whether they can take your pallets.',
                 },
                 {
                   step: '3',
-                  title: 'Schedule Convenient Pickup',
-                  description: 'Once you accept our quote, we schedule a pickup time that works for your operations. We offer flexible scheduling including evenings and weekends in many locations.',
-                  time: '1-3 business days'
+                  title: 'A Partner Supplier Follows Up',
+                  description: 'A partner supplier follows up about your request. Any offer is a quote from that supplier, based on your pallets and location.',
                 },
                 {
                   step: '4',
-                  title: 'Receive Immediate Payment',
-                  description: 'Our team arrives at the scheduled time, verifies the pallets, loads them, and provides immediate payment. Payment options include check, ACH transfer, or cash for smaller quantities.',
-                  time: 'On pickup'
+                  title: 'Arrange Pickup and Payment',
+                  description: 'If you accept, you agree pickup and payment directly with the partner supplier.',
                 },
               ].map((step, index) => (
                 <motion.div
@@ -190,9 +185,6 @@ export default function BuyingPage() {
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-primary-600 mb-2">{step.title}</h3>
                     <p className="text-gray-600 mb-3 leading-relaxed">{step.description}</p>
-                    <div className="inline-block px-3 py-1 bg-secondary-100 text-secondary-600 rounded-full text-sm font-semibold">
-                      {step.time}
-                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -204,20 +196,20 @@ export default function BuyingPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Why Sell Your Pallets To Us</h2>
+            <h2 className="text-4xl font-bold mb-4 text-center text-primary-600">Why Send Your Request Here</h2>
             <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-              We make selling pallets easy, profitable, and hassle-free. Here's what sets us apart from other pallet buyers.
+              One request reaches partner suppliers in our network, so you do not have to contact buyers one at a time.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { icon: '💵', title: 'Top Dollar Paid', description: 'Competitive market rates that reflect true pallet value. We regularly match or beat competitor quotes.' },
-                { icon: '🚚', title: 'Free Pickup Service', description: 'We handle all logistics and transportation. No hidden fees or surprise charges - pickup is always included.' },
-                { icon: '📋', title: 'No Quantity Minimums', description: 'We buy from 1 pallet to 10,000+. Small warehouse clearing out? Large facility consolidation? We handle it all.' },
-                { icon: '⚡', title: 'Fast Response Time', description: 'Quote requests answered within 2 hours during business hours. Emergency pickups available for urgent situations.' },
-                { icon: '💳', title: 'Flexible Payment Options', description: 'Choose from cash, check, ACH transfer, or net terms for qualified businesses. Payment processing on your schedule.' },
-                { icon: '🌍', title: 'Nationwide Coverage', description: 'Service locations in all 50 states. Whether urban or rural, we can reach you.' },
-                { icon: '📞', title: 'Dedicated Support', description: 'Personal account manager for regular sellers. Direct phone line, no automated systems or long wait times.' },
-                { icon: '♻️', title: 'Environmental Responsibility', description: 'All purchased pallets are recycled or refurbished. Your sale contributes to sustainability goals.' },
+                { icon: '📋', title: 'One Form', description: 'Describe your pallets once and we pass your request to partner suppliers.' },
+                { icon: '✓', title: 'No Obligation', description: 'The quote request is free, and you decide whether to accept any offer.' },
+                { icon: '💬', title: 'Pricing by Quote', description: 'Any price comes as a quote from a partner supplier, based on your actual pallets.' },
+                { icon: '🚚', title: 'Pickup Options', description: 'Partner suppliers can arrange pickup where it is available.' },
+                { icon: '📦', title: 'Small or Large Lots', description: 'Send a request whatever the quantity. Minimums vary by partner supplier.' },
+                { icon: '🌍', title: 'Requests From Across the US', description: 'We take requests from across the US. Availability depends on partner suppliers.' },
+                { icon: '🔨', title: 'Mixed Conditions', description: 'Mention damaged or mixed lots. Some partner suppliers can use them for parts or recycling.' },
+                { icon: '♻️', title: 'Keeps Pallets in Use', description: 'Reusing a pallet avoids building a new one.' },
               ].map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -260,11 +252,11 @@ export default function BuyingPage() {
                 {[
                   'Standard sizes (especially 48x40 GMA)',
                   'Good condition with minimal damage',
-                  'Heat-treated and ISPM 15 certified',
-                  'Larger quantities (100+ pallets)',
+                  'Heat-treated pallets with the ISPM 15 mark',
+                  'Larger quantities',
                   'Consistent quality across entire lot',
                   'Easy access for loading and pickup',
-                  'Popular wood types (hardwood preferred)',
+                  'Sturdy construction, such as hardwood',
                   'Four-way entry capability'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
@@ -283,13 +275,13 @@ export default function BuyingPage() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">What We Still Buy</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">What Partner Suppliers May Still Consider</h3>
               <ul className="space-y-4">
                 {[
                   'Non-standard or custom sizes',
                   'Pallets with minor damage or repairs',
                   'Mixed lots with varying conditions',
-                  'Smaller quantities (even single pallets)',
+                  'Smaller quantities',
                   'Painted or branded pallets',
                   'Older pallets with wear and tear',
                   'Softwood or mixed wood species',
@@ -346,35 +338,35 @@ export default function BuyingPage() {
             {[
               {
                 question: 'How do I prepare pallets for pickup?',
-                answer: 'Simply stack them in an accessible location. We prefer pallets stacked 4-6 high with like sizes together. Ensure our truck can reach the location. No special preparation needed - we handle everything from there.'
+                answer: 'Stack them safely in an accessible location, with like sizes together, and make sure a truck can reach the area. A partner supplier can tell you about anything else it needs.'
               },
               {
-                question: 'What information do you need for a quote?',
-                answer: 'We need: (1) Type of pallets (wood, plastic, metal), (2) Size dimensions, (3) Approximate quantity, (4) General condition, (5) Your location. Photos help but aren\'t required. The more details you provide, the more accurate your quote.'
+                question: 'What information should I include in my request?',
+                answer: 'Include the pallet type (wood, plastic or metal), the size, the approximate quantity, the general condition and your location. The more detail you give, the more useful the response is likely to be.'
               },
               {
-                question: 'Do you buy pallets that need repairs?',
-                answer: 'Yes! We buy damaged pallets for repair or recycling. While the price is lower than intact pallets, we still offer fair compensation based on salvageable materials and repair potential.'
+                question: 'Can I sell pallets that need repairs?',
+                answer: 'You can send a request for them. Some partner suppliers may take damaged pallets for repair or recycling, usually at a lower value than intact pallets.'
               },
               {
-                question: 'How quickly can you pick up my pallets?',
-                answer: 'Typically within 1-3 business days of accepting our quote. For urgent situations, same-day or next-day pickup may be available depending on your location and our route schedule.'
+                question: 'When would my pallets be picked up?',
+                answer: 'Pickup timing is agreed with the partner supplier and depends on your location and its schedule.'
               },
               {
-                question: 'Is there a minimum quantity you will purchase?',
-                answer: 'No minimum! We buy single pallets or truckloads. However, for very small quantities (under 10 pallets), pickup may be scheduled when we\'re already in your area to ensure cost-effectiveness.'
+                question: 'Is there a minimum quantity?',
+                answer: 'USA Pallet Solution sets no minimum for a request. Partner suppliers may have their own minimums, and small lots can be harder to place because of transport costs.'
               },
               {
-                question: 'What payment methods do you offer?',
-                answer: 'We offer multiple payment options: immediate check on pickup, same-day ACH transfer, cash for smaller quantities, or net-30 terms for established business relationships. You choose what works best.'
+                question: 'What payment methods are available?',
+                answer: 'Payment is agreed directly with the partner supplier that buys your pallets, so ask about it when it follows up.'
               },
               {
-                question: 'Do you buy pallets from residential locations?',
-                answer: 'Yes, though most of our business is commercial. If you have pallets at a residential location from a business activity, we\'re happy to purchase them. Minimum quantity considerations may apply.'
+                question: 'Can I sell pallets from a residential location?',
+                answer: 'You can send a request. Whether a partner supplier can help depends on the quantity, the location and access for its vehicle.'
               },
               {
-                question: 'What happens to the pallets after you buy them?',
-                answer: 'Good condition pallets are inspected, repaired if needed, and resold. Damaged pallets are either refurbished, broken down for parts, or recycled into other products like mulch or biomass fuel. We maximize reuse and minimize waste.'
+                question: 'What happens to the pallets after they are sold?',
+                answer: 'It depends on the partner supplier. Pallets in good condition are commonly inspected, repaired if needed and resold. Damaged pallets are commonly broken down for parts or ground into products such as mulch or biomass fuel.'
               },
             ].map((faq, index) => (
               <motion.div
@@ -429,9 +421,9 @@ export default function BuyingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6 text-white">Ready to Turn Your Pallets Into Cash?</h2>
+            <h2 className="text-4xl font-bold mb-6 text-white">Have Pallets to Sell?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Get your free, no-obligation quote today. Fast response, competitive rates, and hassle-free pickup.
+              Send a free, no-obligation quote request and we will pass it to partner suppliers, who may buy your pallets.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -444,12 +436,12 @@ export default function BuyingPage() {
               >
                 Get Free Quote
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                Call Now: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

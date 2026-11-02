@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Disposal | Certified Removal, Waste Diversion and Responsible Recycling Nationwide Services',
-  description: 'Schedule compliant pallet disposal with hauling, chipping, and recycling that keeps material out of landfills.',
+  title: 'Pallet Disposal | Request Removal Through Partner Suppliers',
+  description: 'Have broken or unwanted pallets to clear? Send a free, no-obligation disposal request and we pass it to partner suppliers. Availability depends on partner suppliers.',
   alternates: { canonical: '/services/disposal/' },
 }
 

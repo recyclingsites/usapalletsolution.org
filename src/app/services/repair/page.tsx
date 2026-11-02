@@ -5,33 +5,68 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 export default function RepairPage() {
+  const detailFaqs = [
+    {
+      question: 'How do I know if my pallets are worth repairing?',
+      answer: 'Generally, if the frame (stringers or blocks) is intact and only deck boards need replacing, repair is worth pricing. Describe the damage in your request and a partner supplier can advise whether repair or replacement makes more sense.',
+    },
+    {
+      question: 'Who stands behind the repair work?',
+      answer: 'The partner supplier doing the work. Ask about its quality standards and terms when you discuss your quote.',
+    },
+    {
+      question: 'What about ISPM 15 pallets that need repair?',
+      answer: 'ISPM 15 is the international standard for wood packaging. Its heat treatment reaches a core temperature of 56 °C for 30 minutes, and treated pallets carry the IPPC mark. A repair can change a pallet\'s export status, so check current regulations and tell the partner supplier if the pallets will be exported.',
+    },
+    {
+      question: 'Can plastic or metal pallets be repaired?',
+      answer: 'Wood pallets are the most commonly repaired because individual boards and blocks can be replaced. Plastic and metal pallets are harder to repair in general. Describe yours in your request and a partner supplier can tell you whether it is practical.',
+    },
+    {
+      question: 'Is there a minimum quantity for pickup?',
+      answer: 'Minimums are set by each partner supplier. Include your quantity and location in your request and the partner supplier that follows up can tell you what applies.',
+    },
+    {
+      question: 'How long do repaired pallets last?',
+      answer: 'It depends on the repair, the load weights, handling, and storage conditions. Careful forklift handling and dry storage make a real difference to any pallet, repaired or new.',
+    },
+    {
+      question: 'Can repairs match my existing pallet specifications?',
+      answer: 'Ask for it in your request. Give the size, style, and board details of your pallets so a partner supplier can tell you whether it can match them, which helps keep pallets compatible with your equipment.',
+    },
+    {
+      question: 'Can repairs be set up on a repeating schedule?',
+      answer: 'You can ask. Describe how many pallets need repair and how often, and a partner supplier will say whether a repeating schedule is something it can offer.',
+    },
+  ]
+
   const faqItems = [
     {
-      question: 'What pallet grades can you repair?',
-      answer: 'We repair Grade A and B stringer and block pallets, replacing boards and stringers to meet your specification.',
+      question: 'What pallet types can be repaired?',
+      answer: 'Stringer and block pallets are both commonly repaired by replacing boards, stringers, or blocks. What is available depends on the partner supplier.',
     },
     {
-      question: 'Do you offer on-site repairs?',
-      answer: 'Yes. We can deploy teams for on-site repair programs or handle repairs at our facilities with scheduled swaps.',
+      question: 'Does USA Pallet Solution do the repairs?',
+      answer: 'No. We are a referral service. We pass your request to partner suppliers in our network, and repair is available through them where offered.',
     },
     {
-      question: 'How do you ensure quality after repairs?',
-      answer: 'Every pallet is inspected and graded; we document repair types and can provide sample photos for approval.',
+      question: 'How is quality checked after repairs?',
+      answer: 'Repaired pallets are normally inspected and sorted by grade. Ask the partner supplier how it checks its work and which grade you can expect.',
     },
     {
       question: 'Can repaired pallets be heat-treated?',
-      answer: 'Repaired pallets can be heat-treated and stamped to remain compliant with ISPM 15 for export shipments.',
+      answer: 'Some partner suppliers may be able to arrange it through an authorized treatment provider. If you need pallets for export, say so in your request.',
     },
     {
       question: 'Is there a minimum volume for repairs?',
-      answer: 'We service both small batches and large recurring volumes, tailoring programs to your demand and budget.',
+      answer: 'That varies by partner supplier. Small batches and larger volumes are both welcome as requests, and the partner supplier that follows up can tell you what it can take on.',
     },
   ]
 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: [...detailFaqs, ...faqItems].map((item) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
@@ -54,7 +89,7 @@ export default function RepairPage() {
               <span className="text-gray-700">Pallet Repair</span>
             </nav>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary-600">Professional Pallet Repair</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">Expert repair services that extend pallet life by 5-10 years. Save up to 70% compared to buying new pallets.</p>
+            <p className="text-xl text-gray-700 max-w-3xl">Request pallet repair through partner suppliers, where offered. Repairing a sound pallet can keep it in use and avoid building a new one.</p>
           </motion.div>
         </div>
       </section>
@@ -65,16 +100,16 @@ export default function RepairPage() {
             <h2 className="text-4xl font-bold mb-8 text-primary-600">Why Repair Instead of Replace?</h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="mb-6 leading-relaxed">
-                Pallet repair is one of the most cost-effective and environmentally responsible decisions a business can make. The average wooden pallet has a lifespan of 10-15 years when properly maintained, yet many businesses discard pallets after just 2-3 uses due to minor damage. Our professional repair services breathe new life into damaged pallets, extending their useful life while saving you substantial money.
+                Plenty of pallets are taken out of service over minor damage, such as a single cracked deck board. If the frame is still sound, replacing the damaged parts can put that pallet back to work. USA Pallet Solution is a referral service: we pass your repair request to partner suppliers in our network, who quote and carry out the work where offered.
               </p>
               <p className="mb-6 leading-relaxed">
-                Consider the economics: a new GMA pallet costs $12-$18, while repairing that same pallet typically costs just $3-$6. That's a 50-70% cost savings. For businesses using thousands of pallets, these savings add up quickly to tens of thousands of dollars annually. Beyond direct cost savings, repairs reduce your purchasing needs, stabilize inventory, and minimize the operational disruptions caused by pallet shortages.
+                Cost is the usual reason to look at repair. Whether it beats buying replacements depends on the damage, the pallet type, and your quantity, so it is worth comparing both. Pricing is by quote from partner suppliers, and you can ask for repair and replacement options in the same request.
               </p>
               <p className="mb-6 leading-relaxed">
-                Environmental benefits are equally compelling. The pallet industry is a major consumer of hardwood lumber. By repairing pallets instead of replacing them, we reduce demand for virgin timber, conserve forest resources, and decrease the carbon footprint associated with manufacturing new pallets. Every repaired pallet represents 15-20 pounds of wood saved from processing plants and potentially from landfills.
+                There is a resource benefit too. Reusing a pallet avoids building a new one, and repair keeps usable lumber in service for longer. Damaged boards that come off a pallet may be recyclable where a partner supplier offers it.
               </p>
               <p className="mb-6 leading-relaxed">
-                Our repair facility employs skilled craftsmen with decades of combined experience in pallet construction and repair. We understand pallet engineering, load-bearing requirements, and industry standards. Every repair meets or exceeds NWPCA (National Wooden Pallet and Container Association) guidelines. Repaired pallets are as structurally sound as new pallets and come with our quality guarantee.
+                A good repair request tells the partner supplier what they are dealing with: pallet size and style, the kind of damage, how many pallets you have, and where they are. Photos can help when a partner supplier follows up, and they make it easier to judge whether repair is the right call.
               </p>
             </div>
           </motion.div>
@@ -105,7 +140,7 @@ export default function RepairPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-4 text-primary-600"
           >
-            Our Repair Services
+            Types of Pallet Repair
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -113,127 +148,101 @@ export default function RepairPage() {
             viewport={{ once: true }}
             className="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
           >
-            Comprehensive repair solutions for all pallet types and damage levels. From simple board replacement to complete structural rebuilds.
+            Common repair work, from simple board replacement to fuller rebuilds. What is available depends on the partner supplier, and pricing is by quote.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 service: 'Deck Board Replacement',
-                description: 'Replace broken, cracked, or split deck boards with new lumber',
+                description: 'Replacing broken, cracked, or split deck boards with sound lumber',
                 icon: '🪵',
                 details: [
                   'Top and bottom deck boards',
-                  'Matching wood grade',
-                  'Proper nail/fastener placement',
-                  'Load capacity maintained'
+                  'Boards matched to the pallet',
+                  'Careful nail placement',
                 ],
-                price: '$2-$4 per board',
-                time: '5-10 minutes per pallet'
               },
               {
                 service: 'Stringer Repair & Replacement',
-                description: 'Repair or replace damaged stringers (support beams)',
+                description: 'Repairing or replacing damaged stringers, the pallet\'s support beams',
                 icon: '🔨',
                 details: [
-                  'Structural integrity assessment',
+                  'Damage assessment',
                   'Reinforcement or replacement',
-                  'Hardwood stringer materials',
-                  'Fork entry clearance verified'
+                  'Fork entry kept clear',
                 ],
-                price: '$3-$6 per stringer',
-                time: '10-15 minutes per pallet'
               },
               {
                 service: 'Block Replacement',
-                description: 'Replace damaged blocks on block-style pallets',
+                description: 'Replacing damaged blocks on block-style pallets',
                 icon: '⬛',
                 details: [
-                  'All four corners inspected',
-                  'Heavy-duty block material',
-                  'Proper fastening hardware',
-                  'Four-way entry maintained'
+                  'Corner and center blocks',
+                  'Suitable fastening hardware',
+                  'Four-way entry kept clear',
                 ],
-                price: '$2-$4 per block',
-                time: '8-12 minutes per pallet'
               },
               {
                 service: 'Fastener Replacement',
-                description: 'Replace nails with stronger fasteners or re-nail',
+                description: 'Re-nailing loose boards or replacing nails with stronger fasteners',
                 icon: '🔩',
                 details: [
                   'Spiral or ring-shank nails',
-                  'Screws for heavy-duty use',
-                  'Proper penetration depth',
-                  'Increased holding power'
+                  'Screws for heavier use',
+                  'Loose or protruding nails addressed',
                 ],
-                price: '$1-$3 per pallet',
-                time: '5-8 minutes per pallet'
               },
               {
                 service: 'Heat Treatment (ISPM 15)',
-                description: 'Certify pallets for international shipping',
+                description: 'The standard treatment for wood pallets used in international shipping',
                 icon: '🔥',
                 details: [
-                  'ISPM 15 compliant treatment',
-                  'Official certification',
-                  'Proper marking/stamping',
-                  'Documentation provided'
+                  'Core temperature of 56 °C',
+                  'Held for 30 minutes',
+                  'IPPC mark on treated pallets',
+                  'Ask if it is available',
                 ],
-                price: '$8-$12 per pallet',
-                time: '24-48 hour process'
               },
               {
                 service: 'Full Restoration',
-                description: 'Complete tear-down and rebuild of severely damaged pallets',
+                description: 'Taking apart badly damaged pallets and rebuilding them',
                 icon: '🏗️',
                 details: [
-                  'Salvage all usable components',
-                  'Replace damaged elements',
-                  'Structural reinforcement',
-                  'Like-new condition'
+                  'Usable parts salvaged',
+                  'Damaged parts replaced',
+                  'Rebuilt to the pallet\'s size',
                 ],
-                price: '$8-$14 per pallet',
-                time: '20-30 minutes per pallet'
               },
               {
                 service: 'Custom Modifications',
-                description: 'Modify pallets to meet specific requirements',
+                description: 'Changing pallets to suit a specific requirement',
                 icon: '⚙️',
                 details: [
                   'Size adjustments',
-                  'Additional support beams',
-                  'Special load requirements',
-                  'Custom specifications'
+                  'Additional supports',
+                  'Your own specifications',
                 ],
-                price: 'Custom quote',
-                time: 'Varies by project'
               },
               {
-                service: 'Cleaning & Sanitization',
-                description: 'Deep cleaning for food-grade and pharmaceutical use',
+                service: 'Cleaning',
+                description: 'Removing dirt and surface debris from used pallets',
                 icon: '🧼',
                 details: [
                   'Pressure washing',
-                  'FDA-compliant sanitization',
-                  'Mold/mildew treatment',
-                  'Inspection certification'
+                  'Debris removal',
+                  'Ask about mold or staining',
                 ],
-                price: '$3-$6 per pallet',
-                time: '10-15 minutes per pallet'
               },
               {
-                service: 'Reinforcement Services',
-                description: 'Add extra support for heavy-duty applications',
+                service: 'Reinforcement',
+                description: 'Adding support for heavier loads',
                 icon: '💪',
                 details: [
-                  'Additional stringers/blocks',
+                  'Additional stringers or blocks',
                   'Thicker deck boards',
-                  'Metal reinforcement plates',
-                  'Increased load capacity'
+                  'Confirm load needs with the supplier',
                 ],
-                price: '$5-$12 per pallet',
-                time: '15-25 minutes per pallet'
               },
             ].map((service, index) => (
               <motion.div
@@ -247,14 +256,6 @@ export default function RepairPage() {
                 <div className="text-6xl mb-4 text-center">{service.icon}</div>
                 <h3 className="text-xl font-bold text-primary-600 mb-3">{service.service}</h3>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.description}</p>
-                <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
-                  <div className="text-gray-600">
-                    <span className="font-semibold text-secondary-500">{service.price}</span>
-                  </div>
-                  <div className="text-gray-600 text-right">
-                    <span className="font-semibold text-secondary-500">{service.time}</span>
-                  </div>
-                </div>
                 <ul className="space-y-2">
                   {service.details.map((detail, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
@@ -286,27 +287,23 @@ export default function RepairPage() {
             {[
               {
                 step: 'Inspection',
-                description: 'Thorough assessment of all pallet damage and repair needs',
+                description: 'Each pallet is checked for damage and repair needs',
                 icon: '🔍',
-                time: '2-3 min/pallet'
               },
               {
                 step: 'Sorting',
-                description: 'Pallets categorized by damage type and required repairs',
+                description: 'Pallets are grouped by damage type and the repair required',
                 icon: '📋',
-                time: '1-2 min/pallet'
               },
               {
                 step: 'Repair Work',
-                description: 'Skilled craftsmen perform necessary repairs to specifications',
+                description: 'Damaged parts are replaced or reinforced to the agreed specification',
                 icon: '🔧',
-                time: '5-30 min/pallet'
               },
               {
                 step: 'Quality Check',
-                description: 'Final inspection ensures repairs meet quality standards',
+                description: 'A final check confirms the pallet is ready to go back into use',
                 icon: '✓',
-                time: '2-3 min/pallet'
               },
             ].map((step, index) => (
               <motion.div
@@ -320,7 +317,6 @@ export default function RepairPage() {
                 <div className="text-6xl mb-4">{step.icon}</div>
                 <h3 className="text-xl font-bold text-primary-600 mb-3">{step.step}</h3>
                 <p className="text-gray-600 text-sm mb-3 leading-relaxed">{step.description}</p>
-                <div className="text-secondary-500 font-bold text-sm">{step.time}</div>
               </motion.div>
             ))}
           </div>
@@ -331,33 +327,25 @@ export default function RepairPage() {
             viewport={{ once: true }}
             className="bg-white p-8 rounded-xl border-2 border-primary-200 soft-shadow"
           >
-            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Service Turnaround Times</h3>
+            <h3 className="text-2xl font-bold text-primary-600 mb-6 text-center">Planning Around Turnaround</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  option: 'Express Service',
-                  time: '24-48 Hours',
-                  description: 'For urgent repair needs',
-                  fee: '+25% rush fee'
+                  option: 'Have a Deadline',
+                  description: 'Put the date in your request so a partner supplier can say whether it works',
                 },
                 {
-                  option: 'Standard Service',
-                  time: '3-5 Business Days',
-                  description: 'Most common option',
-                  fee: 'Standard pricing'
+                  option: 'Flexible Timing',
+                  description: 'Let the partner supplier know if your dates can move',
                 },
                 {
-                  option: 'Economy Service',
-                  time: '7-10 Business Days',
-                  description: 'Best value for large volumes',
-                  fee: '-10% discount'
+                  option: 'Large Volume',
+                  description: 'Give your total quantity so the work can be planned in batches if needed',
                 },
               ].map((option, index) => (
                 <div key={index} className="text-center p-6 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
                   <h4 className="font-bold text-primary-600 mb-2">{option.option}</h4>
-                  <div className="text-3xl font-bold text-secondary-500 mb-2">{option.time}</div>
                   <p className="text-sm text-gray-600 mb-2">{option.description}</p>
-                  <div className="text-xs font-semibold text-secondary-500">{option.fee}</div>
                 </div>
               ))}
             </div>
@@ -373,7 +361,7 @@ export default function RepairPage() {
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16 text-primary-600"
           >
-            Cost Comparison: Repair vs. Replace
+            Repair vs. Replace: What to Compare
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -383,24 +371,17 @@ export default function RepairPage() {
               viewport={{ once: true }}
               className="bg-gradient-to-br from-primary-50 to-secondary-50 p-8 rounded-xl border-2 border-primary-200 soft-shadow"
             >
-              <h3 className="text-2xl font-bold text-primary-600 mb-6">Buying New Pallets</h3>
+              <h3 className="text-2xl font-bold text-primary-600 mb-6">Buying Pallets</h3>
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">New GMA Pallet</span>
-                  <span className="text-xl font-bold text-gray-700">$12-$18</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">100 Pallets</span>
-                  <span className="text-xl font-bold text-gray-700">$1,200-$1,800</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">1,000 Pallets/Year</span>
-                  <span className="text-xl font-bold text-gray-700">$12,000-$18,000</span>
-                </div>
-              </div>
-              <div className="mt-6 p-4 bg-red-100 border border-red-300 rounded-lg">
-                <p className="text-sm text-red-700 font-semibold">Environmental Impact: High</p>
-                <p className="text-xs text-red-600 mt-1">Requires harvesting new timber, manufacturing emissions, increased landfill waste</p>
+                {[
+                  'Makes sense when frames are badly damaged',
+                  'Gives you a consistent size and style',
+                  'Can be new or used, by quote from partner suppliers',
+                ].map((item, index) => (
+                  <div key={index} className="flex justify-between items-center p-4 bg-white rounded-lg">
+                    <span className="text-gray-700">{item}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -412,22 +393,15 @@ export default function RepairPage() {
             >
               <h3 className="text-2xl font-bold text-secondary-600 mb-6">Repairing Pallets</h3>
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">Average Repair Cost</span>
-                  <span className="text-xl font-bold text-secondary-500">$3-$6</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">100 Pallets</span>
-                  <span className="text-xl font-bold text-secondary-500">$300-$600</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-white rounded-lg">
-                  <span className="text-gray-700">1,000 Pallets/Year</span>
-                  <span className="text-xl font-bold text-secondary-500">$3,000-$6,000</span>
-                </div>
-              </div>
-              <div className="mt-6 p-4 bg-green-100 border border-green-300 rounded-lg">
-                <p className="text-sm text-green-700 font-semibold">Environmental Impact: Low</p>
-                <p className="text-xs text-green-600 mt-1">Reduces timber demand, minimizes manufacturing emissions, prevents landfill waste</p>
+                {[
+                  'Makes sense when frames are still sound',
+                  'Keeps your existing pallets in use',
+                  'Avoids building a new pallet, by quote from partner suppliers',
+                ].map((item, index) => (
+                  <div key={index} className="flex justify-between items-center p-4 bg-white rounded-lg">
+                    <span className="text-gray-700">{item}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -438,9 +412,8 @@ export default function RepairPage() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-secondary-500 to-primary-600 p-8 rounded-xl text-white text-center soft-shadow"
           >
-            <h3 className="text-3xl font-bold mb-4">Annual Savings: $9,000 - $12,000</h3>
-            <p className="text-xl mb-2">That's 50-70% Cost Reduction!</p>
-            <p className="text-white/90">Based on 1,000 pallets repaired annually. Actual savings vary by damage level and repair types needed.</p>
+            <h3 className="text-3xl font-bold mb-4">Not Sure Which Is Better?</h3>
+            <p className="text-white/90">Ask for both in your request. The answer depends on the damage, your quantity, and how the pallets are used.</p>
           </motion.div>
         </div>
       </section>
@@ -459,43 +432,34 @@ export default function RepairPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                plan: 'Drop-Off Service',
-                description: 'Bring your pallets to our facility for repair',
+                plan: 'Drop-Off',
+                description: 'Take your pallets to a partner supplier, where offered',
                 icon: '🚗',
                 features: [
-                  'Lowest cost option',
-                  'Flexible drop-off hours',
-                  'Same-day estimates',
-                  'Pick up when ready',
-                  'No minimum quantity'
+                  'Useful for smaller quantities',
+                  'Location shared by the supplier',
+                  'Pick up when work is done',
                 ],
-                pricing: 'Standard repair pricing'
               },
               {
                 plan: 'Pickup & Delivery',
-                description: 'We collect, repair, and return your pallets',
+                description: 'A partner supplier collects, repairs, and returns your pallets, where offered',
                 icon: '🚚',
                 features: [
-                  'Free pickup (50+ pallets)',
-                  'Free return delivery',
-                  'Convenient scheduling',
-                  'Full-service option',
-                  '3-5 day turnaround'
+                  'Useful for larger quantities',
+                  'Scheduling agreed with the supplier',
+                  'Tell us your loading setup',
                 ],
-                pricing: 'Repair cost + $50-$100 transport'
               },
               {
-                plan: 'On-Site Repairs',
-                description: 'Our team performs repairs at your location',
-                icon: '🏢',
+                plan: 'Repair or Replace Advice',
+                description: 'Not sure yet? Describe your pallets and ask what makes sense',
+                icon: '💬',
                 features: [
-                  'No transportation needed',
-                  'Minimize downtime',
-                  'Large volume discounts',
-                  'Scheduled service visits',
-                  'Equipment provided'
+                  'Describe the damage',
+                  'Have photos ready',
+                  'Compare both options',
                 ],
-                pricing: 'Custom quotes for 500+ pallets'
               },
             ].map((plan, index) => (
               <motion.div
@@ -520,7 +484,7 @@ export default function RepairPage() {
                   ))}
                 </ul>
                 <div className="text-center p-3 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-lg">
-                  <div className="text-sm font-semibold text-secondary-500">{plan.pricing}</div>
+                  <div className="text-sm font-semibold text-secondary-500">Pricing by quote</div>
                 </div>
               </motion.div>
             ))}
@@ -540,40 +504,7 @@ export default function RepairPage() {
           </motion.h2>
 
           <div className="space-y-6">
-            {[
-              {
-                question: 'How do I know if my pallets are worth repairing?',
-                answer: 'Generally, if the pallet frame (stringers/blocks) is intact and only deck boards need replacement, repair is cost-effective. We provide free assessments - bring your pallets in or send photos, and we\'ll advise on repair viability and costs versus replacement.'
-              },
-              {
-                question: 'What is your repair quality guarantee?',
-                answer: 'All repaired pallets come with a 90-day quality guarantee. If a repair fails under normal use within 90 days, we\'ll re-repair it free of charge. Our repairs meet NWPCA standards and are as structurally sound as new pallets when properly maintained.'
-              },
-              {
-                question: 'Can you repair pallets while maintaining ISPM 15 certification?',
-                answer: 'Yes! We can perform repairs that maintain ISPM 15 certification, or we can heat-treat and re-certify pallets after repairs. All replacement wood is heat-treated, and we provide proper ISPM 15 marking and documentation for international shipping compliance.'
-              },
-              {
-                question: 'Do you repair plastic or metal pallets?',
-                answer: 'We primarily specialize in wooden pallet repairs, but we can handle certain plastic pallet repairs (welding cracks, replacing components) and metal pallet repairs (welding, straightening). Contact us with specifics, and we\'ll advise on feasibility and pricing.'
-              },
-              {
-                question: 'What is the minimum quantity for pickup service?',
-                answer: 'For free pickup and delivery, we typically require a minimum of 50 pallets. Smaller quantities can be dropped off at our facility, or we can schedule pickup during a route in your area (may involve wait time).'
-              },
-              {
-                question: 'How long do repaired pallets last?',
-                answer: 'Properly repaired pallets can last 5-10 additional years with normal use. Lifespan depends on load weights, handling practices, storage conditions, and maintenance. Many of our clients repair the same pallets 2-3 times over their lifecycle, maximizing value and minimizing waste.'
-              },
-              {
-                question: 'Can you match my existing pallet specifications?',
-                answer: 'Yes! We stock a wide variety of lumber grades, sizes, and types to match your existing pallets. For specialty requirements, we can source specific materials. Maintaining consistent specifications ensures compatibility with your equipment and processes.'
-              },
-              {
-                question: 'Do you offer ongoing repair programs?',
-                answer: 'Absolutely! Many clients establish regular repair schedules (weekly, monthly, quarterly). Ongoing programs benefit from preferred pricing, priority scheduling, and dedicated account management. We can even provide on-site repairs for large volume operations.'
-              },
-            ].map((faq, index) => (
+            {detailFaqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -626,9 +557,9 @@ export default function RepairPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6 text-white">Ready to Save Money on Pallets?</h2>
+            <h2 className="text-4xl font-bold mb-6 text-white">Have Pallets That Need Repair?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Get a free repair assessment and quote. Professional service, fast turnaround, and guaranteed quality.
+              Send a free, no-obligation quote request and a partner supplier follows up. Availability depends on partner suppliers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -639,14 +570,14 @@ export default function RepairPage() {
                   document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                Get Free Assessment
+                Use the Quote Form
               </Link>
-              <a
-                href="tel:+1234567890"
+              <Link
+                href="/contact/"
                 className="inline-block px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white/10 transition-all"
               >
-                Call: (123) 456-7890
-              </a>
+                Request a Quote
+              </Link>
             </div>
           </motion.div>
         </div>

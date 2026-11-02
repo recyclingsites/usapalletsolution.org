@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pallet Products | Wooden, Plastic, Metal, Custom and Export Solutions Nationwide Available',
-  description: 'Browse wooden, plastic, metal, custom, accessories, and export-ready pallets with rapid nationwide delivery.',
+  title: 'Pallet Products | Wooden, Plastic, Metal, Custom and Export Options',
+  description: 'Compare wooden, plastic, metal, custom, and export pallets plus accessories, then send a free quote request to partner suppliers in our network.',
   alternates: { canonical: '/products/' },
 }
 

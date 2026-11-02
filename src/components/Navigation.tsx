@@ -31,7 +31,7 @@ const menuItems = [
       { href: '/services/disposal', label: 'Disposal Services' },
     ],
   },
-  { href: '/locations/', label: 'Locations' },
+  { href: '/locations/', label: 'Service Areas' },
   { href: '/sizes/', label: 'Size Guide' },
   { href: '/resources/', label: 'Resources & Articles' },
   { href: '/contact/', label: 'Contact Us' },
